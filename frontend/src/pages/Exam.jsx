@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Timer from "../components/Timer";
+// eslint-disable-next-line no-unused-vars
 import QuestionPalette from "../components/QuestionPalette";
 import { API_ENDPOINTS, axiosConfig } from "../utils/api";
 import { useExam } from "../context/ExamContext";
@@ -29,9 +30,13 @@ export default function Exam() {
   const [error, setError] = useState("");
   const [showWarning, setShowWarning] = useState(false);
   const [warningMessage, setWarningMessage] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [blurWarningCount, setBlurWarningCount] = useState(0);
   const navigate = useNavigate();
   const { examId } = useParams();
+  
+  // Ref to prevent duplicate fetch calls
+  const hasFetched = useRef(false);
 
   const token = getAccessToken();
 
@@ -45,9 +50,22 @@ export default function Exam() {
   }), [token]);
 
   const fetchExam = useCallback(async () => {
+    // Prevent duplicate fetches
+    if (hasFetched.current) {
+      console.log('Already fetched exam, skipping...');
+      return;
+    }
+    hasFetched.current = true;
+    
     try {
+      console.log('Fetching exam with ID:', examId);
+      console.log('API URL:', API_ENDPOINTS.EXAM_START(examId));
+      console.log('Token present:', !!token);
+      
       // Use EXAM_START endpoint to get questions
       const response = await axios.get(API_ENDPOINTS.EXAM_START(examId), authConfig);
+      
+      console.log('Exam response:', response.data);
       
       // The response contains { exam: {...}, questions: [...], progress: {...} }
       const examData = {
@@ -90,12 +108,16 @@ export default function Exam() {
         }
       }
     } catch (err) {
-      setError("Failed to load exam. Please try again.");
-      console.error(err);
+      console.error('Exam fetch error:', err);
+      console.error('Error response:', err.response?.data);
+      const errorMsg = err.response?.data?.error || "Failed to load exam. Please try again.";
+      setError(errorMsg);
+      // Reset hasFetched on error so user can retry
+      hasFetched.current = false;
     } finally {
       setLoading(false);
     }
-  }, [examId, authConfig, setExam, setTimeRemaining, updateAnswer, setCurrentQuestion, setExamStarted]);
+  }, [examId, authConfig, setExam, setTimeRemaining, updateAnswer, setCurrentQuestion, setExamStarted, token]);
 
   const logViolation = useCallback(async (type, description, severity) => {
     try {
@@ -219,7 +241,14 @@ export default function Exam() {
           exam: exam.title,
           violations: violations.length,
           correctAnswers: response.data.correctAnswers,
-          totalQuestions: response.data.totalQuestions
+          totalQuestions: response.data.totalQuestions,
+          questionBreakdown: response.data.questionBreakdown || [],
+          violationDetails: violations.map(v => ({
+            type: v.type || v.violationType,
+            description: v.description,
+            severity: v.severity
+          })),
+          autoSubmitted: false
         },
       });
     } catch (err) {
@@ -325,66 +354,70 @@ export default function Exam() {
     };
   }, [exam, examStarted, examSubmitted, logViolation]);
 
-  // Load exam and start monitoring when component mounts
+  // Load exam when component mounts (only once)
   useEffect(() => {
     if (!token) {
       navigate("/login");
       return;
     }
     fetchExam();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [examId, token]);
 
-    // Start Electron security monitoring when exam loads
-    if (window.electronAPI && exam) {
-      window.electronAPI.startExamMonitoring({
-        id: examId,
-        title: exam.title,
-        duration: exam.duration,
-        maxViolations: exam.proctoring?.maxViolations || 5
-      }).then(() => {
-        localStorage.setItem('exam_started', 'true');
-        console.log('Exam monitoring started');
+  // Setup Electron monitoring after exam is loaded
+  useEffect(() => {
+    if (!exam || !window.electronAPI) return;
 
-        // Listen for violations from Electron
-        const cleanup = window.electronAPI.onViolationDetected((event, violation) => {
-          logViolation(violation.type, violation.description, violation.severity);
-        });
+    window.electronAPI.startExamMonitoring({
+      id: examId,
+      title: exam.title,
+      duration: exam.duration,
+      maxViolations: exam.proctoring?.maxViolations || 5
+    }).then(() => {
+      localStorage.setItem('exam_started', 'true');
+      console.log('Exam monitoring started');
 
-        // Listen for auto-submit events
-        const autoSubmitCleanup = window.electronAPI.onAutoSubmit(async (event, data) => {
-          console.log('Auto-submit triggered:', data);
-          try {
-            await handleSubmit();
-            alert(`Exam auto-submitted due to: ${data.reason}`);
-          } catch (error) {
-            console.error('Auto-submit failed:', error);
-          }
-        });
-
-        // Listen for window blur events
-        const blurCleanup = window.electronAPI.onWindowBlur(() => {
-          setBlurWarningCount(prev => {
-            const newCount = prev + 1;
-            setWarningMessage(`Warning: Window focus lost (${newCount}). This has been logged as a violation.`);
-            return newCount;
-          });
-          setShowWarning(true);
-          // Hide warning after 5 seconds
-          setTimeout(() => setShowWarning(false), 5000);
-
-          // Log violation to backend
-          logViolation("WINDOW_BLUR", "Window lost focus during exam", "medium");
-        });
-
-        return () => {
-          cleanup();
-          autoSubmitCleanup();
-          blurCleanup();
-        };
-      }).catch(err => {
-        console.warn('Electron monitoring not available:', err);
+      // Listen for violations from Electron
+      const cleanup = window.electronAPI.onViolationDetected((event, violation) => {
+        logViolation(violation.type, violation.description, violation.severity);
       });
-    }
-  }, [token, examId, navigate, fetchExam, logViolation, handleSubmit, exam]);
+
+      // Listen for auto-submit events
+      const autoSubmitCleanup = window.electronAPI.onAutoSubmit(async (event, data) => {
+        console.log('Auto-submit triggered:', data);
+        try {
+          await handleSubmit();
+          alert(`Exam auto-submitted due to: ${data.reason}`);
+        } catch (error) {
+          console.error('Auto-submit failed:', error);
+        }
+      });
+
+      // Listen for window blur events
+      const blurCleanup = window.electronAPI.onWindowBlur(() => {
+        setBlurWarningCount(prev => {
+          const newCount = prev + 1;
+          setWarningMessage(`Warning: Window focus lost (${newCount}). This has been logged as a violation.`);
+          return newCount;
+        });
+        setShowWarning(true);
+        // Hide warning after 5 seconds
+        setTimeout(() => setShowWarning(false), 5000);
+
+        // Log violation to backend
+        logViolation("WINDOW_BLUR", "Window lost focus during exam", "medium");
+      });
+
+      return () => {
+        cleanup();
+        autoSubmitCleanup();
+        blurCleanup();
+      };
+    }).catch(err => {
+      console.warn('Electron monitoring not available:', err);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [exam?.id, examId]);
 
   if (loading) {
     return (
@@ -443,7 +476,9 @@ export default function Exam() {
   }
 
   const question = exam.questions[currentQuestion];
+  // eslint-disable-next-line no-unused-vars
   const progress = ((currentQuestion + 1) / exam.questions.length) * 100;
+  const answeredCount = Object.keys(answers).length;
 
   // Safety check for current question
   if (!question) {
@@ -455,207 +490,298 @@ export default function Exam() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4">
-      <div className="max-w-6xl mx-auto">
-        {/* SEB Security Status Banner */}
-        <div className={`rounded-xl shadow-lg p-4 mb-4 border-2 ${
-          violations.length === 0 
-            ? 'bg-green-50 border-green-300' 
-            : violations.length < (exam.maxViolations || 3) 
-              ? 'bg-yellow-50 border-yellow-400' 
-              : 'bg-red-50 border-red-400'
-        }`}>
+    <div className="min-h-screen bg-slate-900 text-white">
+      {/* Top Header Bar */}
+      <header className="bg-slate-800 border-b border-slate-700 sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <span className="text-2xl mr-3">
-                {violations.length === 0 ? '🔒' : violations.length < (exam.maxViolations || 3) ? '⚠️' : '🚨'}
-              </span>
-              <div>
-                <h3 className="font-bold text-gray-800">SEB Security Monitor</h3>
-                <p className="text-sm text-gray-600">
-                  {violations.length === 0 
-                    ? 'Exam session secure - No violations detected' 
-                    : `${violations.length} violation(s) detected of ${exam.maxViolations || 3} max`
-                  }
-                </p>
+            {/* Exam Title & Progress */}
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <span className="text-lg font-bold">📝</span>
+                </div>
+                <div>
+                  <h1 className="text-lg font-bold text-white">{exam.title}</h1>
+                  <p className="text-xs text-slate-400">Secure Exam Browser</p>
+                </div>
+              </div>
+              
+              {/* Progress Indicator */}
+              <div className="hidden md:flex items-center gap-3 bg-slate-700/50 px-4 py-2 rounded-lg">
+                <div className="text-sm text-slate-300">
+                  <span className="text-indigo-400 font-semibold">{answeredCount}</span>
+                  <span className="text-slate-500">/</span>
+                  <span>{exam.questions.length}</span>
+                  <span className="text-slate-500 ml-1">answered</span>
+                </div>
+                <div className="w-32 bg-slate-600 rounded-full h-2">
+                  <div 
+                    className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-500"
+                    style={{ width: `${(answeredCount / exam.questions.length) * 100}%` }}
+                  />
+                </div>
               </div>
             </div>
-            <div className="text-right">
-              <div className={`text-lg font-bold ${
-                violations.length === 0 ? 'text-green-600' : 
-                violations.length < (exam.maxViolations || 3) ? 'text-yellow-600' : 'text-red-600'
+
+            {/* Timer & Status */}
+            <div className="flex items-center gap-4">
+              {/* Security Status */}
+              <div className={`hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm ${
+                violations.length === 0 
+                  ? 'bg-emerald-500/20 text-emerald-400' 
+                  : violations.length < (exam.maxViolations || 3)
+                    ? 'bg-amber-500/20 text-amber-400'
+                    : 'bg-red-500/20 text-red-400'
               }`}>
-                Violations: {violations.length}/{exam.maxViolations || 3}
+                <span>{violations.length === 0 ? '🔒' : '⚠️'}</span>
+                <span className="font-medium">
+                  {violations.length === 0 ? 'Secure' : `${violations.length} warning${violations.length > 1 ? 's' : ''}`}
+                </span>
               </div>
-              {violations.length > 0 && violations.length < (exam.maxViolations || 3) && (
-                <p className="text-xs text-yellow-700 mt-1">
-                  ⚠️ {(exam.maxViolations || 3) - violations.length} warning(s) left before auto-submit
-                </p>
-              )}
-              {violations.length >= (exam.maxViolations || 3) && (
-                <p className="text-xs text-red-700 mt-1 font-bold">
-                  🚨 Exam will be auto-submitted!
-                </p>
-              )}
+
+              {/* Timer */}
+              <div className="bg-gradient-to-r from-red-600 to-orange-600 px-4 py-2 rounded-lg shadow-lg">
+                <Timer 
+                  duration={exam.duration} 
+                  onTimeUp={handleSubmit} 
+                  initialTime={timeRemaining > 0 ? timeRemaining : null}
+                />
+              </div>
             </div>
           </div>
         </div>
+      </header>
 
-        {/* Header */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-6 border border-gray-200">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-800">{exam.title}</h1>
-              <p className="text-gray-600">
-                Question {currentQuestion + 1} of {exam.questions.length}
-              </p>
-            </div>
-            <Timer 
-              duration={exam.duration} 
-              onTimeUp={handleSubmit} 
-              initialTime={timeRemaining > 0 ? timeRemaining : null}
-            />
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mt-4 w-full bg-gray-200 rounded-full h-2.5">
-            <div
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 h-2.5 rounded-full transition-all duration-300 shadow-sm"
-              style={{ width: `${progress}%` }}
-            ></div>
+      {/* Warning Toast */}
+      {showWarning && (
+        <div className="fixed top-20 right-4 bg-red-600 text-white px-6 py-4 rounded-xl shadow-2xl z-50 animate-pulse border border-red-500">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">⚠️</span>
+            <span className="font-semibold">{warningMessage}</span>
           </div>
         </div>
+      )}
 
-        {/* Question Palette */}
-        <QuestionPalette
-          totalQuestions={exam.questions.length}
-          currentQuestion={currentQuestion}
-          answers={answers}
-          onQuestionClick={handleQuestionClick}
-          questions={exam.questions}
-        />
-
-        {/* Warning Toast */}
-        {showWarning && (
-          <div className="fixed top-4 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 animate-pulse">
-            <div className="flex items-center">
-              <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              <span className="font-semibold">{warningMessage}</span>
-            </div>
-          </div>
-        )}
-
-        {/* Violations Alert */}
-        {violations.length > 0 && (
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 px-4 py-3 rounded-lg mb-6 shadow-sm animate-shake">
-            <div className="flex items-center">
-              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              <div>
-                <p className="font-semibold">⚠️ {violations.length} violation(s) detected</p>
-                <p className="text-sm">Suspicious activity has been logged. Exam may auto-submit if violations exceed limit.</p>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          
+          {/* Question Panel - Main Area */}
+          <div className="lg:col-span-3">
+            {/* Question Card */}
+            <div className="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
+              {/* Question Header */}
+              <div className="bg-gradient-to-r from-slate-700 to-slate-800 px-6 py-4 border-b border-slate-600">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-xl font-bold">{currentQuestion + 1}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 text-sm">Question</span>
+                      <p className="text-white font-semibold">{currentQuestion + 1} of {exam.questions.length}</p>
+                    </div>
+                  </div>
+                  
+                  {question.category && (
+                    <div className="flex items-center gap-2">
+                      <span className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
+                        question.category === 'Java' ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30' :
+                        question.category === 'DSA' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' :
+                        question.category === 'DBMS' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
+                        question.category === 'SQL' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' :
+                        question.category === 'OS' ? 'bg-red-500/20 text-red-400 border border-red-500/30' :
+                        question.category === 'Computer Networks' ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' :
+                        'bg-slate-500/20 text-slate-400 border border-slate-500/30'
+                      }`}>
+                        {question.category}
+                      </span>
+                      {question.difficulty && (
+                        <span className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
+                          question.difficulty === 'Easy' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
+                          question.difficulty === 'Medium' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' :
+                          'bg-red-500/20 text-red-400 border border-red-500/30'
+                        }`}>
+                          {question.difficulty}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </div>
-        )}
 
-        {/* Question Section */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-6 border border-gray-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-800">
-              {question.prompt || question.question}
-            </h2>
-            {question.category && (
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                question.category === 'Java' ? 'bg-orange-100 text-orange-800' :
-                question.category === 'DSA' ? 'bg-blue-100 text-blue-800' :
-                question.category === 'DBMS' ? 'bg-green-100 text-green-800' :
-                question.category === 'SQL' ? 'bg-purple-100 text-purple-800' :
-                question.category === 'OS' ? 'bg-red-100 text-red-800' :
-                question.category === 'Computer Networks' ? 'bg-yellow-100 text-yellow-800' :
-                'bg-gray-100 text-gray-800'
-              }`}>
-                {question.category}{question.difficulty ? ` | ${question.difficulty}` : ''}
-              </span>
-            )}
-          </div>
+              {/* Question Content */}
+              <div className="p-6">
+                <h2 className="text-xl font-medium text-white leading-relaxed mb-8">
+                  {question.prompt || question.question}
+                </h2>
 
-          {/* MCQ Options - all questions are MCQ type */}
-          {question.options && question.options.length > 0 && (
-            <div className="space-y-3">
-              {question.options.map((option, index) => {
-                const questionKey = question.questionIndex !== undefined ? question.questionIndex : currentQuestion;
-                const isSelected = answers[questionKey] === index;
-                return (
-                  <label
-                    key={index}
-                    className={`
-                      flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200
-                      ${isSelected 
-                        ? 'border-indigo-500 bg-indigo-50 shadow-md' 
-                        : 'border-gray-200 hover:border-indigo-300 hover:bg-gray-50'
-                      }
-                    `}
+                {/* Options */}
+                {question.options && question.options.length > 0 && (
+                  <div className="space-y-4">
+                    {question.options.map((option, index) => {
+                      const questionKey = question.questionIndex !== undefined ? question.questionIndex : currentQuestion;
+                      const isSelected = answers[questionKey] === index;
+                      const optionLetter = String.fromCharCode(65 + index);
+                      
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => handleAnswerChange(questionKey, index)}
+                          className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 group ${
+                            isSelected 
+                              ? 'bg-indigo-600/20 border-indigo-500 shadow-lg shadow-indigo-500/20' 
+                              : 'bg-slate-700/50 border-slate-600 hover:border-slate-500 hover:bg-slate-700'
+                          }`}
+                        >
+                          <div className="flex items-center gap-4">
+                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg transition-all ${
+                              isSelected 
+                                ? 'bg-indigo-500 text-white' 
+                                : 'bg-slate-600 text-slate-300 group-hover:bg-slate-500'
+                            }`}>
+                              {optionLetter}
+                            </div>
+                            <span className={`text-lg ${isSelected ? 'text-white font-medium' : 'text-slate-300'}`}>
+                              {option}
+                            </span>
+                            {isSelected && (
+                              <div className="ml-auto">
+                                <span className="text-indigo-400 text-xl">✓</span>
+                              </div>
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Navigation Footer */}
+              <div className="bg-slate-700/50 px-6 py-4 border-t border-slate-600">
+                <div className="flex items-center justify-between">
+                  <button
+                    onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
+                    disabled={currentQuestion === 0}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-slate-600 hover:bg-slate-500 disabled:bg-slate-700 disabled:text-slate-500 text-white rounded-lg transition-all font-medium disabled:cursor-not-allowed"
                   >
-                    <input
-                      type="radio"
-                      name={`question-${questionKey}`}
-                      value={index}
-                      checked={isSelected}
-                      onChange={() => handleAnswerChange(questionKey, index)}
-                      className="mr-4 w-5 h-5 text-indigo-600 focus:ring-2 focus:ring-indigo-500"
-                    />
-                    <span className={`text-gray-700 font-medium ${isSelected ? 'text-indigo-900' : ''}`}>
-                      {String.fromCharCode(65 + index)}. {option}
-                    </span>
-                  </label>
-                );
-              })}
+                    <span>←</span>
+                    <span>Previous</span>
+                  </button>
+
+                  <div className="text-sm text-slate-400">
+                    Use <kbd className="px-2 py-1 bg-slate-600 rounded text-xs mx-1">←</kbd> <kbd className="px-2 py-1 bg-slate-600 rounded text-xs mx-1">→</kbd> keys to navigate
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    {currentQuestion < exam.questions.length - 1 ? (
+                      <button
+                        onClick={() => setCurrentQuestion(currentQuestion + 1)}
+                        className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-lg transition-all font-medium shadow-lg"
+                      >
+                        <span>Next</span>
+                        <span>→</span>
+                      </button>
+                    ) : (
+                      <button
+                        onClick={handleSubmit}
+                        className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white rounded-lg transition-all font-bold shadow-lg"
+                      >
+                        <span>Submit Exam</span>
+                        <span>✓</span>
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
-          )}
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="flex justify-between items-center gap-4 mt-6">
-          <button
-            onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
-            disabled={currentQuestion === 0}
-            className="px-6 py-3 bg-gray-400 disabled:bg-gray-200 text-white rounded-xl hover:bg-gray-500 disabled:cursor-not-allowed transition-all duration-200 font-semibold shadow-md disabled:shadow-none transform hover:scale-105 disabled:transform-none"
-          >
-            ← Previous
-          </button>
-
-          <div className="text-sm text-gray-600 font-medium">
-            Question {currentQuestion + 1} of {exam.questions.length}
           </div>
 
-          <div className="flex gap-4">
-            {currentQuestion < exam.questions.length - 1 && (
-              <button
-                onClick={() => setCurrentQuestion(currentQuestion + 1)}
-                className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 font-semibold shadow-lg transform hover:scale-105"
-              >
-                Next →
-              </button>
-            )}
+          {/* Right Sidebar - Question Navigator */}
+          <div className="lg:col-span-1">
+            <div className="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl sticky top-24">
+              {/* Sidebar Header */}
+              <div className="bg-gradient-to-r from-slate-700 to-slate-800 px-4 py-3 border-b border-slate-600">
+                <h3 className="font-semibold text-white flex items-center gap-2">
+                  <span>📋</span>
+                  Question Navigator
+                </h3>
+              </div>
 
-            {currentQuestion === exam.questions.length - 1 && (
-              <button
-                onClick={handleSubmit}
-                className="px-8 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all duration-200 font-bold shadow-lg transform hover:scale-105"
-              >
-                ✓ Submit Exam
-              </button>
-            )}
+              {/* Question Grid */}
+              <div className="p-4">
+                <div className="grid grid-cols-5 gap-2 mb-4">
+                  {exam.questions.map((q, index) => {
+                    const questionKey = q.questionIndex !== undefined ? q.questionIndex : index;
+                    const isAnswered = answers[questionKey] !== undefined;
+                    const isCurrent = currentQuestion === index;
+                    
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => handleQuestionClick(index)}
+                        className={`w-10 h-10 rounded-lg font-semibold text-sm transition-all ${
+                          isCurrent 
+                            ? 'bg-indigo-600 text-white ring-2 ring-indigo-400 ring-offset-2 ring-offset-slate-800' 
+                            : isAnswered 
+                              ? 'bg-emerald-600/80 text-white hover:bg-emerald-500' 
+                              : 'bg-slate-600 text-slate-300 hover:bg-slate-500'
+                        }`}
+                      >
+                        {index + 1}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Legend */}
+                <div className="border-t border-slate-600 pt-4 space-y-2">
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-4 h-4 rounded bg-emerald-600"></div>
+                    <span className="text-slate-400">Answered ({answeredCount})</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-4 h-4 rounded bg-slate-600"></div>
+                    <span className="text-slate-400">Not Answered ({exam.questions.length - answeredCount})</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-4 h-4 rounded bg-indigo-600 ring-2 ring-indigo-400"></div>
+                    <span className="text-slate-400">Current</span>
+                  </div>
+                </div>
+
+                {/* Security Status */}
+                <div className={`mt-4 p-3 rounded-lg ${
+                  violations.length === 0 
+                    ? 'bg-emerald-500/10 border border-emerald-500/30' 
+                    : 'bg-amber-500/10 border border-amber-500/30'
+                }`}>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span>{violations.length === 0 ? '🔒' : '⚠️'}</span>
+                    <span className={`font-semibold text-sm ${violations.length === 0 ? 'text-emerald-400' : 'text-amber-400'}`}>
+                      {violations.length === 0 ? 'Exam Secure' : 'Warnings Detected'}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400">
+                    {violations.length === 0 
+                      ? 'No suspicious activity detected' 
+                      : `${violations.length}/${exam.maxViolations || 3} warnings issued`
+                    }
+                  </p>
+                </div>
+
+                {/* Submit Button (Always visible) */}
+                <button
+                  onClick={handleSubmit}
+                  className="w-full mt-4 py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white rounded-xl font-bold transition-all shadow-lg"
+                >
+                  Submit Exam
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-        
-        {/* Keyboard Navigation Hint */}
-        <div className="mt-4 text-center text-xs text-gray-500">
-          Use ← → arrow keys to navigate between questions
         </div>
       </div>
     </div>

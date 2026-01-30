@@ -11,6 +11,9 @@ export default function StudentDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState('available');
+  const [categoryFilter, setCategoryFilter] = useState('all');
+  const [sortBy, setSortBy] = useState('title');
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   const token = getAccessToken();
@@ -62,6 +65,51 @@ export default function StudentDashboard() {
     fetchDashboardData();
   }, [token, user.role, navigate, fetchDashboardData]);
 
+  // Get unique categories from available exams
+  const categories = useMemo(() => {
+    const cats = new Set(availableExams.map(e => e.category || 'General'));
+    return ['all', ...Array.from(cats)];
+  }, [availableExams]);
+
+  // Filter and sort exams
+  const filteredExams = useMemo(() => {
+    let exams = [...availableExams];
+
+    // Search filter
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      exams = exams.filter(e => 
+        (e.title || '').toLowerCase().includes(query) ||
+        (e.category || '').toLowerCase().includes(query) ||
+        (e.description || '').toLowerCase().includes(query)
+      );
+    }
+
+    // Category filter
+    if (categoryFilter !== 'all') {
+      exams = exams.filter(e => (e.category || 'General') === categoryFilter);
+    }
+
+    // Sort
+    exams.sort((a, b) => {
+      switch (sortBy) {
+        case 'title':
+          return (a.title || '').localeCompare(b.title || '');
+        case 'duration':
+          return (a.duration || 0) - (b.duration || 0);
+        case 'questions':
+          return (b.questionCount || b.totalQuestions || 0) - (a.questionCount || a.totalQuestions || 0);
+        case 'difficulty':
+          const diffOrder = { 'Easy': 1, 'Medium': 2, 'Hard': 3 };
+          return (diffOrder[a.difficulty] || 2) - (diffOrder[b.difficulty] || 2);
+        default:
+          return 0;
+      }
+    });
+
+    return exams;
+  }, [availableExams, categoryFilter, sortBy, searchQuery]);
+
   const handleLogout = () => {
     clearAuth();
     navigate("/login");
@@ -81,12 +129,22 @@ export default function StudentDashboard() {
     });
   };
 
+  const getDifficultyBadge = (difficulty) => {
+    const styles = {
+      'Easy': 'bg-green-100 text-green-800 border-green-200',
+      'Medium': 'bg-yellow-100 text-yellow-800 border-yellow-200',
+      'Hard': 'bg-red-100 text-red-800 border-red-200'
+    };
+    return styles[difficulty] || styles['Medium'];
+  };
+
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
-          <div className="text-xl font-semibold text-gray-700">Loading dashboard...</div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-indigo-600 mx-auto mb-4"></div>
+          <div className="text-xl font-semibold text-gray-700">Loading your dashboard...</div>
+          <p className="text-gray-500 mt-2">Fetching available quizzes</p>
         </div>
       </div>
     );
@@ -114,21 +172,28 @@ export default function StudentDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-white shadow-sm border-b sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">SEB Student Portal</h1>
+              <div className="text-3xl mr-3">🎓</div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">SEB-Lite Student Portal</h1>
+                <p className="text-sm text-gray-500">Secure Examination Browser</p>
+              </div>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-gray-700">Welcome, {user.name}</span>
+              <div className="text-right">
+                <p className="text-sm text-gray-600">Welcome back,</p>
+                <p className="font-semibold text-gray-900">{user.name || 'Student'}</p>
+              </div>
               <button
                 onClick={handleLogout}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition"
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition flex items-center"
               >
-                Logout
+                <span className="mr-2">🚪</span> Logout
               </button>
             </div>
           </div>
@@ -138,38 +203,32 @@ export default function StudentDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-blue-500">
             <div className="flex items-center">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                📝
-              </div>
+              <div className="p-3 bg-blue-100 rounded-xl text-2xl">📚</div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Available Exams</p>
-                <p className="text-2xl font-bold text-gray-900">{stats.totalAvailable}</p>
+                <p className="text-sm font-medium text-gray-500">Available Quizzes</p>
+                <p className="text-3xl font-bold text-gray-900">{stats.totalAvailable}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-500">
             <div className="flex items-center">
-              <div className="p-2 bg-green-100 rounded-lg">
-                ✅
-              </div>
+              <div className="p-3 bg-green-100 rounded-xl text-2xl">✅</div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Completed</p>
-                <p className="text-2xl font-bold text-gray-900">{stats.totalCompleted}</p>
+                <p className="text-sm font-medium text-gray-500">Completed</p>
+                <p className="text-3xl font-bold text-gray-900">{stats.totalCompleted}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-purple-500">
             <div className="flex items-center">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                📊
-              </div>
+              <div className="p-3 bg-purple-100 rounded-xl text-2xl">📊</div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Average Score</p>
-                <p className="text-2xl font-bold text-gray-900">{stats.averageScore}%</p>
+                <p className="text-sm font-medium text-gray-500">Average Score</p>
+                <p className="text-3xl font-bold text-gray-900">{stats.averageScore?.toFixed(1) || 0}%</p>
               </div>
             </div>
           </div>
@@ -177,22 +236,27 @@ export default function StudentDashboard() {
 
         {/* Tabs */}
         <div className="mb-6">
-          <nav className="flex space-x-1 bg-white rounded-lg p-1 shadow">
+          <nav className="flex space-x-2 bg-white rounded-xl p-2 shadow-md">
             {[
-              { id: 'available', label: 'Available Exams', icon: '📝' },
-              { id: 'completed', label: 'My Results', icon: '📊' }
+              { id: 'available', label: 'Available Quizzes', icon: '📝', count: availableExams.length },
+              { id: 'completed', label: 'My Results', icon: '🏆', count: completedExams.length }
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition ${
+                className={`flex items-center px-5 py-3 rounded-lg text-sm font-medium transition flex-1 justify-center ${
                   activeTab === tab.id
-                    ? 'bg-blue-100 text-blue-700 border-blue-200'
-                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                    ? 'bg-indigo-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
-                <span className="mr-2">{tab.icon}</span>
+                <span className="mr-2 text-lg">{tab.icon}</span>
                 {tab.label}
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs ${
+                  activeTab === tab.id ? 'bg-white/20' : 'bg-gray-200'
+                }`}>
+                  {tab.count}
+                </span>
               </button>
             ))}
           </nav>
@@ -200,105 +264,218 @@ export default function StudentDashboard() {
 
         {/* Tab Content */}
         {activeTab === 'available' && (
-          <div className="bg-white rounded-lg shadow overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-200">
-              <h3 className="text-lg font-medium text-gray-900">Available Exams</h3>
-              <p className="text-sm text-gray-600">Exams you can take right now</p>
-            </div>
-            <div className="p-6">
-              {availableExams.length === 0 ? (
-                <div className="text-center py-12">
-                  <div className="text-6xl mb-4">📚</div>
-                  <h3 className="text-xl font-semibold text-gray-700 mb-2">No Active Exams Available</h3>
-                  <p className="text-gray-500">There are no exams available for you to take at this time.</p>
-                  <p className="text-gray-400 text-sm mt-2">Check back later or contact your instructor.</p>
+          <div className="space-y-6">
+            {/* Filters */}
+            <div className="bg-white rounded-xl shadow-md p-4">
+              <div className="flex flex-col md:flex-row gap-4">
+                {/* Search */}
+                <div className="flex-1">
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
+                    <input
+                      type="text"
+                      placeholder="Search quizzes..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    />
+                  </div>
                 </div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {availableExams.map((exam) => (
-                    <div key={exam._id || exam.id} className="exam-card bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                      {/* Status Badge */}
-                      <div className="flex justify-between items-start mb-3">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          ✅ Available
+
+                {/* Category Filter */}
+                <div className="md:w-48">
+                  <select
+                    value={categoryFilter}
+                    onChange={(e) => setCategoryFilter(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white"
+                  >
+                    {categories.map(cat => (
+                      <option key={cat} value={cat}>
+                        {cat === 'all' ? '📂 All Categories' : cat}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Sort */}
+                <div className="md:w-48">
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white"
+                  >
+                    <option value="title">📝 Sort by Name</option>
+                    <option value="duration">⏱️ Sort by Duration</option>
+                    <option value="questions">❓ Sort by Questions</option>
+                    <option value="difficulty">📈 Sort by Difficulty</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Quiz Cards */}
+            {filteredExams.length === 0 ? (
+              <div className="bg-white rounded-xl shadow-md p-12 text-center">
+                <div className="text-6xl mb-4">📚</div>
+                <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                  {searchQuery || categoryFilter !== 'all' ? 'No Matching Quizzes' : 'No Available Quizzes'}
+                </h3>
+                <p className="text-gray-500">
+                  {searchQuery || categoryFilter !== 'all' 
+                    ? 'Try adjusting your filters or search query.'
+                    : 'Check back later for new quizzes.'
+                  }
+                </p>
+                {(searchQuery || categoryFilter !== 'all') && (
+                  <button
+                    onClick={() => { setSearchQuery(''); setCategoryFilter('all'); }}
+                    className="mt-4 text-indigo-600 hover:text-indigo-700 font-medium"
+                  >
+                    Clear Filters
+                  </button>
+                )}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredExams.map((exam) => (
+                  <div 
+                    key={exam._id || exam.id} 
+                    className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group"
+                  >
+                    {/* Card Header */}
+                    <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 text-white">
+                      <div className="flex justify-between items-start">
+                        <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${getDifficultyBadge(exam.difficulty || 'Medium')}`}>
+                          {exam.difficulty || 'Medium'}
                         </span>
-                        {exam.type && (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
-                            {exam.type.replace('_', ' ')}
-                          </span>
-                        )}
+                        <span className="text-white/80 text-xs">
+                          {exam.type?.replace('_', ' ') || 'QUIZ'}
+                        </span>
                       </div>
-                      <div className="mb-4">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{exam.title || 'Untitled Exam'}</h3>
-                        {exam.company && exam.company !== 'General' && (
-                          <p className="text-sm text-gray-600 mb-1"><strong>Company:</strong> {exam.company}</p>
-                        )}
-                        <p className="text-sm text-gray-600 mb-1"><strong>Duration:</strong> {exam.duration || 60} mins</p>
-                        <p className="text-sm text-gray-600 mb-1"><strong>Questions:</strong> {exam.questionCount || exam.totalQuestions || 'N/A'}</p>
-                        <p className="text-sm text-gray-600"><strong>Max Violations:</strong> {exam.maxViolations || 3}</p>
+                      <h3 className="text-lg font-bold mt-3 line-clamp-2 group-hover:underline">
+                        {exam.title || 'Untitled Quiz'}
+                      </h3>
+                      {exam.category && (
+                        <span className="inline-block mt-2 bg-white/20 px-2 py-0.5 rounded text-xs">
+                          {exam.category}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Card Body */}
+                    <div className="p-4">
+                      <div className="grid grid-cols-2 gap-3 mb-4">
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">⏱️</span>
+                          <span>{exam.duration || 60} mins</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">❓</span>
+                          <span>{exam.questionCount || exam.totalQuestions || 'N/A'} questions</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">🎯</span>
+                          <span>Pass: {exam.passingPercentage || 40}%</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">⚠️</span>
+                          <span>Max: {exam.maxViolations || 3} violations</span>
+                        </div>
                       </div>
+
+                      {exam.description && (
+                        <p className="text-xs text-gray-500 mb-4 line-clamp-2">
+                          {exam.description}
+                        </p>
+                      )}
+
                       <button
                         onClick={() => handleTakeExam(exam._id || exam.id)}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition"
+                        className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 rounded-lg font-semibold transition-all flex items-center justify-center group"
                       >
-                        📝 Start Exam
+                        <span className="mr-2 group-hover:animate-pulse">🚀</span>
+                        Start Quiz
                       </button>
                     </div>
-                  ))}
-                </div>
-              )}
-            </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Results Count */}
+            {filteredExams.length > 0 && (
+              <div className="text-center text-sm text-gray-500">
+                Showing {filteredExams.length} of {availableExams.length} quizzes
+              </div>
+            )}
           </div>
         )}
 
         {activeTab === 'completed' && (
-          <div className="bg-white rounded-lg shadow overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-200">
-              <h3 className="text-lg font-medium text-gray-900">My Exam Results</h3>
-              <p className="text-sm text-gray-600">Your performance on completed exams</p>
+          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+            <div className="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-green-50 to-emerald-50">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                <span className="mr-2">🏆</span> My Quiz Results
+              </h3>
+              <p className="text-sm text-gray-600">Your performance on completed quizzes</p>
             </div>
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y divide-gray-100">
               {completedExams.length === 0 ? (
-                <div className="px-6 py-8 text-center text-gray-500">
-                  No exam results available yet. Complete some exams to see your results here.
+                <div className="px-6 py-12 text-center">
+                  <div className="text-6xl mb-4">📝</div>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">No Results Yet</h3>
+                  <p className="text-gray-500">Complete some quizzes to see your results here.</p>
                 </div>
               ) : (
                 completedExams.map((result, index) => (
-                  <div key={result.examId || index} className="px-6 py-4 hover:bg-gray-50">
+                  <div key={result.examId || index} className="px-6 py-5 hover:bg-gray-50 transition">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <div className="flex items-center mb-2">
-                          <h4 className="text-lg font-medium text-gray-900 mr-3">
-                            {result.title || 'Exam'}
+                        <div className="flex items-center mb-3">
+                          <h4 className="text-lg font-semibold text-gray-900 mr-3">
+                            {result.title || 'Quiz'}
                           </h4>
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            result.passed ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                          <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                            result.passed 
+                              ? 'bg-green-100 text-green-800' 
+                              : 'bg-red-100 text-red-800'
                           }`}>
-                            {result.passed ? 'Passed' : 'Failed'}
+                            {result.passed ? '✅ Passed' : '❌ Failed'}
                           </span>
+                          {result.autoSubmitted && (
+                            <span className="ml-2 px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">
+                              ⚠️ Auto-submitted
+                            </span>
+                          )}
                         </div>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                          <div>
-                            <p className="text-gray-500">Score</p>
-                            <p className="font-semibold text-gray-900">{(result.score || 0).toFixed(1)}%</p>
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
+                          <div className="bg-gray-50 rounded-lg p-3">
+                            <p className="text-gray-500 text-xs">Score</p>
+                            <p className="font-bold text-xl text-indigo-600">{(result.score || 0).toFixed(1)}%</p>
                           </div>
-                          <div>
-                            <p className="text-gray-500">Correct Answers</p>
-                            <p className="font-semibold text-gray-900">
+                          <div className="bg-gray-50 rounded-lg p-3">
+                            <p className="text-gray-500 text-xs">Correct</p>
+                            <p className="font-bold text-lg text-gray-900">
                               {result.correctAnswers || 0}/{result.totalQuestions || 0}
                             </p>
                           </div>
-                          <div>
-                            <p className="text-gray-500">Grade</p>
-                            <p className="font-semibold text-gray-900">{result.grade || 'N/A'}</p>
+                          <div className="bg-gray-50 rounded-lg p-3">
+                            <p className="text-gray-500 text-xs">Violations</p>
+                            <p className="font-bold text-lg text-gray-900">{result.violationsCount || 0}</p>
                           </div>
-                          <div>
-                            <p className="text-gray-500">Status</p>
-                            <p className="font-semibold text-gray-900">{result.status || 'Submitted'}</p>
+                          <div className="bg-gray-50 rounded-lg p-3">
+                            <p className="text-gray-500 text-xs">Time Used</p>
+                            <p className="font-bold text-lg text-gray-900">
+                              {result.durationUsed ? Math.floor(result.durationUsed / 60) : 0} min
+                            </p>
+                          </div>
+                          <div className="bg-gray-50 rounded-lg p-3">
+                            <p className="text-gray-500 text-xs">Status</p>
+                            <p className="font-bold text-sm text-gray-900">{result.status || 'Submitted'}</p>
                           </div>
                         </div>
-                        <p className="text-xs text-gray-400 mt-2">
-                          Submitted: {formatDate(result.submittedAt)}
+                        <p className="text-xs text-gray-400 mt-3">
+                          📅 Submitted: {formatDate(result.submittedAt)}
                         </p>
                       </div>
                     </div>
@@ -309,6 +486,13 @@ export default function StudentDashboard() {
           </div>
         )}
       </div>
+
+      {/* Footer */}
+      <footer className="bg-white border-t py-4 mt-8">
+        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
+          <p>🔒 SEB-Lite - Secure Examination Browser | All exams are monitored</p>
+        </div>
+      </footer>
     </div>
   );
 }

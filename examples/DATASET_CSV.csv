@@ -1,0 +1,1573 @@
+TOPICS,Question,Option A,Option B,Option C,Option D,Correct Answer
+C,1. Which of the following is the correct syntax for declaring a pointer in C?,int *p;,int p*;,int &p;,pointer int p;,A
+C,2. What is the size (in bytes) of an int data type (assuming typical 32-bit system)?,2,4,8,Depends on compiler,B
+C,"3. What will printf(""%d"", 5+2*3); output?",21,11,17,13,B
+C,4. Which of the following is used for comments in C?,/* comment */,// comment,<!-- comment -->,# comment,A
+C,5. Which header file is required for using the printf() function?,<stdio.h>,<conio.h>,<stdlib.h>,<math.h>,A
+C,6. Which operator is used to access the value at the address stored in a pointer?,&,*,->,.,B
+C,"7. What will be the output of: printf(""%d"", sizeof(char));",1,2,4,8,A
+C,8. Which of the following is not a valid variable name in C?,var1,_value,2value,value_2,C
+C,9. Which keyword is used to declare a constant in C?,const,constant,final,#define,A
+C,10. How do you declare an array of 10 integers?,int arr;,int arr(10);,array arr;,int arr[];,A
+C,11. Which of the following functions is used to read a string from user input?,scanf(),gets(),fgets(),getchar(),B
+C,12. Which of the following is a loop structure in C?,for,loop,repeat,foreach,A
+C,13. What is the result of 5 / 2 (integer division) in C?,2.5,2,3,Error,B
+C,14. Which function is used to find the length of a string?,strlen(),size(),length(),strlength(),A
+C,15. Which operator is used to increment a variable by 1?,++,--,+=,==,A
+C,16. How do you define a macro in C?,#define,macro,def,#macro,A
+C,17. How do you allocate memory for an integer array of 5 elements using malloc()?,malloc(5*sizeof(int)),malloc(5),"malloc(int,5)",malloc(sizeof(int)),A
+C,18. Which of the following is not a storage class in C?,auto,register,static,dynamic,D
+C,19. Which keyword is used to exit a loop?,exit,quit,break,return,C
+C,20. How will you declare a function that returns an integer and takes two integers as arguments?,"int func(int, int);","void func(int, int);","func(int, int);","int func(void, void);",A
+C,"21. What is the output of printf(""%c"",65);",A,B,65,Error,A
+C,22. Which function is used to open a file in C?,fread(),fopen(),open(),file_open(),B
+C,23. Which operator is used for logical AND in C?,&&,&,|,||,A
+C,24. What does the expression (a == b) evaluate?,Assignment,Equality,Inequality,Bitwise AND,B
+C,25. Which header file is needed for malloc()?,<stdlib.h>,<stdio.h>,<string.h>,<math.h>,A
+C,"26. What will be the output of: printf(""%d"", 10%3);",1,2,3,0,B
+C,27. Which format specifier is used for float values in printf()?,%d,%c,%f,%s,C
+C,28. Which of the following is not a valid loop in C?,for,do-while,foreach,while,C
+C,29. What is the correct method to comment a single line in C?,// comment,/* comment */,<!-- comment -->,# comment,A
+C,30. Which escape sequence is used to print a new line in C?,\n,\b,\t,\r,A
+C,31. Which data type is used to store a single character?,char,string,int,float,A
+C,32. What does the function strcpy() do?,Copies one string to another,Compares two strings,Concatenates strings,Finds length of string,A
+C,33. To include the contents of one file in another use:,#include,#import,require,include,A
+C,34. Which function is used to dynamically allocate memory in C?,malloc(),alloc(),new(),getmem(),A
+C,35. Which of the following is not a bitwise operator?,&,|,^,&&,D
+C,"36. What will be the output of printf(""%d"", 3==4);",0,1,Error,3,A
+C,37. Which statement is used to terminate a program in C?,exit(0);,stop;,end;,return;,A
+C,38. What is the correct syntax to declare a function in C?,return_type function_name(parameters);,function_name return_type(parameters);,function_name(parameters) return_type;,function(parameters) return_type;,A
+C,39. Which header file is required for string functions?,<string.h>,<strings.h>,<stdlib.h>,<stdio.h>,A
+C,40. What is the value of x after: int x = 3; x += 5;,8,5,3,15,A
+C,41. Which of the following is not a valid data type in C?,long,unsigned,real,float,C
+C,42. What is the default return type of a function in C if not specified?,int,void,float,char,A
+C,43. Which of these is used to return a value from a function?,return,break,goto,continue,A
+C,44. Which allows you to create an alias for a data type?,typedef,def,alias,typecast,A
+C,45. Which format specifier is used to print a string?,%c,%d,%f,%s,D
+C,46. Which operator is used for bitwise OR?,&&,|,||,&,B
+C,47. Which statement is true about arrays in C?,Arrays are of fixed size,Arrays can grow at runtime,Arrays are pointers,Arrays have dynamic size,A
+C,"48. What will be the output of: printf(""%d"", 2<<2);",8,4,16,6,B
+C,49. Which header is required for pow() function?,<math.h>,<stdio.h>,<stdlib.h>,<string.h>,A
+C,50. What is the base address of an array?,Address of first element,Address of last element,Size of array,None,A
+C,"51. What will printf(""%d"", sizeof(float)); output on a 32-bit system?",4,8,2,6,A
+C,52. What does the continue statement do in a loop?,Skips current iteration,Exits loop,Restarts loop,Ends program,A
+C,53. Which operator is used for logical OR?,&&,|,||,^,C
+C,54. Which of the following is a preprocessor directive?,#include,#import,#package,#define,A
+C,55. How do you declare a static variable in C?,static int x;,int static x;,x static int;,int x static;,A
+C,56. What does the keyword 'void' indicate for a function?,No return value,Function won't run,Returns 0,Static function,A
+C,57. Which function is used to read formatted input from the user?,scanf(),printf(),gets(),putchar(),A
+C,58. Which format specifier is used for unsigned integers?,%u,%d,%i,%f,A
+C,59. Which of the following is not a relational operator?,==,!=,<=,:=,D
+C,60. Which function is used to close a file?,fclose(),close(),endfile(),fin(),A
+C,61. Which function is used to print on the console?,printf(),scanf(),display(),print(),A
+C,62. Which of the following is a valid declaration of a pointer?,int *ptr;,int ptr*;,ptr int*;,int * ptr;,A
+C,63. What is the default value of an uninitialized local variable in C?,Garbage value,0,-1,NULL,A
+C,64. Which function is used to compare two strings?,strcmp(),strcomp(),strcompare(),stringcmp(),A
+C,65. The keyword 'break' is used with:,switch and loops,if and else,functions,arrays only,A
+C,"66. What will be the output: printf(""%c"", 'A'+2);",C,B,A,Z,A
+C,67. Which of the following cannot be checked in a switch-case statement?,float,int,char,enum,A
+C,68. What does 'NULL' indicate?,No value assigned,0,-1,Overflow,A
+C,69. The loop that runs at least once even if the condition is false is:,do-while,while,for,None,A
+C,70. Function without any return type returns:,No value,0,Null,Garbage,A
+C,71. What is the keyword for unconditional jump?,goto,break,return,continue,A
+C,72. Which function is used for dynamic memory de-allocation?,free(),delete(),dispose(),realloc(),A
+C,73. Which of the following is used for multiple-choice selection?,switch,if-else,while,goto,A
+C,74. Which function finds the remainder?,%,/,*,^,A
+C,75. Which of the following is a valid C identifier?,_temp,7temp,temp-7,temp 7,A
+C,76. Which header file defines size_t?,<stddef.h>,<stdio.h>,<stdlib.h>,<ctype.h>,A
+C,"77. What will be the output: printf(""%d"", 'A'+1);",66,65,A,B,A
+C,78. Which of these is not an assignment operator?,=,+=,-=,!,D
+C,79. What is the size of double on a 32-bit system?,8,4,2,16,A
+C,80. Which function is used to convert string to integer?,atoi(),itoa(),strint(),toint(),A
+C,81. Which directive is used for conditional compilation?,#ifdef,#ifelse,#then,if(),A
+C,82. Which of the following is the correct way to end a statement?,;,::,.,",",A
+C,83. Which of the following can be used to terminate the main() function?,return 0;,exit(),break;,quit;,A
+C,84. A function which calls itself is called:,Recursive,Inline,Friend,Virtual,A
+C,85. Which is the correct way to declare a 2-D array with 3 rows and 4 columns?,int arr;,int arr;,"int arr(3,4);",int arr[];,A
+C,86. Which of the following is a string literal?,Hello,'H',Hello,H,A
+C,87. What is passed by reference?,Address of variable,Value of variable,Function variable,Array only,A
+C,88. Which function is used to concatenate two strings?,strcat(),strcpy(),stradd(),concat(),A
+C,89. What is the function of fflush(stdin)?,Clear input buffer,Print input,Read input,Flush output stream,A
+C,90. Which keyword can be used to prevent a variable from being changed?,const,static,final,volatile,A
+C,"91. What will be the output of printf(""%d %d"", sizeof('A'), sizeof(""A""));",4 2,1 2,4 3,1 3,A
+C,92. Which among the following is not a loop control statement in C?,repeat,continue,break,goto,A
+C,93. Which function is used to write formatted output to a file?,fprintf(),fprint(),fwrite(),writef(),A
+C,94. Declaration of pointer to function is:,return_type (*pointer_name)(parameters);,(*pointer_name) return_type(parameters);,pointer_type (*function_name);,pointer function(parameters);,A
+C,95. How are string constants represented in C?,Enclosed in double quotes,Enclosed in single quotes,By a # prefix,Using curly brackets,A
+C,96. How to declare a function that does not take any argument?,void func(void);,void func();,func(void);,Void func(void),A
+C,97. Which format specifier is used for hexadecimal?,%x,%d,%c,%s,A
+C,98. Which of them is an invalid pointer assignment?,int *p = NULL;,int *p = 0;,int *p;,int *p = 1000;,D
+C,99. Which one is not a keyword in C?,TRUE,if,sizeof,do,A
+C,100. Which data type is used to store real constants in C?,float,double,char,int,A
+,,,,,,
+,,,,,,
+C++ language,1. Which of the following is used to declare a class in C++?,class,struct,object,module,A
+C++ language,2. What does the keyword virtual indicate in C++?,Runtime polymorphism,Compile-time polymorphism,Variable declaration,Loop control,A
+C++ language,3. Which operator is overloaded to access members of a pointer to a class object?,->,.,*,&,A
+C++ language,4. What is the default access specifier for members of a class?,private,public,protected,none,A
+C++ language,5. Which of these is used to handle exceptions in C++?,try-catch,throw-except,catch-throw,try-except,A
+C++ language,6. What feature allows the creation of new data types from existing ones?,Inheritance,Encapsulation,Polymorphism,Abstraction,A
+C++ language,7. Which of the following is not a valid access specifier in C++?,private,protected,public,package,D
+C++ language,8. What keyword is used to define a constant in C++?,const,final,constant,#define,A
+C++ language,9. Which of the following supports function overloading?,C++,C,Java,Python,A
+C++ language,10. What is a constructor in C++?,A special function to initialize objects,Function to delete objects,Function to copy objects,Operator to create objects,A
+C++ language,11. Which operator cannot be overloaded?,::,+,-,*,A
+C++ language,12. What is the size of a pointer in 64-bit systems?,8 bytes,4 bytes,2 bytes,16 bytes,A
+C++ language,13. How is polymorphism achieved in C++?,Function overloading and virtual functions,Class inheritance,Operator overloading,All of the above,D
+C++ language,14. Which of the following is used to access members of a base class in derived class?,scope resolution operator (::),pointer (->),dot (.),address-of (&),A
+C++ language,15. Which of the following is correct syntax for inheritance?,class Derived : public Base {};,class Base : public Derived {};,class Derived inherits Base {},class Derived extends Base {},A
+C++ language,16. What is the purpose of the friend keyword in C++?,To allow non-member access,To declare inheritance,To create a constructor,To define a macro,A
+C++ language,17. Which of the following is the correct syntax to declare a template?,template<typename T> class MyClass;,generic<class T> class MyClass;,template class MyClass<T>;,class template MyClass<T>;,A
+C++ language,18. Which construct in C++ allows memory management?,new and delete,malloc and free,alloc and dealloc,create and destroy,A
+C++ language,19. What is the meaning of 'const' after a member function declaration?,The function doesn’t modify the object,The function is constant,The function returns const value,The function cannot be overloaded,A
+C++ language,20. What does RAII stand for?,Resource Acquisition Is Initialization,Runtime Assignment Is Injection,Resource Allocation Initalizer,Run-time Allocation Is Initialization,A
+C++ language,21. Default arguments in functions are specified:,From right to left,From left to right,Anywhere,None of the above,A
+C++ language,22. The C++ Standard Template Library (STL) does NOT provide:,Vectors,Queues,Arrays,Networking libraries,D
+C++ language,23. Which of the following containers is fastest for accessing elements by index?,vector,list,deque,set,A
+C++ language,24. What is the result of dynamic_cast if the cast fails?,nullptr,Exception thrown,Undefined behavior,Null reference,A
+C++ language,"25. In C++, a pure virtual function is declared as:",virtual void foo() = 0;,void virtual foo();,virtual void foo() {0};,void foo() = virtual 0;,A
+C++ language,26. What is the use of the 'mutable' keyword?,Allows modification even in const objects,Marks a variable as thread-safe,Makes a variable static,Prevents variable modification,A
+C++ language,27. What is function overloading?,"Same function name, different parameters",Different function names and parameters,Same function name and parameters,"Different function name, same parameters",A
+C++ language,28. Which of the following declares a virtual destructor?,virtual ~ClassName();,~ClassName();,virtual void ~ClassName();,void ~ClassName() virtual;,A
+C++ language,29. What kind of inheritance is supported in C++?,"Single, Multiple, Multilevel, Hierarchical",Single only,Multiple only,Hierarchical only,A
+C++ language,30. Which of the following is NOT a casting operator in C++?,static_cast,reinterpret_cast,dynamic_cast,memory_cast,D
+C++ language,31. What access specifier should you use to allow derived classes access but keep members hidden from outside?,protected,private,public,friend,A
+C++ language,32. Which of the following is not true about references in C++?,Cannot be null,"Once set, cannot be changed",Can be reseated,Act as aliases,C
+C++ language,33. What is the purpose of the inline keyword?,Suggest compiler to inline the function,Marks function as static,Marks function as virtual,Declares function as const,A
+C++ language,34. Which of the following correctly creates a vector of integers?,std::vector<int> v;,vector v<int>;,vector<int> v();,int vector<> v;,A
+C++ language,35. How do you prevent a class from being inherited in C++?,Use the final specifier,Use const keyword,Use private constructor,Use sealed keyword,A
+C++ language,36. What will the expression sizeof(bool) typically return?,1,2,4,8,A
+C++ language,37. Which header is required to use std::string?,<string>,<cstring>,<str>,<iostream>,A
+C++ language,38. What is the meaning of 'lvalue' in C++?,An expression that refers to a memory location,A value literal,A function call,A constant expression,A
+C++ language,39. What’s the difference between struct and class in C++?,Default access specifier is public for struct and private for class,Structs can't have member functions,Classes can't have public members,No difference,A
+C++ language,40. When is a destructor called in C++?,When an object goes out of scope or is deleted,When a constructor finishes,When the program ends,When a function returns,A
+C++ language,41. Which of the following is NOT a fundamental data type in C++?,bool,char,string,double,C
+C++ language,42. What is the output of std::cout << (5 / 2); in C++ when using int literals?,2,2.5,3,0,A
+C++ language,43. Which loop is guaranteed to run at least once?,do-while,for,while,foreach,A
+C++ language,"44. To enforce creating an abstract base class, you define:",At least one pure virtual function,All functions virtual,Class with protected constructor,A private constructor,A
+C++ language,45. Which keyword is used to declare a namespace in C++?,namespace,using,module,package,A
+C++ language,46. Which operator is used to access members of a class or structure through a pointer?,->,.,*,&,A
+C++ language,47. What does ‘std::move()’ do in C++11?,Enables move semantics,Copies an object,Deletes an object,Allocates memory,A
+C++ language,48. Which keyword ensures exception safety by guaranteeing no exceptions from a function?,noexcept,try,catch,throw,A
+C++ language,49. What is the size of an empty class in C++?,1,0,Depends on compiler,Undefined,A
+C++ language,50. How can you manually call the destructor of an object in C++?,obj.~ClassName();,delete obj;,obj.delete();,destructor(obj);,A
+C++ language,51. Which standard C++ header provides smart pointers?,<memory>,<ptr>,<smartptr>,<ptrmem>,A
+C++ language,52. What are smart pointers primarily used for?,Automatic memory management,Compile time optimization,Runtime polymorphism,Safe typecasting,A
+C++ language,53. Which of the following smart pointers represents unique ownership of an object?,std::unique_ptr,std::shared_ptr,std::weak_ptr,std::auto_ptr,A
+C++ language,54. What does std::shared_ptr do?,Provides shared ownership,Gives unique ownership,Points to weak references,Automatically copies data,A
+C++ language,55. How do you prevent copying of a class?,Declare copy constructor and assignment operator as deleted,Make them private,No methods needed,Use final keyword,A
+C++ language,56. Exception handling in C++ is done using which keywords?,"try, catch, throw","exception, handle","catch, throw","try, except",A
+C++ language,57. What is the purpose of the explicit keyword?,Prevents implicit conversions,Marks a function as virtual,Marks a variable as constant,Marks a class as abstract,A
+C++ language,58. What is the difference between std::vector and std::list?,"vector is contiguous storage, list is linked list","vector is linked list, list is contiguous",Both are same,vector uses more memory,A
+C++ language,59. Which container is best suited for quick lookup by key?,std::map,std::vector,std::list,std::queue,A
+C++ language,60. How do you define a multi-line macro?,Using backslash ($$ at line end,Using semicolon,Using double quotes,Using braces,A
+C++ language,61. Which of the following is true about static members of a class?,Shared among all objects,Unique to each object,Only private,Only methods,A
+C++ language,62. What is the result of typeid operator in C++?,Provides runtime type information,Implements polymorphism,Allocates memory,Checks memory safety,A
+C++ language,63. What is a lambda expression used for?,Inline anonymous functions,Macro definitions,Typecasts,Smart pointers,A
+C++ language,64. Which C++11 feature allows thread support in the standard library?,<thread>,<async>,<process>,<mutex>,A
+C++ language,65. Which keyword indicates that a member function can be called without an object?,static,const,virtual,explicit,A
+C++ language,66. Which access specifier allows access only from within the same class?,private,protected,public,friend,A
+C++ language,67. What does constexpr indicate?,Compile-time constant evaluation,Runtime constant,Constant pointer,External linkage,A
+C++ language,68. What is the use of decltype?,Deduces the declared type of an expression,Declares a variable,Casts variable types,Defines a constant,A
+C++ language,69. Which of the following operators is used to access base class methods?,::,.,->,&,A
+C++ language,70. What is the purpose of the override keyword?,Indicates overriding a virtual function,Marks function as inline,Declares virtual functions,Used to overload operators,A
+C++ language,71. Which of the following is NOT a correct way to initialize a vector?,std::vector<int> v(10);,std::vector<int> v{10};,std::vector<int> v = 10;,All are correct,C
+C++ language,72. How can you avoid name conflicts in large projects?,Use namespaces,Use global variables,Ignore conflicts,Use goto statements,A
+C++ language,73. Which of the following statements about default constructors is true?,Automatically generated if no constructors defined,Must always be declared,Cannot be overloaded,Always private,A
+C++ language,74. How do you delete dynamically allocated memory in C++?,delete,free,dispose,remove,A
+C++ language,75. What is the difference between delete and delete[]?,"delete[] is used for arrays, delete for single objects",Both are same,delete is deprecated,delete[] deletes pointers,A
+C++ language,76. What keyword makes a variable thread-local?,thread_local,atomic,volatile,mutable,A
+C++ language,77. What is the access level of a member declared under public:?,Accessible from anywhere,Accessible only inside class,Accessible only to derived classes,Private,A
+C++ language,78. What does the explicit constructor prevent?,Implicit type conversions,Multiple inheritance,Overloading,Copying,A
+C++ language,79. Which operator is used to dereference a pointer?,*,&,->,:,A
+C++ language,80. What does the 'using' keyword accomplish in C++?,Imports name into current scope,Declares a variable,Defines macro,Declares template,A
+C++ language,81. When is a copy constructor called?,When an object is initialized from another object,When a function is called,When an object is destroyed,When variable goes out of scope,A
+C++ language,82. Which of the following is the default behavior if a base class function is hidden by derived class?,It is hidden,It causes compilation error,It is overridden,It is inherited,A
+C++ language,83. What happens if a function throws an exception but there is no catch block?,Program terminates,Program ignores exception,Exception is suppressed,Undefined behavior,A
+C++ language,84. What standard C++ header defines std::exception class?,<exception>,<stdexcept>,<error>,<exceptions>,A
+C++ language,85. What is SFINAE principle related to templates?,Substitution Failure Is Not An Error,Template specialization,Overloading rules,Function overriding,A
+C++ language,86. How do you declare a function template in C++?,template <typename T> void func(T x);,template void func<T>(T x);,function template void func<T>(T x);,None of the above,A
+C++ language,87. Which C++11 feature allows traversal through elements easily?,Range-based for loop,While loop,Do-while loop,Recursive function,A
+C++ language,88. How do you define a lambda capturing no variables?,{ /* ... */ },= { /* ... */ },& { /* ... */ },-> void { return; },A
+C++ language,89. What does std::forward enable?,Perfect forwarding,Forward declaration,Function overloading,Forward iteration,A
+C++ language,90. Which C++11 feature helps avoid raw pointers for arrays?,std::array,std::list,std::vector,std::deque,A
+C++ language,91. What is an rvalue reference?,&&,&,*,->,A
+C++ language,92. Which keyword is used to prevent overriding of a virtual function?,final,sealed,override,const,A
+C++ language,93. How do you declare a pure virtual function?,virtual void func() = 0;,void virtual func() = 0;,virtual void func() {0};,void func() = virtual 0;,A
+C++ language,94. What does the std::unique_ptr represent?,Exclusive ownership,Shared ownership,Weak pointer,Raw pointer,A
+C++ language,95. How would you create a shared ownership pointer?,std::shared_ptr<int> p(new int(10));,int* p = new int(10);,unique_ptr<int> p(new int(10));,weak_ptr<int> p;,A
+C++ language,96. Which of the following is a valid way to declare a type alias?,using MyInt = int;,typedef MyInt int;,alias MyInt int;,type MyInt = int;,A
+C++ language,"97. What is a ""dangling pointer""?",Pointer pointing to deleted object,Pointer with NULL value,Smart pointer,Function pointer,A
+C++ language,98. What is the keyword to explicitly call a base class constructor?,Base(),super(),Base::Base(),this(),C
+C++ language,99. What is the well-known idiom to avoid resource leaks with exceptions?,RAII (Resource Acquisition Is Initialization),Garbage collection,Manual free() calls,None of the above,A
+C++ language,100. Which of the following is true about inline functions?,Suggests compiler to inline code,Always inlines code,Only works for classes,Not supported in C++,A
+C++ language,101. What does the standard library function std::accumulate do?,Sums elements in a range,Finds maximum element,Sorts elements,Filters elements,A
+C++ language,102. Which of the following is true for std::vector capacity management?,Capacity doubles when exceeded,Capacity remains fixed,Automatically shrinks,Capacity reduces gradually,A
+C++ language,103. What is the difference between std::map and std::unordered_map?,"map is ordered, unordered_map is not",Both ordered,Both unordered,map is faster,A
+C++ language,104. How do you implement encapsulation in C++?,Using private and protected access modifiers,Making all members public,Using global variables,All of the above,A
+C++ language,105. Which keyword is used for static polymorphism?,template,virtual,static,polymorphic,A
+C++ language,106. What is SFINAE?,Substitution failure is not an error,Special function inlining,Standard function interface,Syntax for initialization,A
+C++ language,107. Which of the following is the correct signature for main?,int main(),"int main(int argc, char* argv[])",void main(),main(),B
+C++ language,108. What does the auto keyword do in C++11?,Deduces the variable type,Defines a pointer,Defines a constant,Declares a function pointer,A
+C++ language,109. What keyword allows functions to be defined inside a class but compiled later?,inline,virtual,explicit,friend,A
+C++ language,110. How do you declare a function that cannot be redefined in derived classes?,final,sealed,override,const,A
+,,,,,,
+,,,,,,
+JAVA,Which keyword is used to inherit a class in Java?,extends,implements,inherit,inherits,A
+JAVA,What is the default value of a boolean variable in Java?,TRUE,FALSE,0,null,B
+JAVA,Which method is the entry point for a Java application?,start(),begin(),main(),run(),C
+JAVA,Which of these is not a Java access modifier?,public,package-private,internal,protected,C
+JAVA,Which interface must be implemented to create a thread in Java?,Runnable,Serializable,AutoCloseable,Iterable,A
+JAVA,Which is the correct way to declare an array in Java?,int arr[];,array[] int;,int[] arr;,both A and C,D
+JAVA,What is the size of int in Java?,2 bytes,4 bytes,8 bytes,Depends on platform,B
+JAVA,Which of these is NOT a primitive data type in Java?,int,float,enum,boolean,C
+JAVA,Java is which type of language?,Compiled and interpreted,Only compiled,Only interpreted,Scripting,A
+,Which method is called when an object is created?,finalize(),constructor,init(),create(),B
+JAVA,Which exception is thrown if main method is not found?,NoSuchMethodError,NullPointerException,RuntimeException,ClassNotFoundException,A
+JAVA,"What is the output of: System.out.println(3 + 4 + ""Hello"");",34Hello,7Hello,Hello34,Error,B
+JAVA,Which keyword is used to prevent inheritance in Java?,sealed,final,static,private,B
+JAVA,Which of the following is not a loop in Java?,for,do-while,until,while,C
+JAVA,The wildcard character in Java generics is represented by?,#,*,?,&,C
+JAVA,Which of these is NOT a checked exception?,IOException,SQLException,NullPointerException,FileNotFoundException,C
+JAVA,What is the parent class of all classes in Java?,object,java.lang.Object,Object,Base,B
+JAVA,Which method would you override to define how your object should be compared for equality?,equals(),compare(),hashCode(),compareTo(),A
+JAVA,Which of the following is not part of Java's OOP concepts?,Inheritance,Polymorphism,Encapsulation,Pointer arithmetic,D
+JAVA,Which package is automatically available to all Java programs?,java.io,java.lang,java.util,java.awt,B
+JAVA,Which of the following is used to generate documentation in Java?,javap,javac,javadoc,java.exe,C
+JAVA,"What will the following code output? System.out.println(10 + 20 + ""20"");",3020,102020,1020,30 20,A
+JAVA,Which keyword is used to implement multiple inheritance in Java?,extends,implements,virtual,interface,B
+JAVA,Which exception is thrown when dividing by zero?,SQLException,ArithmeticException,IOException,DivideByZeroException,B
+JAVA,For which method does garbage collection NOT guarantee execution?,finalize(),destructor,close(),dispose(),A
+JAVA,Which of the following can access private members of a class?,Same class methods,Subclass,Different package,None of these,A
+JAVA,Which is a valid method signature for main in Java?,public static void main(String[] args),static public void main(String args[]),public void main(String[] args),Both A and B,D
+JAVA,Which operator is used to compare two values for equality?,==,=,equals,is,A
+JAVA,What is the scope of a variable declared inside a method?,Global,Local,Static,Class,B
+JAVA,Which of these collections maintains insertion order?,HashSet,TreeSet,LinkedHashSet,PriorityQueue,C
+JAVA,Which method is used to start a Thread in Java?,init(),run(),start(),execute(),C
+JAVA,Which access modifier makes members accessible within the same package only?,private,protected,public,default (no modifier),D
+JAVA,Which operator is used for string concatenation in Java?,+,.,&,concat,A
+JAVA,"What is the result of ""Hello"".charAt(1)?",H,e,l,o,B
+JAVA,What is JVM short for?,Java Virtual Machine,Java Verified Memory,Java Variable Manager,Java Valued Method,A
+JAVA,Which collection implements Map and maintains order by keys?,HashMap,TreeMap,HashSet,LinkedList,B
+JAVA,What does the 'super' keyword reference?,Parent class,Current object,Subclass,Interface,A
+JAVA,Which is the correct statement to read a file in Java?,FileReader,FileStream,FileRead,openFile,A
+JAVA,Java supports:,Multi-level inheritance,Multiple inheritance,Multiple class,None,A
+JAVA,What happens if you try to cast a superclass object to a subclass?,ClassCastException,Compilation error,No error,NullPointerException,A
+JAVA,Which method closes an open Scanner object?,finish(),terminate(),close(),end(),C
+JAVA,How to create an immutable class in Java?,final class,final variables,Private constructors,All of the above,D
+JAVA,Which is a wrapper class for primitive type int?,Int,Integer,intWrapper,WrapperInt,B
+JAVA,Which is not a valid identifier in Java?,_name,$name,2name,name2,C
+JAVA,Which functional interface is used in lambda expressions for a single parameter and return?,Runnable,Supplier,Function,Predicate,C
+JAVA,What will be the output: System.out.println(3>2<1);,TRUE,FALSE,Compilation error,0,C
+JAVA,Java's ArrayList is part of which package?,java.array,java.util,java.collection,java.list,B
+JAVA,What is the highest superclass of exceptions in Java?,Throwable,Exception,Error,SuperException,A
+JAVA,Which statement declares a 2D array correctly?,int arr[][],int[][] arr,int arr,All of the above,D
+JAVA,Which among these is not a feature of Java?,Platform Independent,Multithreaded,Pointer Arithmetic,Object-oriented,C
+JAVA,How to prevent method overriding in Java?,static,sealed,final,abstract,C
+JAVA,What is returned by System.exit(0)?,TRUE,0,No value,void,C
+JAVA,Which of these is true about an abstract class in Java?,Cannot be instantiated,Can have methods,Can have constructors,All of the above,D
+JAVA,"Which method is used to compare strings, ignoring case?",equals,compareToIgnoreCase,equalsIgnoreCase,compare,C
+JAVA,Java supports ... types of polymorphism?,1,2,3,4,B
+JAVA,What is the parent class of all exception classes?,Throwable,Exception,Error,RuntimeException,A
+JAVA,Which class is used for dynamic arrays in Java?,DynamicArray,ArrayList,LinkedList,HashSet,B
+JAVA,What is a correct way to instantiate an object?,new Classname(),Classname obj;,obj = new Classname,new Classname,A
+JAVA,"To serialize an object in Java, which interface must be implemented?",Serializable,Cloneable,Runnable,Externalizable,A
+JAVA,Which method is used to remove the last element from an ArrayList?,removeLast(),deleteLast(),remove(),pop(),C
+JAVA,"What will ""null"" + 1 + 2 return?","""null12""",null3,Compilation error,"""12null""",A
+JAVA,Which interface provides random access in Java Collections?,List,RandomAccess,Set,Collection,B
+JAVA,Which of these statements about interfaces is false?,Cannot have constructors,All methods abstract,Can have static methods,Can be instantiated,D
+JAVA,The Java keyword synchronized is used for,Thread synchronization,Memory management,Garbage Collection,IO streams,A
+JAVA,Which exception is never checked?,IOException,IllegalArgumentException,SQLException,FileNotFoundException,B
+JAVA,"To catch all exceptions, which catch block do you use?",catch(),catch (Throwable e),catch (Exception e),catch (Error e),B
+JAVA,What happens if you try to access an array index out of bounds?,ArrayIndexException,ArrayIndexOutOfBoundsException,NullPointerException,RuntimeException,B
+JAVA,Which is NOT a valid access modifier in Java?,public,private,protected,friend,D
+JAVA,Which method is used to get the current thread in Java?,thisThread(),currentThread(),getThread(),nowThread(),B
+JAVA,Java uses which memory management technique?,Manual allocation,Garbage Collection,Reference counting,Dynamic Storage,B
+JAVA,How many values can a method return in Java?,1,2,0,unlimited,A
+JAVA,Which keyword is used to import classes in Java?,using,include,import,require,C
+JAVA,Which among these is not a primitive type?,int,short,string,long,C
+JAVA,Which thread state is not valid?,New,Runnable,Dead,Sleeping,D
+JAVA,StringBuffer are ____ in Java.,immutable,fixed-size,mutable,constant,C
+JAVA,Which method is used to search for a pattern using regex in Java?,Pattern.search,Pattern.find,Matcher.matches,Pattern.matches,D
+JAVA,Which of these is an unchecked exception?,IOException,SQLException,NullPointerException,FileNotFoundException,C
+JAVA,Where does the 'break' statement transfer control?,Loops/switch,Methods,Functions,Classes,A
+JAVA,Which exception occurs when you try to use a null reference?,NullPointerException,IOException,SQLException,Exception,A
+JAVA,Which method writes a string to the console without advancing to the next line?,println(),print(),printf(),show(),B
+JAVA,How do you create a constant in Java?,final,constant,static,const,A
+JAVA,Which is the default value of an object reference defined as an instance variable?,null,0,undefined,empty String,A
+JAVA,What will be the output: int x = 5; System.out.println(++x);,5,6,7,Error,B
+JAVA,Which class is used for reading bytes in Java?,ByteReader,InputStream,FileReader,Scanner,B
+JAVA,What access modifier is most restrictive?,private,protected,public,default,A
+JAVA,Which of the following is not a method of the Thread class?,start(),run(),sleep(),wait(),D
+JAVA,Java passes parameters by,value,reference,"value for primitives, reference for objects",value and reference,A
+JAVA,Which operator is used to allocate memory to an object?,malloc,new,create,alloc,B
+JAVA,Which collection does not allow duplicate elements?,Set,List,Map,ArrayList,A
+JAVA,Which layout manager is the default for JFrame?,FlowLayout,BorderLayout,GridLayout,BoxLayout,B
+JAVA,Which class is used to handle files in Java?,FileHandler,File,Files,FileObject,B
+JAVA,Which keyword is used to stop the execution of a loop?,end,quit,break,continue,C
+JAVA,Which of these is a valid functional interface?,Predicate,Comparator,Both A and B,Runnable,C
+JAVA,Which annotation is used to override a method?,@Override,@Inherited,@Overload,@Method,A
+JAVA,How do you compare two strings in Java?,==,equals(),equalsIgnoreCase(),all of the above,D
+JAVA,Method overloading is:,"Same name, different params","Same name, same params","Different name, same params","Same name, different return type",A
+JAVA,Which is NOT a wrapper class?,Byte,Integer,Float,Int,D
+JAVA,How to create a thread by extending?,extends Thread,implements Thread,new Thread,implements Runnable,A
+JAVA,How do you write a comment for a single line in Java?,// comment,/* comment */,<!-- comment -->,# comment,A
+JAVA,Which access modifier makes a field visible in all packages?,private,public,protected,default (no modifier),B
+JAVA,What is returned by Math.floor(3.9)?,3,4,3.9,0,A
+JAVA,Which is NOT a valid return type in Java?,int,void,string,double,C
+JAVA,Which method would you use to remove whitespace from start and end of a string?,strip(),trim(),remove(),delete(),B
+JAVA,Which class is used for handling dates in Java 8?,Date,LocalDate,Calendar,DateTime,B
+JAVA,What does 'static' keyword mean?,Belongs to class,Belongs to instance,Used locally,None,A
+,Which collection class allows access by key-value pairs?,HashMap,ArrayList,Set,TreeSet,A
+JAVA,Which is NOT a part of Java language?,bytecode,classes,pointer,interactivity,C
+JAVA,Which package has Scanner class?,java.io,java.util,java.lang,java.scan,B
+JAVA,How do you handle exceptions in Java?,using Error,try-catch,Finally only,throw only,B
+JAVA,How to create an abstract method?,abstract void run();,void abstract run();,void run();,None,A
+JAVA,What is the value of 5/2 in integer division in Java?,2.5,2,2,3,B
+JAVA,Which access modifier restricts access to only subclass in another package?,protected,public,private,default,A
+JAVA,Which is the correct way to specify a package?,package mypack;,Package: mypack,pack mypack;,new package mypack;,A
+,,,,,,
+,,,,,,
+PYTHON,What is encapsulation in Python?,Bundling data & methods,Hiding info,Inheritance,Overriding methods,A
+PYTHON,Which method is used as constructor in Python classes?,create,new,init,constructor,C
+PYTHON,What is the parent class of all classes in Python?,object,super,base,root,A
+PYTHON,How do you declare a class in Python?,class MyClass:,MyClass class:,class MyClass(),class: MyClass,A
+PYTHON,What symbol is used for private variables in Python?,_ (single underscore),__ (double underscore),$,#,B
+PYTHON,What is method overriding?,Redefining parent's method,Writing static methods,Overloading operator,Inheriting properties,A
+PYTHON,Which method is a destructor in Python?,del,destroy,destructor(),del(),A
+PYTHON,How do you define an instance variable in Python?,self.variable,variable.self,class.variable,static variable,A
+PYTHON,Which keyword is used for inheritance in Python?,inherit,base,pass,class,D
+PYTHON,Which is NOT a pillar of OOP in Python?,Inheritance,Encapsulation,Recursion,Polymorphism,C
+PYTHON,What is method overloading in Python?,Redefining parent method,"Multiple methods same name, different parameters",Multiple classes,None of these,B
+PYTHON,How do you initialize a class attribute?,Inside init,Outside any method,Using self.attribute,Inside @staticmethod,B
+PYTHON,What will print(type(obj)) show where obj is an instance?,<class 'MyClass'>,<self.MyClass>,MyClass.Type,obj.Class,A
+PYTHON,How do you call a superclass method in Python?,super().method(),super.method(),base.method(),ancestor.method(),A
+PYTHON,What is the output: type(123)?,int,str,float,object,A
+PYTHON,"In multiple inheritance, who gets priority in the method resolution order?",Left parent,Right parent,Child class,First parent in class tuple,D
+PYTHON,How do you write a property in Python?,@property,@prop,property(),getset(),A
+PYTHON,Which decorator makes a method static in Python?,@staticmethod,@static,@classMethod,@static_method,A
+PYTHON,What is duck typing?,Type flexibly inferred,Strict types,Inherits only,None of these,A
+PYTHON,When are instance variables created?,On object creation,At class definition,On method call,At program start,A
+PYTHON,Which is a valid way to call a parent constructor?,super().init(),base.init(),super().constructor(),self.init(),A
+PYTHON,Which is NOT true for class variables in Python?,Shared between instances,Changes reflect for all,Defined inside methods,Accessed by class name,C
+PYTHON,What’s the default base class for Python classes (if none is given)?,object,base,parent,root,A
+PYTHON,Of which access is a variable with a single underscore _var?,Protected,Private,Public,Global,A
+PYTHON,What will type([]) == list return?,TRUE,FALSE,None,Error,A
+PYTHON,Which built-in function gets the class of an object?,type(),classof(),objecttype(),super(),A
+PYTHON,"What does hasattr(obj, attr) return?",True/False,Attr name,Object address,Error,A
+PYTHON,How do you check if an object is an instance of a class?,"isinstance(obj, Class)",type(obj) == Class,obj instanceof Class,obj is Class,A
+PYTHON,What does str method provide?,String representation,Addition,Internal variable,Returns class name,A
+PYTHON,Which method is used to define addition of two class objects?,add,plus,add(),addition,A
+PYTHON,How do you check class inheritance at runtime?,issubclass(),inheritor(),supercls(),isbaseof(),A
+PYTHON,What will print(MyClass.bases) return?,Bases (parent) classes,Instance variables,Method names,Class functions,A
+PYTHON,Which method supports object iteration?,iter,gen,for,goto,A
+PYTHON,How do you define a read-only property?,No setter,Private attribute,Both getter and setter,Use constant,A
+PYTHON,What is slots used for?,Restrict attributes,Dynamic class objects,Memory allocation,Protect variables,A
+PYTHON,"To prevent a class from being inherited, you should",Use metaclass or mixin,Define as final,Use new,Subclass from object,A
+PYTHON,What will MyClass.name return?,Class name as string,Object name,None,Module name,A
+PYTHON,What is used to share among all instances?,Class variable,Instance variable,Function attribute,Constructor,A
+PYTHON,Which is true for class methods in Python?,Marked with @classmethod,First parameter 'self',Only access instance,Static by default,A
+PYTHON,del is called when?,Object is deleted,Program starts,Any method call,Always manually,A
+PYTHON,Which is NOT a dunder method?,str,init,main,new,C
+PYTHON,What does the self parameter refer to?,Current instance,Class,Parent,Superclass,A
+PYTHON,What is multiple inheritance?,Subclassing from many bases,Many instances,Overriding,Multi-threading,A
+PYTHON,Which of these is used to indicate static methods?,@staticmethod,@class_static,static(),None of these,A
+PYTHON,How do you restrict direct access to a variable in Python?,__ before name,Use static,# before name,No way to do so,A
+PYTHON,"If you define both str and repr, which is called by print()?",str,repr,main,Both,A
+PYTHON,What is the main use of super()?,To call method of superclass,To define a variable,To set variable,To call a static method,A
+PYTHON,When are class variables initialized?,Class definition time,instance creation,method call,Before import,A
+PYTHON,How do you create a property?,@property decorator,@method decorator,Just define variable,getter method,A
+PYTHON,What does call enable for an object?,Callable like function,Context mgmt,List-like behavior,Makes it iterator,A
+PYTHON,What does hasattr() check?,Object has attribute,Name is valid,Method exists,Variable is class variable,A
+PYTHON,"What will isinstance(True, int) return?",TRUE,FALSE,Depends,Error,A
+PYTHON,Which is NOT an OOP principle?,Encapsulation,Inheritance,Abstraction,Compiling,D
+PYTHON,When should you use eq?,Custom equality,Initialize object,Subclass parent,Avoid attribute access,A
+PYTHON,"What is the result of isinstance(5, object)?",TRUE,FALSE,None,Error,A
+PYTHON,What is the standard name for the first parameter of an instance method?,self,this,myself,obj,A
+PYTHON,What does polymorphism allow?,Different objects respond diff to same message,Reuse of code,Protect variables,Dynamic memory,A
+PYTHON,What is the function of init.py?,Package initialization,Class constructor,Method overloading,Class inheritance,A
+PYTHON,What is difference between class and instance variables?,"Instance is per object, class is shared",None,Both are same,Variable visibility,A
+PYTHON,AttributeError occurs when?,Accessing undefined attribute,Memory leak,Syntax error,When variable deleted,A
+PYTHON,Which method makes your class support context management (with statement)?,enter and exit,with,init and close,in and out,A
+PYTHON,To check if class B is subclass of class A:,"issubclass(B, A)","isinstance(A, B)","Based(B, A)","inbase(B, A)",A
+PYTHON,What is the output of print(type(lambda x: x))?,<class 'function'>,<class 'lambda'>,<type>,<function>,A
+PYTHON,"How do you make a class attribute ""constant"" in Python?",UPPERCASE variable,const keyword,static variable,Using @const,A
+PYTHON,What is the use of dict?,Shows attribute dictionary,Shows methods,Prints docstring,None,A
+PYTHON,What is an abstract base class in Python?,Uses abc module,Class with init,Class with no method,Static base class,A
+PYTHON,Which does not create a class instance?,MyClass,MyClass(),obj = MyClass(),class MyClass:,D
+PYTHON,How do you prevent attribute creation in Python?,slots,noattr,Final attribute,private keyword,A
+PYTHON,What will list(MyClass.mro) return?,Method Resolution Order,Member read order,Object attributes,Parent names,A
+PYTHON,Which decorator is used for a class method?,@classmethod,@class,@static_method,@staticmethod,A
+PYTHON,"What does hasattr(obj, ""attr"") return if attr exists?",TRUE,FALSE,None,Value of attr,A
+PYTHON,"If len is not defined, what happens?",len() raises TypeError,len returns 0,len returns -1,It still works,A
+PYTHON,"What is used for ""string representation"" of object?",str,int,float,repr,A
+PYTHON,Separation of interface and implementation is known as?,Abstraction,Polymorphism,Inheritance,Encapsulation,A
+PYTHON,For which attribute is Python's property() used?,Managed attributes,Static attribute,Only class variable,None,A
+PYTHON,How do you define a static method in a class?,@staticmethod decorator,def static method,static method(),static def method(),A
+PYTHON,Which function reveals all members of an object?,dir(object),members(object),all(object),show(object),A
+PYTHON,Which method is necessary for object comparison with < operator?,lt,cmp,less,ltOperator,A
+PYTHON,How are dunder methods recognized?,Begin and end with __,Uppercase letters,With _ only,Do not exist,A
+PYTHON,A constructor in Python can return,None only,Any value,Instance of class,Error,A
+PYTHON,self in Python is,Instance reference,Class reference,Variable,Superclass reference,A
+PYTHON,What is a mixin class?,Class for optional features,Base class,Utility class,Abstract class,A
+PYTHON,What is multiple inheritance?,Inheriting many classes,Subclass only,Many instances,Dynamic typing,A
+PYTHON,Which approach does Python use for method resolution order in multiple inheritance?,C3 linearization,Depth first,Right-to-left,Breadth first,A
+PYTHON,"""isinstance"" checks",Type of object,Value,Attribute presence,Object reference,A
+PYTHON,What does super() without args do?,Calls next in MRO,Calls parent class,Causes exception,Returns self,A
+PYTHON,What is repr used for?,Official string representation,Constructor,Print function,Variable name,A
+PYTHON,Which attribute shows the docstring of a class?,doc,docstring,docs,doc(),A
+PYTHON,"To support object iteration for custom objects, implement:",iter and next,get and set,repr and str,call and end,A
+PYTHON,Difference between @classmethod and @staticmethod,"classmethod gets class as first arg, staticmethod gets nothing",No difference,Both get instance,Only works on new style,A
+PYTHON,What does new do?,Creates instance,Initializes variable,Destroys object,Returns class name,A
+PYTHON,When is del not reliably called?,On interpreter shutdown,On every deletion,After init completes,None of the above,A
+PYTHON,"""vars(object)"" returns",dict,Methods,Properties,Order of bases,A
+PYTHON,How many base classes can a new-style Python class have?,Multiple,One,Unlimited,Zero,A
+PYTHON,A property with only a getter is,Read-only,Write-only,Both,Dynamic,A
+PYTHON,call allows objects to be...,Callable,Iterable,Stringified,Added together,A
+PYTHON,What is the role of None in constructor return statement?,Ensures no return from init,Raises exception,Returns the instance,Not required,A
+PYTHON,What does hasattr return for shadowed (but not missing) attributes?,TRUE,FALSE,Attribute name,Attribute value,A
+,,,,,,
+,,,,,,
+Python OOPs,What is encapsulation in Python?,Bundling data & methods,Hiding info,Inheritance,Overriding methods,A
+Python OOPs,Which method is used as constructor in Python classes?,create,new,init,constructor,C
+Python OOPs,What is the parent class of all classes in Python?,object,super,base,root,A
+Python OOPs,How do you declare a class in Python?,class MyClass:,MyClass class:,class MyClass(),class: MyClass,A
+Python OOPs,What symbol is used for private variables in Python?,_ (single underscore),__ (double underscore),$,#,B
+Python OOPs,What is method overriding?,Redefining parent's method,Writing static methods,Overloading operator,Inheriting properties,A
+Python OOPs,Which method is a destructor in Python?,del,destroy,destructor(),del(),A
+Python OOPs,How do you define an instance variable in Python?,self.variable,variable.self,class.variable,static variable,A
+Python OOPs,Which keyword is used for inheritance in Python?,inherit,base,pass,class,D
+Python OOPs,Which is NOT a pillar of OOP in Python?,Inheritance,Encapsulation,Recursion,Polymorphism,C
+Python OOPs,What is method overloading in Python?,Redefining parent method,"Multiple methods same name, different parameters",Multiple classes,None of these,B
+Python OOPs,How do you initialize a class attribute?,Inside init,Outside any method,Using self.attribute,Inside @staticmethod,B
+Python OOPs,What will print(type(obj)) show where obj is an instance?,<class 'MyClass'>,<self.MyClass>,MyClass.Type,obj.Class,A
+Python OOPs,How do you call a superclass method in Python?,super().method(),super.method(),base.method(),ancestor.method(),A
+Python OOPs,What is the output: type(123)?,int,str,float,object,A
+Python OOPs,"In multiple inheritance, who gets priority in the method resolution order?",Left parent,Right parent,Child class,First parent in class tuple,D
+Python OOPs,How do you write a property in Python?,@property,@prop,property(),getset(),A
+Python OOPs,Which decorator makes a method static in Python?,@staticmethod,@static,@classMethod,@static_method,A
+Python OOPs,What is duck typing?,Type flexibly inferred,Strict types,Inherits only,None of these,A
+Python OOPs,When are instance variables created?,On object creation,At class definition,On method call,At program start,A
+Python OOPs,Which is a valid way to call a parent constructor?,super().init(),base.init(),super().constructor(),self.init(),A
+Python OOPs,Which is NOT true for class variables in Python?,Shared between instances,Changes reflect for all,Defined inside methods,Accessed by class name,C
+Python OOPs,What’s the default base class for Python classes (if none is given)?,object,base,parent,root,A
+Python OOPs,Of which access is a variable with a single underscore _var?,Protected,Private,Public,Global,A
+Python OOPs,What will type([]) == list return?,TRUE,FALSE,None,Error,A
+Python OOPs,Which built-in function gets the class of an object?,type(),classof(),objecttype(),super(),A
+Python OOPs,"What does hasattr(obj, attr) return?",True/False,Attr name,Object address,Error,A
+Python OOPs,How do you check if an object is an instance of a class?,"isinstance(obj, Class)",type(obj) == Class,obj instanceof Class,obj is Class,A
+Python OOPs,What does str method provide?,String representation,Addition,Internal variable,Returns class name,A
+Python OOPs,Which method is used to define addition of two class objects?,add,plus,add(),addition,A
+Python OOPs,How do you check class inheritance at runtime?,issubclass(),inheritor(),supercls(),isbaseof(),A
+Python OOPs,What will print(MyClass.bases) return?,Bases (parent) classes,Instance variables,Method names,Class functions,A
+Python OOPs,Which method supports object iteration?,iter,gen,for,goto,A
+Python OOPs,How do you define a read-only property?,No setter,Private attribute,Both getter and setter,Use constant,A
+Python OOPs,What is slots used for?,Restrict attributes,Dynamic class objects,Memory allocation,Protect variables,A
+Python OOPs,"To prevent a class from being inherited, you should",Use metaclass or mixin,Define as final,Use new,Subclass from object,A
+Python OOPs,What will MyClass.name return?,Class name as string,Object name,None,Module name,A
+Python OOPs,What is used to share among all instances?,Class variable,Instance variable,Function attribute,Constructor,A
+Python OOPs,Which is true for class methods in Python?,Marked with @classmethod,First parameter 'self',Only access instance,Static by default,A
+Python OOPs,del is called when?,Object is deleted,Program starts,Any method call,Always manually,A
+Python OOPs,Which is NOT a dunder method?,str,init,main,new,C
+Python OOPs,What does the self parameter refer to?,Current instance,Class,Parent,Superclass,A
+Python OOPs,What is multiple inheritance?,Subclassing from many bases,Many instances,Overriding,Multi-threading,A
+Python OOPs,Which of these is used to indicate static methods?,@staticmethod,@class_static,static(),None of these,A
+Python OOPs,How do you restrict direct access to a variable in Python?,__ before name,Use static,# before name,No way to do so,A
+Python OOPs,"If you define both str and repr, which is called by print()?",str,repr,main,Both,A
+Python OOPs,What is the main use of super()?,To call method of superclass,To define a variable,To set variable,To call a static method,A
+Python OOPs,When are class variables initialized?,Class definition time,instance creation,method call,Before import,A
+Python OOPs,How do you create a property?,@property decorator,@method decorator,Just define variable,getter method,A
+Python OOPs,What does call enable for an object?,Callable like function,Context mgmt,List-like behavior,Makes it iterator,A
+Python OOPs,What does hasattr() check?,Object has attribute,Name is valid,Method exists,Variable is class variable,A
+Python OOPs,"What will isinstance(True, int) return?",TRUE,FALSE,Depends,Error,A
+Python OOPs,Which is NOT an OOP principle?,Encapsulation,Inheritance,Abstraction,Compiling,D
+Python OOPs,When should you use eq?,Custom equality,Initialize object,Subclass parent,Avoid attribute access,A
+Python OOPs,"What is the result of isinstance(5, object)?",TRUE,FALSE,None,Error,A
+Python OOPs,What is the standard name for the first parameter of an instance method?,self,this,myself,obj,A
+Python OOPs,What does polymorphism allow?,Different objects respond diff to same message,Reuse of code,Protect variables,Dynamic memory,A
+Python OOPs,What is the function of init.py?,Package initialization,Class constructor,Method overloading,Class inheritance,A
+Python OOPs,What is difference between class and instance variables?,"Instance is per object, class is shared",None,Both are same,Variable visibility,A
+Python OOPs,AttributeError occurs when?,Accessing undefined attribute,Memory leak,Syntax error,When variable deleted,A
+Python OOPs,Which method makes your class support context management (with statement)?,enter and exit,with,init and close,in and out,A
+Python OOPs,To check if class B is subclass of class A:,"issubclass(B, A)","isinstance(A, B)","Based(B, A)","inbase(B, A)",A
+Python OOPs,What is the output of print(type(lambda x: x))?,<class 'function'>,<class 'lambda'>,<type>,<function>,A
+Python OOPs,"How do you make a class attribute ""constant"" in Python?",UPPERCASE variable,const keyword,static variable,Using @const,A
+Python OOPs,What is the use of dict?,Shows attribute dictionary,Shows methods,Prints docstring,None,A
+Python OOPs,What is an abstract base class in Python?,Uses abc module,Class with init,Class with no method,Static base class,A
+Python OOPs,Which does not create a class instance?,MyClass,MyClass(),obj = MyClass(),class MyClass:,D
+Python OOPs,How do you prevent attribute creation in Python?,slots,noattr,Final attribute,private keyword,A
+Python OOPs,What will list(MyClass.mro) return?,Method Resolution Order,Member read order,Object attributes,Parent names,A
+Python OOPs,Which decorator is used for a class method?,@classmethod,@class,@static_method,@staticmethod,A
+Python OOPs,"What does hasattr(obj, ""attr"") return if attr exists?",TRUE,FALSE,None,Value of attr,A
+Python OOPs,"If len is not defined, what happens?",len() raises TypeError,len returns 0,len returns -1,It still works,A
+Python OOPs,"What is used for ""string representation"" of object?",str,int,float,repr,A
+Python OOPs,Separation of interface and implementation is known as?,Abstraction,Polymorphism,Inheritance,Encapsulation,A
+Python OOPs,For which attribute is Python's property() used?,Managed attributes,Static attribute,Only class variable,None,A
+Python OOPs,How do you define a static method in a class?,@staticmethod decorator,def static method,static method(),static def method(),A
+Python OOPs,Which function reveals all members of an object?,dir(object),members(object),all(object),show(object),A
+Python OOPs,Which method is necessary for object comparison with < operator?,lt,cmp,less,ltOperator,A
+Python OOPs,How are dunder methods recognized?,Begin and end with __,Uppercase letters,With _ only,Do not exist,A
+Python OOPs,A constructor in Python can return,None only,Any value,Instance of class,Error,A
+Python OOPs,self in Python is,Instance reference,Class reference,Variable,Superclass reference,A
+Python OOPs,What is a mixin class?,Class for optional features,Base class,Utility class,Abstract class,A
+Python OOPs,What is multiple inheritance?,Subclassing from many bases,Subclass only,Many instances,Dynamic typing,A
+Python OOPs,Which approach does Python use for method resolution order in multiple inheritance?,C3 linearization,Depth first,Right-to-left,Breadth first,A
+Python OOPs,"""isinstance"" checks",Type of object,Value,Attribute presence,Object reference,A
+Python OOPs,What does super() without args do?,Calls next in MRO,Calls parent class,Causes exception,Returns self,A
+Python OOPs,What is repr used for?,Official string representation,Constructor,Print function,Variable name,A
+Python OOPs,Which attribute shows the docstring of a class?,doc,docstring,docs,doc(),A
+Python OOPs,"To support object iteration for custom objects, implement:",iter and next,get and set,repr and str,call and end,A
+Python OOPs,Difference between @classmethod and @staticmethod,"classmethod gets class as first arg, staticmethod gets nothing",No difference,Both get instance,Only works on new style,A
+Python OOPs,What does new do?,Creates instance,Initializes variable,Destroys object,Returns class name,A
+Python OOPs,When is del not reliably called?,On interpreter shutdown,On every deletion,After init completes,None of the above,A
+Python OOPs,"""vars(object)"" returns",dict,Methods,Properties,Order of bases,A
+Python OOPs,How many base classes can a new-style Python class have?,Multiple,One,Unlimited,Zero,A
+Python OOPs,A property with only a getter is,Read-only,Write-only,Both,Dynamic,A
+Python OOPs,call allows objects to be...,Callable,Iterable,Stringified,Added together,A
+Python OOPs,What is the role of None in constructor return statement?,Ensures no return from init,Raises exception,Returns the instance,Not required,A
+Python OOPs,What does hasattr return for shadowed (but not missing) attributes?,TRUE,FALSE,Attribute name,Attribute value,A
+,,,,,,
+,,,,,,
+Data structures,What data structure uses FIFO order?,Queue,Stack,Tree,Graph,A
+Data structures,Which data structure works on LIFO principle?,Queue,Stack,Linked List,Array,B
+Data structures,Which of the following is not a linear data structure?,Array,Stack,Queue,Graph,D
+Data structures,Which data structure is best for implementing recursion?,Stack,Queue,Linked List,Tree,A
+Data structures,What is the worst-case time complexity of searching in an unsorted array?,O(n),O(log n),O(1),O(n log n),A
+Data structures,What operation is not possible in a queue?,enqueue,dequeue,push,peek,C
+Data structures,Which data structure uses a dynamically allocated array internally to allow dynamic resizing?,ArrayList,LinkedList,HashSet,Stack,A
+Data structures,How is a doubly linked list different from a singly linked list?,It has a pointer to both next and previous nodes,It uses arrays,It has no pointers,It is circular,A
+Data structures,Which of the following is true about a circular linked list?,Last node points to the first node,Nodes are doubly linked,No pointers,Last node points to null,A
+Data structures,"Which traversal method visits nodes in the order: root, left subtree, right subtree?",Inorder traversal,Preorder traversal,Postorder traversal,Level order traversal,B
+Data structures,What is the time complexity of inserting a new element at the beginning of a linked list?,O(1),O(n),O(log n),O(n log n),A
+Data structures,Which data structure is best suited for recursive function call management?,Stack,Queue,Linked List,Array,A
+Data structures,What is the time complexity of delete operation in a binary search tree (BST) on average?,O(log n),O(n),O(1),O(n log n),A
+Data structures,What data structure uses a key-value pair storage method?,Hash Table,Queue,Stack,Array,A
+Data structures,Which of these sorting algorithms has the best average-case time complexity?,Merge sort,Bubble sort,Insertion sort,Selection sort,A
+Data structures,Which structure can be used to implement function calls?,Stack,Queue,Tree,Graph,A
+Data structures,Which of the following data structures is non-linear?,Graph,Array,Stack,Queue,A
+Data structures,Which is the best data structure to detect cycles in a graph?,Disjoint Set,Queue,Stack,Hash Table,A
+Data structures,What is the space complexity of a linked list with n nodes?,O(n),O(1),O(log n),O(n log n),A
+Data structures,How are nodes connected in a graph?,Via edges,Via pointers,Via arrays,Via indexes,A
+Data structures,What kind of graph has edges with no direction?,Directed graph,Undirected graph,Weighted graph,Complete graph,B
+Data structures,What is a complete binary tree?,A binary tree where every level is fully filled except possibly the last,A tree with all leaf nodes,A balanced tree,A skewed tree,A
+Data structures,Which traversal method is used in Breadth-first Search (BFS)?,Level order,Inorder,Preorder,Postorder,A
+Data structures,What is the property of a binary search tree (BST)?,Left child < root < right child,Left child > root,All children equal,Root is always null,A
+Data structures,Which of the following is NOT a queue variant?,Circular queue,Priority queue,Double-ended queue,Skip queue,D
+Data structures,Which data structure does a recursive algorithm use implicitly?,Stack,Queue,Linked List,Hash Table,A
+Data structures,Which linked list node pointer allows traversal in both directions?,Single pointer,Double pointer,Circular pointer,Array pointer,B
+Data structures,How do you represent a graph in memory?,Adjacency list,Array,Linked list,Tree,A
+Data structures,What is the height of a tree?,Max distance from root to leaf,Number of nodes,Max number of children,Number of levels,A
+Data structures,Which is TRUE about heaps?,They are complete binary trees,They are always sorted,All nodes have equal values,They have zero height,A
+Data structures,What is the role of a sentinel node in a linked list?,Simplify boundary conditions,Store data,Indicate end of list,Point to head,A
+Data structures,What is the time complexity for searching in a balanced binary search tree?,O(log n),O(n),O(1),O(n log n),A
+Data structures,Which data structure is used for undo functionality in editors?,Stack,Queue,Linked List,Array,A
+Data structures,Which algorithm is used to traverse or search graph data structures level-wise?,BFS,DFS,Dijkstra's,Bellman-Ford,A
+Data structures,Which queue type supports insertion and deletion from both ends?,Double-ended queue (Deque),Circular queue,Priority queue,Simple queue,A
+Data structures,Which of the following stores data in key-value pairs?,Hash Map,Tree,Queue,Stack,A
+Data structures,What is the traversal process for Depth First Search (DFS)?,Root to leaf down one path first,Level by level,Random visiting,Bi-directional,A
+Data structures,What is a tail pointer in a linked list?,Pointer to last node,Pointer to first node,Pointer to middle node,Pointer to previous node,A
+Data structures,Which of these is used to implement priority queues efficiently?,Heap,Stack,Queue,Tree,A
+Data structures,What is a sentinel node’s purpose in linked lists?,It simplifies operations by eliminating special cases for head/tail,Store data,Point to next head,Track number of nodes,A
+Data structures,What does the term “self-balancing” mean in trees?,Tree reorganizes itself on inserts/deletes,Tree with fixed height,Tree with a root node,Tree with balanced keys,A
+Data structures,Which linked list type contains its last node pointing back to the head?,Circular linked list,Doubly linked list,Singly linked list,Skip list,A
+Data structures,What is the advantage of using linked lists over arrays?,Dynamic size,Faster access,Fixed size,Memory-inefficient,A
+Data structures,Which operation is time-consuming in arrays?,Insertion at end,Accessing elements,Insertion at middle,Accessing first element,C
+Data structures,What does LIFO stand for in stack?,Last In First Out,Last In Fast Out,Left In First Out,Last Insert Fast Out,A
+Data structures,Which structure is commonly used for implementing recursion?,Stack,Queue,Tree,Graph,A
+Data structures,Which data structure is best suited for implementing priority scheduling?,Priority Queue,Queue,Stack,Linked List,A
+Data structures,What kind of traversal visits nodes in ascending order for a BST?,Inorder traversal,Preorder traversal,Postorder traversal,Level order traversal,A
+Data structures,What is the maximum number of nodes in a binary tree of height h?,2^(h+1) -1,2^h -1,h^2,h^3,A
+Data structures,Which data structure is the most efficient for storing sparse matrices?,Linked list,Array,Hash table,Stack,A
+Data structures,"Which data structure allows fast insertion, deletion but slow search?",Linked list,Array,Binary tree,Queue,A
+Data structures,What is the time complexity of binary search in a sorted array?, O(n),O(log n),O(n log n),O(1),B
+Data structures,Which of the following is NOT a valid tree traversal?,Level order,Random order,Preorder,Inorder,B
+Data structures,What is an adjacency matrix?,A square matrix of nodes,List of edges,Tree structure,Array of lists,A
+Data structures,Which is a benefit of adjacency list over adjacency matrix?,Less space when sparse,Easier to modify,Faster to traverse,None,A
+Data structures,Which of the following is true about Binary Search Trees?,All left nodes are smaller than root,All right nodes are smaller than root,Only leaf nodes have children,All nodes have two children,A
+Data structures,What is a skip list?,A probabilistic data structure for ordered sequences,An array of pointers,A binary tree,A hash table,A
+Data structures,Which data structure supports dynamic memory allocation without the need for shifting?,Linked list,Array,Stack,Circular array,A
+Data structures,What is the time complexity of accessing the middle element in linked list?,O(n),O(1),O(log n),O(n log n),A
+Data structures,What is the typical use of a hash function?,Indexing in hash table,Sorting,Searching ordered list,Memory allocation,A
+Data structures,Which of these structures is used to represent priority queues?,Heap,Array,Linked list,Tree,A
+Data structures,Which algorithm finds the shortest path in a weighted graph?,Dijkstra’s algorithm,BFS,DFS,Prim’s algorithm,A
+Data structures,Which data structure allows traversal in multiple directions?,Doubly linked list,Singly linked list,Stack,Queue,A
+Data structures,In which data structure is the FIFO algorithm implemented?,Queue,Stack,Graph,Tree,A
+Data structures,What feature does a self-balancing BST provide?,Guarantees O(log n) operations,Stores balanced values,Avoids duplicates,None,A
+Data structures,What is the difference between a tree and a graph?,Tree has no cycles,Graph is acyclic,Both have cycles,Trees store numbers only,A
+Data structures,Which of these is used for hierarchical data representation?,Trees,Arrays,Lists,Hash Tables,A
+Data structures,What structure typically uses pointers for node management?,Linked list,Array,Heap,Vector,A
+,,,,,,
+,,,,,,
+Advanced data structures,Which data structure allows fast access using a hash function?,Hash Table,Binary Tree,Linked List,Queue,A
+Advanced data structures,Which tree is self-balancing?,AVL,Binary Tree,Stack,Heap,A
+Advanced data structures,What is the maximum number of children in a binary heap node?,2,3,4,Unlimited,A
+Advanced data structures,What is the time complexity for finding the minimum element in a min heap?,O(1),O(log n),O(n),O(n log n),A
+Advanced data structures,What is a Trie commonly used for?,String searching,Sorting,Storing Integers,Arithmetic operations,A
+Advanced data structures,What does the B-tree structure aim to optimize?,Disk reads,Memory allocation,CPU execution time,Network latency,A
+Advanced data structures,Which of these is a priority queue implementation?,Binary Heap,Linked List,Hash Table,Stack,A
+Advanced data structures,What is the worst-case height of an AVL tree with n nodes?,O(log n),O(n),O(n log n),O(1),A
+Advanced data structures,Which data structure uses buckets to resolve collisions in hashing?,Separate chaining,Linear probing,Double hashing,Open addressing,A
+Advanced data structures,Which of the following is used for balancing and dynamic memory in trees?,Red-Black Tree,Binary Heap,AVL Tree,B-Tree,A
+Advanced data structures,What operation can be done in O(1) time on a hash table (average case)?,Search,Insert,Delete,All of the above,D
+Advanced data structures,Which is NOT a balanced binary search tree?,Binary Search Tree,AVL Tree,Red-Black Tree,Splay Tree,A
+Advanced data structures,What is a Fibonacci Heap primarily used for?,Network optimization,Sorting,String processing,Graphics rendering,A
+Advanced data structures,Which structure supports O(1) amortized time for insert and decrease key?,Fibonacci Heap,Binary Heap,Binomial Heap,Pairing Heap,A
+Advanced data structures,Which tree type is useful for database indexing?,B-tree,BST,AVL Tree,Trie,A
+Advanced data structures,What property makes a Red-Black Tree balanced?,Color rules,Num children,Node height,Key order,A
+Advanced data structures,What is a Skip List?,Probabilistic data structure,Balanced tree,Linked List with cycle,Heap,A
+Advanced data structures,Skip lists provide expected O(log n) time complexity for which operation?,Search,Insert,Delete,All of the above,D
+Advanced data structures,What is the key difference between a B-tree and a B+ tree?,All keys in leaves for B+,Keys can duplicate,Only leaves in B-tree,None of these,A
+Advanced data structures,Which data structure is ideal for implementing LRU cache?,Doubly linked list + Hash map,Binary tree,Hash set,Stack,A
+Advanced data structures,What is the amortized complexity of union operation in a disjoint set with path compression?,"O(?(n)), inverse Ackermann",O(log n),O(n),O(1),A
+Advanced data structures,Disjoint set data structure is mainly used for which problem?,Detecting cycles in graphs,Sorting,Searching,Dynamic allocation,A
+Advanced data structures,What is the time complexity for searching in a balanced B-tree of order m?,O(log n),O(m),O(n),O(m log n),A
+Advanced data structures,Which is NOT true about B-Trees?,All leaves at same level,Variable keys in nodes,Self-balancing tree,Unbounded height,D
+Advanced data structures,What kind of tree allows fast prefix searches?,Trie,BST,AVL Tree,Heap,A
+Advanced data structures,Which heap supports efficient merge operations?,Binomial Heap,Binary Heap,Fibonacci Heap,Pairing Heap,C
+Advanced data structures,What is the space complexity of a trie storing n keys (k = average key length)?,O(n*k),O(n),O(k),O(log n),A
+Advanced data structures,Which structure supports efficient range queries?,Segment Tree,Stack,Queue,Linked List,A
+Advanced data structures,How many children can a node have in a 2-3 tree?,2 or 3,2,3,4,A
+Advanced data structures,What is the height of a perfectly balanced binary tree with n nodes?,log2(n+1),n,n/log n,log n,A
+Advanced data structures,What is the time complexity of inserting in a hash table (with chaining)?,O(1),O(log n),O(n),O(n log n),A
+Advanced data structures,What mainly causes collisions in hashing?,Same index for different keys,Similar data,Data ordering,Bad hash function,A
+Advanced data structures,What is double hashing?,Collision resolution technique,Binary search,Alternative to arrays,Sorting algorithm,A
+Advanced data structures,Which is NOT a method for collision handling?,Separate chaining,Open addressing,Linear probing,Bubble chaining,D
+Advanced data structures,"In a splay tree, how is a recently accessed node moved to the root?",Rotations,Rebuilding tree,Swapping nodes,None,A
+Advanced data structures,What is the main advantage of a suffix tree?,Efficient substring queries,Sorting data,Balanced searches,Memory efficient,A
+Advanced data structures,Which is NOT an application of tries?,Spell checking,IP routing,DB indexing,Arithmetic calculations,D
+Advanced data structures,A Fenwick Tree is used to perform which operation efficiently?,Prefix sums,Sorting,Searching,Dynamic allocation,A
+Advanced data structures,What’s the complexity to update a Fenwick Tree?,O(log n),O(n),O(1),O(n log n),A
+Advanced data structures,AVL trees maintain which property?,Heap property,balance factor,Binary Search Tree property,Left child > right,B
+Advanced data structures,Which structure is used in interval trees?,Augmented BST,Heap,Trie,Hash Table,A
+Advanced data structures,Which of these is NOT a self-balancing tree?,Splay Tree,Red-Black Tree,BST,AVL Tree,C
+Advanced data structures,"In a pairing heap, what is the main operation?",Meld/merge,Insert,Delete min,Extract,A
+Advanced data structures,Which heap structure has better amortized performance for decrease-key?,Fibonacci heap,Binary heap,Binomial heap,Pairing heap,A
+Advanced data structures,Which structure stores data in compressed format via common prefixes?,Trie,Huffman tree,Binary heap,Segment tree,A
+Advanced data structures,What is the main challenge in implementing hash tables?,Handling collisions,Resizing,Storing keys,Ordering inserts,A
+Advanced data structures,What is a Ternary Search Tree used for?,Efficient string searching,Syntax parsing,Scheduling,Memory allocation,A
+Advanced data structures,Which supports efficient substring search?,Suffix Tree,Red-Black Tree,AVL Tree,B-Tree,A
+Advanced data structures,What is the goal of dynamic perfect hashing?,Constant time search,Constant space,Hash collisions,Minimal insertions,A
+Advanced data structures,What is used to detect cycles in an undirected graph?,Disjoint Set Union,BFS,DFS,Stack,A
+Advanced data structures,Which structure is suitable for LRU cache implementation?,Linked Hash Map,Tree Map,AVL Tree,Hash Set,A
+Advanced data structures,What balance rule does Red-Black Tree maintain?,No two adjacent red nodes,Left and right subtrees height diff ?1,Root always black,None,A
+Advanced data structures,Worst-case height of a Red-Black tree?,2 * log(n+1),log n,n,n/2,A
+Advanced data structures,Core van Emde Boas tree operation?,Fast pred/succ search,Sorting,Prefix sums,String matching,A
+Advanced data structures,What is true about B+ trees?,All keys in leaves,Keys only in internal,No duplicates,Fixed height,A
+Advanced data structures,"For fast-melding priority queue, use?",Binomial heap,Binary heap,Fibonacci heap,Leftist heap,C
+Advanced data structures,Which tree uses rank and null path length to maintain balance?,Leftist heap,Binary heap,AVL Tree,Red-Black tree,A
+Advanced data structures,Main advantage of Binary Indexed Tree (Fenwick Tree)?,Prefix sums efficiency,Faster insertions,Balanced trees,Easy code,A
+Advanced data structures,Structure for network routing tables (IP addresses)?,Trie,Hash Table,Linked List,BST,A
+Advanced data structures,Time complexity of insertion in red-black tree?,O(log n),O(n),O(1),O(n log n),A
+Advanced data structures,Quick finding of Lowest Common Ancestor (LCA)?,Segment Tree,Sparse Table,Fenwick Tree,AVL Tree,B
+Advanced data structures,Path compression in disjoint set:,Flattening the tree,Balancing the tree,Caching,Precomputing,A
+Advanced data structures,2-3 tree vs. B-tree: main difference?,B-tree order variable,2-3 has 2 or 3 kids,Same trees,2-3 not balanced,B
+Advanced data structures,Open addressing:,Sequence of probes after collision,Linked lists,Direct chaining,None,A
+Advanced data structures,DNA substring search is best using?,Suffix tree,Trie,Hash Table,BST,A
+Advanced data structures,Trie node with 26 children:,Trie,BST,AVL Tree,B-tree,A
+Advanced data structures,Main benefit of doubly over singly linked list?,Both-way traversal,Less memory,Faster search,Easier to code,A
+Advanced data structures,Structure to represent expressions in compilers?,Expression Trees,Hash Map,Linked List,Stack,A
+Advanced data structures,Which trees are best for interval queries?,Segment Trees,AVL Trees,BST,B-Trees,A
+Advanced data structures,Term for fast retrieval data structure?,Index,Cache,Stack,Queue,A
+Advanced data structures,Which kind of tree enables persistence (time travel queries)?,Persistent Tree,AVL Tree,BST,Heap,A
+Advanced data structures,What is the main use case for a Disjoint Set (Union-Find)?,Connected components,Fast sorting,Sparse matrices,Searching,A
+Advanced data structures,Which data structure enables sublinear predecessor/successor search among integers?,van Emde Boas tree,AVL tree,Skip list,Heap,A
+Advanced data structures,Key feature of a Pairing Heap?,Easy meld operation,Balanced structure,O(1) minimum delete,Uses hash maps,A
+Advanced data structures,Which tree generalizes BST with node degrees > 2?,B-tree,AVL tree,Red-Black Tree,Segment Tree,A
+Advanced data structures,Trie: primary use?,Prefix match,Sorting Strings,Set Union,Frequent insertions,A
+Advanced data structures,How are Segment Trees used in range query?,Store intervals,Node counting,Balances heights,Only leaf data,A
+Advanced data structures,Density in Skip List is controlled by?,Probability value,Pointer size,Node color,Table size,A
+Advanced data structures,Suffix Tree edge labels use?,Substrings reference,Node pointers,Parent link,Sibling ordering,A
+Advanced data structures,Hash Table collision handled by open addressing uses?,Probe sequence,Buckets,Chaining,Recursion,A
+Advanced data structures,What is the load factor in a Hash Table?,n/buckets,n-1,n+1,log(n),A
+Advanced data structures,Worst-case Hash Table search time (with chaining)?,O(n),O(1),O(log n),O(n log n),A
+Advanced data structures,Which structure supports orthogonal range search?,Range trees,Stack,Queue,Single BST,A
+Advanced data structures,Which heap shape always maintains complete binary tree?,Binary Heap,AVL Heap,Pairing Heap,Splay Heap,A
+Advanced data structures,Splay Tree: main balancing strategy?,After every access,Only on insert,Fixed height,Only after delete,A
+Advanced data structures,What’s a Bloom Filter used for?,Probabilistic membership test,Fast heap insertions,Range queries,Optimal prefix search,A
+Advanced data structures,Which technique efficiently answers RMQ (Range Minimum Query)?,Segment Tree,Heap,Queue,Stack,A
+Advanced data structures,Suffix Automaton use case?,Fast substring queries,Tree balances,Key-based successor,Fixed length map,A
+Advanced data structures,Which heap property allows for efficient element decrease-key?,Fibonacci heap,AVL Heap,Binary Min Heap,B-Tree,A
+Advanced data structures,What is Link/Cut Tree designed for?,Dynamic tree connectivity,String processing,AVL balancing,Hash mapping,A
+,,,,,,
+,,,,,,
+DAA,What does DAA stand for?,Design and Analysis of Algorithms,Data and Arithmetic Algorithms,Dynamic Abstract Architecture,Data Algorithm Analysis,A
+DAA,Which analysis finds time before code execution?,Priori analysis,Posteriori analysis,Dynamic analysis,Static analysis,A
+DAA,Which of these is not an asymptotic notation?,Theta,Phi,Big O,Omega,B
+DAA,What is the time complexity of binary search?,O(log n),O(n),O(n^2),O(n log n),A
+DAA,Which notation gives the upper bound in DAA?,Big O,Omega,Theta,Alpha,A
+DAA,Which sorting has the best worst-case complexity?,Merge sort,Bubble sort,Selection sort,Insertion sort,A
+DAA,What is space complexity?,Space required to run,RAM only,CPU only,Complexity of time,A
+DAA,Which is NOT a divide and conquer algorithm?,Binary search,Merge sort,Quick sort,Dijkstra's algorithm,D
+DAA,Which of these algorithms is greedy?,Kruskal’s,Bubble sort,Radix sort,Binary search,A
+DAA,What is the complexity of linear search?,O(n),O(log n),O(1),O(n^2),A
+DAA,Which is NOT used for complexity analysis?,Best case,Average case,Normal case,Worst case,C
+DAA,What is the recurrence for merge sort?,T(n) = 2T(n/2) + O(n),T(n) = T(n-1) + 1,T(n) = nT(n-1) + n,T(n) = T(n/2) + n^2,A
+DAA,Which searching technique requires a sorted list?,Binary search,Linear search,Random search,Hash search,A
+DAA,What is the smallest time complexity among the following?,O(1),O(n),O(n log n),O(n^2),A
+DAA,Which of these finds the shortest path in a weighted graph?,Dijkstra’s algorithm,BFS,DFS,Kruskal’s,A
+DAA,What is the key idea in dynamic programming?,Overlapping subproblems,Sorting only,Use of stack,Divide and conquer,A
+DAA,The knapsack problem is best solved using:,Dynamic programming,Greedy,Divide and conquer,Backtracking,A
+DAA,Which problem is NP-complete?,Travelling salesman,Bubble sort,BFS,Tower of Hanoi,A
+DAA,For which problem is Greedy optimal?,Fractional knapsack,Coin Change (all coins),Job sequencing (non-preemptive),All of the above,D
+DAA,What does the “critical path” in DAA refer to?,Longest path in a DAG,Shortest path,Any random path,All paths,A
+DAA,Recursion is most commonly implemented using:,Stack,Queue,Heap,Tree,A
+DAA,The time complexity of Bubble sort is:,O(n^2),O(1),O(log n),O(n log n),A
+DAA,Which of these problems is solved by backtracking?,N-Queens,Binary search,Merge sort,BFS,A
+DAA,Which is false for Kruskal’s algorithm?,It finds MST,Uses Union-Find,May create cycles,Greedy technique,C
+DAA,What’s the worst-case for searching in a hash table with chaining?,O(n),O(1),O(log n),O(n log n),A
+DAA,What approach is best for matrix chain multiplication?,Dynamic programming,Divide and conquer,Greedy,Brute force,A
+DAA,What’s the time complexity for Sieve of Eratosthenes?,O(n log log n),O(n log n),O(n^2),O(log n),A
+DAA,What is the Master Theorem used for?,Solve recurrences,Dynamic Programming,Sorting,Hashing,A
+DAA,Which of these is not a common asymptotic notation?,Alpha,Omega,O (Big O),Theta,A
+DAA,What is the minimum number of edges in a connected graph with n vertices?,n-1,n,n+1,n^2,A
+DAA,What is “memoization”?,Caching subproblem answers,Memory allocation,Allocation of arrays,Using stacks,A
+DAA,Which best describes NP-hard problems?,At least as hard as NP-complete,All are polynomial,Easy to solve,NP-easy,A
+DAA,What does the “Big Theta” notation represent?,Tight bound,Upper bound,Lower bound,No bound,A
+DAA,Which data structure is used in BFS?,Queue,Stack,Heap,Tree,A
+DAA,What does a decision tree represent in DAA?,Flow of decisions,Algorithm complexity,Number of recursions,Time bounds,A
+DAA,What is backtracking?,Tries all possibilities,Runs backward always,Solves only graphs,None,A
+DAA,What is complexity of binary search tree average search?,O(log n),O(n),O(1),O(n^2),A
+DAA,Which is true for Prim's algorithm?,MST using Greedy,Stack-based,Uses cycles,All the above,A
+DAA,The time complexity of Merge sort is?,O(n log n),O(n),O(n^2),O(log n),A
+DAA,Which of these does not guarantee the optimal solution always?,Greedy,Dynamic Programming,Brute force,None of these,A
+DAA,Floyd-Warshall is used for,All-pairs shortest paths,Prim’s MST,Sorting,Greedy scheduling,A
+DAA,Which of these is not a dynamic programming problem?,Quick Sort,Matrix Chain Multiplication,Longest Common Subsequence,0-1 Knapsack,A
+DAA,What is the best case complexity of quick sort?,O(n log n),O(n^2),O(log n),O(n),A
+DAA,Which problem cannot be solved in polynomial time?,NP-complete,P,MST,Linear search,A
+DAA,What is the main feature of greedy algorithms?,Locally optimal at each step,Global optimal only,Recursion,Always backtracking,A
+DAA,The chromatic number of a graph is:,Minimum colors for coloring,Maximum edges,Minimum vertices,Maximum degree,A
+DAA,Which algorithm is used for minimum spanning tree?,Kruskal's,DFS,Binary search,Boyer-Moore,A
+DAA,What is the complexity of selection sort?,O(n^2),O(n log n),O(n),O(log n),A
+DAA,Which approach is used by Tower of Hanoi?,Recursion,Iteration,Dynamic Programming,Greedy,A
+DAA,What is the traveling salesman problem?,Find minimum cost Hamiltonian cycle,Find all spanning trees,Greedy spanning tree,Find maximum path,A
+DAA,Which of these uses top-down approach?,Recursion,Dynamic Programming,Divide and Conquer,Backtracking,A
+DAA,What is the Big O of the best sorting algorithm in average case?,O(n log n),O(n^2),O(n),O(log n),A
+DAA,Hill climbing is an example of:,Local search,Divide & conquer,Exhaustive search,Brute force,A
+DAA,Which is NOT a property of DFS?,Uses a queue,Finds cycles,Depth traversal,May use recursion,A
+DAA,What is time complexity to traverse all nodes in a binary tree?,O(n),O(log n),O(n^2),O(n log n),A
+DAA,Which technique does matrix multiplication use?,Dynamic Programming,Greedy,Brute force,Hashing,A
+DAA,What does NP stand for?,Non-deterministic Polynomial,Non-polynomial,Normal Polynomial,Null Polynomial,A
+DAA,Dijkstra’s algorithm fails on:,Negative weight edges,Unweighted graphs,Sparse graphs,Small graphs,A
+DAA,Which is NOT a string matching algorithm?,Quick sort,Rabin-Karp,Boyer-Moore,Naive,A
+DAA,"In dynamic programming, the problem is divided into:",Overlapping subproblems,Non-overlapping,Unrelated problems,Only trivial subproblems,A
+DAA,What is transitive closure of a graph?,Reachability of nodes,MST,DFS,All-pair shortest paths,A
+DAA,What is complexity of best-case linear search?,O(1),O(n),O(log n),O(n^2),A
+DAA,The “Longest Common Subsequence” is solved using:,Dynamic Programming,Greedy,Divide and Conquer,Brute Force,A
+DAA,Which is NOT a greedy choice property?,Locally optimal,Recursion only,Irrevocable choice,Greedy step,B
+DAA,Which of these can be exponential time?,Backtracking,Merge sort,Quick sort,Heap sort,A
+DAA,A recurrence relation is:,An equation for T(n),Sorting formula,Order of recursion,Stack depth,A
+DAA,Kruskal’s algorithm sorts edges by:,Weight,Degree,Random order,Vertex label,A
+DAA,What is true for topological sorting?,Only for DAGs,For forests,For cycles,Only for trees,A
+DAA,Bellman-Ford finds:,Shortest path (with negatives),MST,Strong connectivity,Cycles in trees,A
+DAA,Which is NOT an optimal substructure property?,Uses only local information,Solves smaller subproblems,Combines solutions,Forms larger solution,A
+DAA,What is used to solve subproblems optimally and combine them for global solution?,Dynamic Programming,Greedy,Recursion,Searching,A
+DAA,Which complexity is O(n log n)?,Merge sort,Bubble sort,Linear search,Selection sort,A
+DAA,Which data structure is used in Prim's algorithm?,Min Heap,Max Heap,Stack,Tree,A
+DAA,What kind of algorithm is Floyd-Warshall?,Dynamic Programming,Greedy,Divide and conquer,None of these,A
+DAA,Which is NOT required for divide and conquer?,Overlapping subproblems,Divide,Combine,Solve,A
+DAA,Which approach is used in Quick sort?,Divide and conquer,Dynamic Programming,Greedy,All of these,A
+DAA,"If a problem can be solved in polynomial time, it belongs to:",P,NP Hard,NP complete,None,A
+DAA,Complexity class “NP-complete” is:,Hardest in NP,Easiest in NP,In P,Not a class,A
+DAA,Which of these is not a characteristic of dynamic programming?,Solves each subproblem only once,Solves subproblems recursively,Uses solution table,All use stacks,D
+DAA,The Bellman-Ford algorithm can handle:,Negative weights,Only positive weights,Trees only,Cycles only,A
+DAA,Which is true about BFS and DFS?,"BFS uses queue, DFS uses stack",Both use stacks,Both use recursion,BFS for MST,A
+DAA,"The best case time of insertion sort is O(n), it occurs when:",List is already sorted,All values same,List is in reverse order,No swaps needed,A
+DAA,Which graph algorithm allows cycles?,DFS and BFS,Topological Sort,Prim's,None of these,A
+DAA,Dynamic Programming is mostly used for:,Optimization problems,Sorting,Searching,Encryption,A
+DAA,What is the Travelling Salesman Problem’s complexity?,O(n!),O(n^2),O(n log n),O(log n),A
+DAA,Which is NOT part of algorithm design paradigms?,Triangulation,Divide and conquer,Dynamic programming,Greedy,A
+DAA,Breadth-First Search is most suitable for:,Finding shortest path in unweighted graph,DFS only,Sorting,Merging,A
+DAA,What is path compression in Disjoint Set?,Flattens tree for quick find,Combines nodes,Uses hash tables,Slows union,A
+DAA,Which is the correct recursive relation for binary search?,T(n) = T(n/2) + c,T(n) = T(n) + 1,T(n) = T(n-1) + n,T(n) = nT(n-1) + n,A
+DAA,Polynomial time has an upper bound of:,n^k for some k,log n,n!,2^n,A
+DAA,Greedy algorithms use:,Locally optimal solutions,Only global solution,All possible solutions,No order,A
+DAA,Bellman-Ford complexity for V vertices and E edges:,O(VE),O(V^2),O(V+E),O(E^2),A
+DAA,What is MST?,Minimum Spanning Tree,Maximum Subtree,Median Sort Tree,Multi-Source Tree,A
+DAA,Which paradigm solves “overlapping subproblems” efficiently?,Dynamic Programming,Greedy,Divide and Conquer,Brute Force,A
+DAA,The shortest path from one source to all vertices with negative weights is found by:,Bellman-Ford,Dijkstra,Kruskal,Prim,A
+DAA,Prim’s and Kruskal’s both find:,Minimum Spanning Tree,Shortest path,Sorting,Maximum Matching,A
+DAA,Which is used for 0-1 knapsack?,Dynamic Programming,Greedy,Divide and Conquer,Searching,A
+DAA,“P = NP?” is:,Unsolved problem,Proved true,Proved false,Not relevant,A
+DAA,KMP algorithm is used for,String matching,Sorting,Shortest path,MST,A
+DAA,The optimal cost of a matrix chain multiplication is stored in:,Table,List,Array,Heap,A
+DAA,Dynamic programming builds solution in:,Bottom up,Top down,Middle out,Random,A
+DAA,The knapsack problem with fractional items is solved optimally by:,Greedy,Dynamic Programming,Backtracking,Brute force,A
+,,,,,,
+,,,,,,
+DBMS,Which language is used to define a database schema?,DDL,DML,DCL,QL,A
+DBMS,What does SQL stand for?,Structured Query Language,Sequential Query Language,Simple Question Language,Script Query Language,A
+DBMS,Which normal form eliminates partial dependency?,2NF,3NF,1NF,BCNF,A
+DBMS,What is a primary key?,Unique identifier,Duplicate value,Aggregate function,Subkey,A
+DBMS,Which is a non-procedural language?,SQL,C,Java,Python,A
+DBMS,What does ACID stand for in DBMS?,"Atomicity, Consistency, Isolation, Durability","Algorithm, Consistency, Inconsistency, Data","Algebra, Connection, Isolation, Durability","Array, Consistency, Integrity, Datalog",A
+DBMS,Which language is for manipulation of data?,DML,DQL,DDL,DCL,A
+DBMS,Which command is used to remove a table from a database?,DROP,DELETE,REMOVE,ERASE,A
+DBMS,What is a foreign key?,References another table,Unique row identifier,Unique in a table,Same as primary key,A
+DBMS,Which SQL statement is used to extract data from a database?,SELECT,GET,EXTRACT,OPEN,A
+DBMS,Which key uniquely identifies each row?,Primary key,Alternate key,Secondary key,Foreign key,A
+DBMS,Which normal form deals with transitive dependency?,3NF,2NF,1NF,4NF,A
+DBMS,What is normalization?,Process to minimize redundancy,Security method,Data insertion,A kind of key,A
+DBMS,What is a tuple in DBMS?,Row,Table,Column,Scheme,A
+DBMS,A relation is in 1NF if:,Atomic values only,All rows are unique,All attributes have unique names,No partial dependency,A
+DBMS,Which is not a JOIN in SQL?,CROSS,OUTER,INNER,UPPER,D
+DBMS,What command changes values in rows?,UPDATE,SET,ALTER,MODIFY,A
+DBMS,What does RDBMS stand for?,Relational Database Management System,Random DBMS,Regional DBMS,Relational Data Sort,A
+DBMS,Which command is used to add new data?,INSERT,ADD,POST,NEW,A
+DBMS,What does DCL stand for?,Data Control Language,Data Compilation Language,Database Command List,Data Column Language,A
+DBMS,Which is NOT an aggregate function?,SUM,AVG,TOTAL,MIN,C
+DBMS,Who is responsible for database security and authorization?,DBA,User,Database Agent,Developer,A
+DBMS,What is a view in SQL?,Virtual table,Schema,Command,Real table,A
+DBMS,Which clause is used for grouping records?,GROUP BY,GROUP ON,COLLECT,CLASSIFY,A
+DBMS,Which type of key can accept null values?,Foreign key,Primary key,Super key,Candidate key,A
+DBMS,What is denormalization?,Reverse of normalization,Normalizing further,Deleting tables,Dropping PK,A
+DBMS,Who controls concurrency in DBMS?,Lock Manager,Query Processor,Buffer Manager,DBA,A
+DBMS,Which operation is not supported by views?,Insert (in some cases),Select,Join,Projection,A
+DBMS,What is a transaction?,Logical unit of work,Security process,Manager operation,Data duplication,A
+DBMS,Which type of join combines all rows from both tables?,FULL OUTER JOIN,INNER JOIN,CROSS JOIN,LEFT JOIN,A
+DBMS,Which integrity ensures that a value in one table matches value in another?,Referential,Entity,Domain,Row,A
+DBMS,What does a NULL in database mean?,Unknown or missing value,Zero,Space,-1,A
+DBMS,Which SQL clause is used to eliminate duplicate records?,DISTINCT,UNIQUE,DELETE,REMOVE,A
+DBMS,Which is used for backup and restoration?,Transaction log,Data file,Index,Synonym,A
+DBMS,Which statement deletes all records (but not the table structure)?,DELETE,ERASE,DROP,REMOVE,A
+DBMS,Which lock allows other read but not write?,Shared lock,Exclusive lock,Dirty lock,Write lock,A
+DBMS,Which is NOT a constraint in SQL?,UNIQUE,CHECK,FILTER,PRIMARY KEY,C
+DBMS,A candidate key is:,Any unique combination of columns,Always PK,Always FK,All keys in a table,A
+DBMS,What is an entity set?,Collection of similar entities,Single value,Data tuple,Relation,A
+DBMS,Which operator is used in pattern matching?,LIKE,MATCH,PATTERN,COMPARE,A
+DBMS,Which normalization form removes multivalued dependency?,4NF,5NF,2NF,1NF,A
+DBMS,What is schema in DBMS?,Structure of database,Query result,Table row,Data value,A
+DBMS,Which is a property of relational tables?,Rows unordered,Unique columns,No null values,Single PK,A
+DBMS,Which command is used to grant permissions?,GRANT,ALLOW,ENABLE,PERMIT,A
+DBMS,Which model uses ER diagrams?,Entity-Relationship model,Network model,Hierarchical model,Object model,A
+DBMS,Which file keeps track of all modifications in DBMS?,Log file,Temp file,Data file,Index file,A
+DBMS,Which schedule does not preserve consistency?,Unserializable schedule,Serializable,Conflict serializable,All consistent schedules,A
+DBMS,What does TCL stand for?,Transaction Control Language,Table Control Language,Total Column List,Table Configuration List,A
+DBMS,Which clause filters groups in SQL?,HAVING,GROUP BY,WHERE,ORDER BY,A
+DBMS,"In SQL, which joins rows with matching columns?",INNER JOIN,OUTER JOIN,SUB JOIN,SELF JOIN,A
+DBMS,What is an index in DBMS?,Faster search structure,View,Join operation,Special key,A
+DBMS,What is the default isolation level in most systems?,Read committed,Serializable,Read uncommitted,Repeatable read,A
+DBMS,What is anomaly in DBMS?,Undesirable dependency,Row addition,Table merge,Security threat,A
+DBMS,What is deadlock?,Two transactions waiting for each other,Hash collision,PK conflict,Continuous insertions,A
+DBMS,Which is NOT a feature of NoSQL?,Fixed schema,Horizontal scaling,Unstructured data,CAP theorem,A
+DBMS,What is the command to remove only structure (and all data)?,DROP,DELETE,ERASE,REMOVE,A
+DBMS,Which is a process of making a backup copy of the database?,Dump,Duplicate,Copy,Restore,A
+DBMS,Which of the following is not an SQL data type?,CURRENCY,VARCHAR,INT,FLOAT,A
+DBMS,A minimal superkey is called?,Candidate key,Secondary key,Alternate key,Surrogate key,A
+DBMS,What is a surrogate key?,Artificial unique key,Composite key,FK synonym,PK alias,A
+DBMS,What is the degree of a relation?,Number of attributes,Number of rows,Max value,Number of PKs,A
+DBMS,The operation intersection in relational algebra is denoted by?,?,?,×,–,A
+DBMS,Which SQL command is used to remove a record permanently?,DELETE,TRUNCATE,REMOVE,DROP,A
+DBMS,What is domain in DBMS?,Set of values for attribute,Table row,PK,Data warehouse,A
+DBMS,"In SQL, which keyword sorts results?",ORDER BY,SORT,REORDER,GROUP BY,A
+DBMS,What is BCNF?,Boyce-Codd Normal Form,Binary Consistency Normal Form,Base Class Normal Form,Boolean Condition NF,A
+DBMS,What is the minimal set of attributes to identify a tuple?,Candidate key,PK,Composite key,FK,A
+DBMS,Which of the following is not a relational algebra operation?,SELECT,UPDATE,PROJECT,RENAME,B
+DBMS,The number of tuples in a relation is called?,Cardinality,Degree,Volume,Metric,A
+DBMS,What is the name for a table in the relational model?,Relation,Row,Tuple,Record,A
+DBMS,A many-to-many relationship is resolved by:,Bridge entity,Foreign key,Primary key,None,A
+DBMS,What is referential integrity?,Foreign key matches PK,Unique column value,Only PK can be NULL,No check on FK,A
+DBMS,What type of JOIN returns only rows with matches in both tables?,INNER JOIN,OUTER JOIN,LEFT JOIN,RIGHT JOIN,A
+DBMS,"In SQL, which keyword is used to change structure?",ALTER,CHANGE,SET,UPDATE,A
+DBMS,The process of converting ER model to table format is?,Mapping,Translating,Converting,Linking,A
+DBMS,Locks released at end of transaction are called?,Commit point,Global lock,Local lock,Read lock,A
+DBMS,What does ODBC stand for?,Open Database Connectivity,Offline DB Connect,Online Data Binding Connection,Object Database Connect,A
+DBMS,Which command undoes all changes since the last commit?,ROLLBACK,REVERSE,UNDO,CANCEL,A
+DBMS,Which is a join of a table with itself?,SELF JOIN,FULL JOIN,CROSS JOIN,PRIMARY JOIN,A
+DBMS,Which is used for controlling access to a database?,Privileges,PK,FK,Check,A
+DBMS,Which operation combines rows from two tables?,JOIN,PROJECT,SELECT,INTERSECT,A
+DBMS,Which is not a type of database model?,Hierarchical,Relational,Functional,Network,C
+DBMS,What is a trigger in DBMS?,Action on event,Primary key,Foreign key,Table query,A
+DBMS,What represents a one-to-many relationship?,PK-FK,Unique key,Candidate key,Super key,A
+DBMS,A transaction fails and the system is restored to a prior state. This is:,Rollback,Commit,Lock,Recovery,A
+DBMS,Which schedule allows serializability?,Serializable,Unserializable,Inconsistent,Blind,A
+DBMS,Which keyword is used to remove duplicates in SQL SELECT?,DISTINCT,UNIQUE,FILTER,CLEAR,A
+DBMS,"In SQL, how do you count rows?",COUNT(*),SUM(*),ROWCOUNT(),TOTAL(),A
+DBMS,"What does ""HAVING"" do in SQL?",Filter groups,Sorts data,Joins tables,Alters schema,A
+DBMS,Which is NOT a type of relationship in DBMS?,One-to-few,One-to-one,One-to-many,Many-to-many,A
+DBMS,Which SQL command permanently removes a table?,DROP,DELETE,CLEAR,REMOVE,A
+DBMS,Which is NOT a correct constraint in SQL?,SELECT,PRIMARY KEY,CHECK,UNIQUE,A
+DBMS,The key that uniquely identifies records in database table is called:,Primary key,Candidate key,Alternate key,Foreign key,A
+DBMS,The SQL command to remove all rows from a table and release space:,TRUNCATE,DELETE,DROP,ERASE,A
+DBMS,SQL's command to change values in rows is:,UPDATE,MODIFY,CHANGE,ALTER,A
+DBMS,Which is a property of transactions in DBMS?,Atomicity,Concurrency,Redundancy,Integrity,A
+DBMS,What is meant by the degree of a relation?,Number of columns,Number of rows,Number of FKs,Value types,A
+DBMS,The process of restoring a database after failure is called:,Recovery,Backup,Security,Rollback,A
+,,,,,,
+,,,,,,
+TOC,What is a finite automaton?,Machine with infinite states,Automaton with finite states,Memoryless machine,Machine that learns,B
+TOC,What does NFA stand for?,Nondeterministic Finite Automaton,New Finite Automaton,Nonfunctional Automaton,Numeric Finite Automaton,A
+TOC,Which diagram represents states in automata?,Squares,Circles,Triangles,Diamonds,B
+TOC,Epsilon transitions in NFA allow:,Empty string transitions,Only with input symbol,Accept only numbers,None of these,A
+TOC,Which automaton recognizes regular languages?,DFA,PDA,Turing Machine,LBA,A
+TOC,What is the minimum number of states required for a DFA accepting empty language?,1,0,2,n,A
+TOC,Regular expressions can be converted to which automaton?,DFA,LBA,PDA,Turing Machine,A
+TOC,Which language is not regular?,{a^n b^n,n ? 0},"{a, b}*",Strings with even a’s,Strings with no b’s
+TOC,A context-free grammar is used to describe:,Context-free languages,Regular languages,Unrestricted languages,Context-sensitive languages,A
+TOC,What is the Chomsky hierarchy lowest level?,Regular,Context-free,Context-sensitive,Recursively enumerable,A
+TOC,Pushdown automata can recognize:,Context-free languages,All recursive languages,Regular languages,All programming languages,A
+TOC,Which machine is strictly more powerful than DFA?,PDA,NFA,Both,None,A
+TOC,A Turing Machine is used to prove:,Computability,Uncomputability,Both,None,C
+TOC,What is the halting problem?,Turing undecidable,Regular problem,Context-free,Context-sensitive,A
+TOC,Who introduced regular expressions?,Stephen Kleene,Alan Turing,Kurt Gödel,Chomsky,A
+TOC,Moore and Mealy machines are:,FSM with outputs,FSM with memory,Non-deterministic,Infinite state machines,A
+TOC,Language accepted by DFA is:,Always regular,Always context-free,Only empty,Always nonregular,A
+TOC,Pumping lemma is used to prove:,Nonregularity,Context sensitivity,Recursion,Computability,A
+TOC,Which of the following has stack memory?,PDA,DFA,NFA,LBA,A
+TOC,Which statement is FALSE for regular languages?,Closed under reversal,Closed under union,Closed under intersection,Not closed under complement,D
+TOC,Chomsky Normal Form is:,For context-free grammars,For regular grammars,For TMs,For DFAs,A
+TOC,Which automaton handles context-sensitive languages?,LBA,PDA,DFA,NFA,A
+TOC,Regular language cannot be recognized by:,Stack automaton,DFA,NFA,Regular Expression,A
+TOC,"The set of all palindromes over {a,b} is:",Not regular,Regular,Context-free,Finite,A
+TOC,Which of the following is decidable?,Regularity of a language,Halting Problem,Post Correspondence,All above,A
+TOC,Language generated by S ? aSb,? is:,{a^n b^n,n?0},"{a, b}*",{a^n b^n c^n
+TOC,Which symbol in grammar produces terminal directly?,Terminal,Start symbol,Non-terminal,Derivation,A
+TOC,PDA accepts strings by:,Final state or empty stack,Initial state,Only empty string,Transition only,A
+TOC,Pumping lemma fails for:,Context-free languages,Regular languages,Context-sensitive,Recursively enumerable,A
+TOC,Which closure property is NOT true for regular languages?,Intersection,Complement,Union,Length-preserving inverse homomorphism,D
+TOC,Which language is context-free but not regular?,{a^n b^n,n ? 0},{a^n,n ? 0},"{ab, ba}"
+TOC,"In DFA, transitions for each symbol from a state are:",Exactly one,Multiple values,None,Recursive,A
+TOC,The language L = { ww,"w ? {0,1}* } is:",Not regular,Regular,Context-free,Linear bounded
+TOC,Which is true for recursive languages?,Decidable,Undecidable,Context-sensitive,Recursively enumerable,A
+TOC,A Turing machine is:,Most powerful automaton,Less powerful than DFA,Same as Regular Languages,Only for context-free,A
+TOC,The complement of a context-free language is:,Not always context-free,Always context-free,Always regular,Never accepted,A
+TOC,"In a DFA, dead state means:",No final states reachable,No transitions,Initial state only,Multiple finals,A
+TOC,NP-complete problems are:,In NP and as hard as any in NP,Easier than P,Solved only by DFA,Context-free,A
+TOC,Language accepted by a regular expression is:,Regular,Context-free,Undecidable,Turing computable,A
+TOC,"If a problem is semidecidable, it is:",Recursively enumerable,Regular,Context-free,Polynomial,A
+TOC,Chomsky hierarchy type 1 corresponds to:,Context-sensitive,Context-free,Regular,Recursively enumerable,A
+TOC,What is Rice's Theorem about?,Undecidability of TM properties,Closure properties,CFG ambiguity,Greedy algorithms,A
+TOC,What is Post’s Correspondence Problem?,Classic undecidable problem,DFA minimization,Regularity check,Palindrome test,A
+TOC,Which model is less powerful than a Turing Machine?,PDA,LBA,None,Quantum computer,A
+TOC,Turing machines that always halt are called:,Deciders,Recognizers,Enumerators,Stack automata,A
+TOC,Pumping lemma for context-free languages shows:,Not context-free,Undecidable,Context-sensitive,Regular,A
+TOC,Type-2 grammar is for:,Context-free,Regular,Context-sensitive,Recursively enumerable,A
+TOC,Which describes Chomsky Type-0 grammar?,Unrestricted grammar,Regular grammar,CFG,CSL,A
+TOC,What does the number of states in minimum DFA represent?,Complexity of regular language,Alphabet size,Input length,Output symbols,A
+TOC,Pumping lemma for regular languages is a:,Necessary property,Sufficient property,Terminal property,Ambiguous property,A
+TOC,Which machine uses stack for computation?,PDA,Turing Machine,DFA,LBA,A
+TOC,Kleene star in regular expression denotes:,Zero or more repetitions,One and only once,Zero only,One or more,A
+TOC,A regular grammar has productions of the form:,A ? aB or A ? a or A ? ?,A ? BC,A ? ? only,All above,A
+TOC,Which operation is NOT closed in CFLs?,Intersection with regular,Complement,Union,Concatenation,B
+TOC,How are regular sets recognized?,Finite automata,Stack automata,Context-free grammar,LBA,A
+TOC,Which grammar recognizes only regular languages?,Right-linear grammar,Context-free grammar,Unrestricted grammar,Context-sensitive,A
+TOC,What is a language generated by unrestricted grammar?,Recursively enumerable,Regular,Context-free,Context-sensitive,A
+TOC,The computation power of NFA and DFA is:,Equivalent,DFA more powerful,NFA more powerful,Incomparable,A
+TOC,What does Myhill-Nerode theorem characterize?,Regular sets,Context-free languages,Turing machines,Stack automata,A
+TOC,Ambiguous grammar means:,Two or more leftmost derivations,Only one derivation,Cannot parse,Rejects input,A
+TOC,"If a language is recognized by a LBA, then:",Context-sensitive,Regular,Undecidable,Semi-decidable,A
+TOC,Which of following is NOT true for Turing Machines?,Only finite tape,Infinite tape,Reads and writes,Moves head,A
+TOC,What model recognizes context-sensitive languages?,LBA,PDA,DFA,NFA,A
+TOC,The language { ww,"w ? {a,b}* } is:",Not context-free,Context-free,Regular,Decidable
+TOC,What class are languages accepted by non-deterministic Turing machines?,Recursively enumerable,Regular,Linear-bounded,Context-free,A
+TOC,Universal Turing Machine can simulate:,Any Turing machine,Only DFA,NP-complete languages,Only PDA,A
+TOC,"In Chomsky hierarchy, regular languages fall into:",Type 3,Type 2,Type 1,Type 0,A
+TOC,Regular expressions correspond to:,Type 3 grammar,Type 0 grammar,Type 2 grammar,Type 1 grammar,A
+TOC,Which computational model can solve the Halting problem?,None,DFA,PDA,Stack automaton,A
+TOC,Which function cannot be computed?,Halting function,Addition,Subtraction,Multiplication,A
+TOC,What is the difference between DFA and NFA?,DFA deterministic,NFA non-deterministic,Both,All above,D
+TOC,Which tool is used to prove undecidability?,Diagonalization,Completeness,Context Sensitivity,Table Filling,A
+TOC,"If a grammar has productions with only one symbol on left-hand side, it is:",Context-free,Context-sensitive,Unrestricted,Regular,A
+TOC,The Church-Turing thesis says:,All computable by algorithm is Turing computable,DFA is universal,No non-computable functions,Decidability is trivial,A
+TOC,"In TOC, P is a class of:",Problems solvable in polynomial time,Problems undecidable,Regular languages,Context-free,A
+TOC,What is a non-deterministic Turing machine?,Multiple moves possible,No transitions,DFA with stack,NFA variant,A
+TOC,The pumping lemma for context-free languages uses:,Two substrings to pump,Parity only,Stack popping,Table checking,A
+TOC,Moore machine output is based on:,State only,Input symbol,State and input,None,A
+TOC,Mealy machine output is based on:,State and input,State only,Input only,Output only,A
+TOC,The initial configuration of a Turing machine consists of:,Input on tape and head at start,One blank cell,State at end,Stack with input,A
+TOC,What is language hierarchy in Chomsky hierarchy based on?,Grammar restrictions,Number of variables,Size of alphabet,All above,A
+TOC,Which language is not recursively enumerable?,Halting problem,Palindrome,{a^n b^n c^n},{a^n b^n},A
+TOC,Who proposed the concept of Turing computable?,Alan Turing,Chomsky,Kleene,Cook,A
+TOC,Linear bounded automata use:,Tape proportional to input,Infinite tape,No tape,Stack only,A
+TOC,Non-context-free languages can be recognized by:,Turing machine,DFA,PDA,None,A
+TOC,The class of problems solved in NP but not in P are:,NP-complete/NP-hard,P,All regular,LBA,A
+TOC,Recursive enumerable language is also called:,Turing recognizable,Decidable,Context-free,DFA-accepted,A
+TOC,What is head movement in Turing Machine?,Left or right,Only right,Only left,Fixed,A
+TOC,A Turing machine halts when:,No valid transitions,Stack empty,Tape ends,Output matches input,A
+TOC,What input alphabet does automata process?,Finite set of symbols,Infinite symbols,Only numbers,Real numbers,A
+TOC,"In context-free grammars, derivations can be:",Leftmost or rightmost,Left only,Right only,None,A
+TOC,"If a language is not regular, then:",It cannot be accepted by DFA,Always infinite,Only palindrome,Only regular,A
+TOC,The LBA accepts which language?,Context-sensitive,Regular,Context-free,Recursive,A
+TOC,What is a recursive language?,Decidable language,Undecidable,Regular,Context-free,A
+TOC,"If TM is non-halting for some inputs, it is said to:",Recognize but not decide,Decide always,DFA only,Accept all cases,A
+TOC,"What is the role of a ""blank"" symbol in a TM?",Used to delimit tape boundary,Indicates stack,Accept state,Used in DFA,A
+,,,,,,
+,,,,,,
+Compiler Design,Which phase checks the grammar of a programming language?,Syntax analysis,Lexical analysis,Semantic analysis,Code generation,A
+Compiler Design,Which phase generates tokens from source code?,Lexical analysis,Syntax analysis,Code optimization,Semantic analysis,A
+Compiler Design,Which data structure is used by most compiler parsing algorithms?,Stack,Queue,Heap,Tree,A
+Compiler Design,The main purpose of the symbol table is to:,Collect identifiers,Store source code,Store variable types,Track reserved words,A
+Compiler Design,Which type of grammar is NOT used in compiler construction?,Context-sensitive,Regular,Context-free,Unrestricted,A
+Compiler Design,Which one is not a phase of a compiler?,Linking,Semantic analysis,Intermediate code gen,Code optimization,A
+Compiler Design,The output of lexical analysis is:,Tokens,Parse tree,Intermediate code,Machine code,A
+Compiler Design,Which parser is used in YACC?,LALR,LL,SLR,LR,A
+Compiler Design,Which grammar is accepted by LR parsers?,LR grammar,LL grammar,Both,None,A
+Compiler Design,Constant folding is a type of:,Code optimization,Code generation,Semantic analysis,All of the above,A
+Compiler Design,Which phase inserts type information?,Semantic analysis,Syntax analysis,Lexical analysis,Intermediate code generation,A
+Compiler Design,What is a parse tree?,Tree for grammar,Token sequence,Symbol table,Source code,A
+Compiler Design,Which is not a storage allocation scheme?,Static allocation,Dynamic allocation,Heap allocation,Network allocation,D
+Compiler Design,Peephole optimization is applied on:,Small code windows,Loops only,Grammars only,High-level code,A
+Compiler Design,Which phase eliminates dead code?,Code optimization,Lexical analysis,Syntax analysis,Semantic analysis,A
+Compiler Design,What does a loader do?,Loads object code,Compiles code,Optimizes code,Parses tokens,A
+Compiler Design,Intermediate code is generated after:,Semantic analysis,Lexical analysis,Optimization,Linking,A
+Compiler Design,Which table is used to track functions and variables?,Symbol table,Parse table,Code window,Activation record,A
+Compiler Design,Which parser parses input from left to right & constructs rightmost derivation?,LR parser,LL parser,Top-down parser,Precedence parser,A
+Compiler Design,Which phase is responsible for generating assembly code?,Code generation,Intermediate code gen,Semantic analysis,Parsing,A
+Compiler Design,"The action of ""reducing"" in bottom-up parsing refers to:",Replacing RHS by LHS,Expanding a node,Checking semantics,Generating tokens,A
+Compiler Design,Which representation is used for code optimization?,Intermediate code,Source code,Parse tree,Target code,A
+Compiler Design,The start symbol in a grammar is:,Producer of sentences,Terminal symbol,Non-terminal symbol,Rule matcher,A
+Compiler Design,Shift-reduce conflict occurs in:,Parsing,Lexical analysis,Error handling,Code optimization,A
+Compiler Design,Which phase detects type mismatches?,Semantic analysis,Syntax analysis,Lexical analysis,Linking,A
+Compiler Design,What is an ambiguous grammar?,Multiple parse trees,One parse tree,Type error,Unused variables,A
+Compiler Design,The regular expressions correspond to which language class?,Regular,Context-free,Unrestricted,Context-sensitive,A
+Compiler Design,Which is not a code optimization technique?,Constant folding,Common subexpression,Loop unrolling,Constant expansion,D
+Compiler Design,Which data structure is used for syntax analysis?,Stack,Queue,Array,Hash table,A
+Compiler Design,A grammar is said to be left recursive if:,LHS derives itself,RHS derives LHS,LHS is terminal,All rules right associative,A
+Compiler Design,What is a triple in intermediate code?,An address structure,Token,Symbol table entry,Parse rule,A
+Compiler Design,Which is not a parser type?,Top-down,Bottom-up,String parser,Predictive parser,C
+Compiler Design,Which error is detected in lexical analysis?,Invalid identifier,Uninitialized variable,Out of memory,Arithmetic overflow,A
+Compiler Design,Which parser does predictive parsing resemble?,LL parser,LR parser,SLR parser,CYK parser,A
+Compiler Design,DAG (Directed Acyclic Graph) is used in which phase?,Code optimization,Symbol table,Parsing,Semantic analysis,A
+Compiler Design,The output of the code generator is:,Assembly code,Source code,Parse tree,Intermediate code,A
+Compiler Design,YACC uses which parsing technique?,LALR,LL,SLR,Recursive descent,A
+Compiler Design,Which phase allocates registers for variables?,Code generation,Code optimization,Semantic analysis,Syntax analysis,A
+Compiler Design,Which of these is not true about a symbol table?,Stores reserved words,Maps identifiers,Used in analysis,Dynamically allocated,A
+Compiler Design,"""Token"" is defined as:",Basic symbol sequence,Keyword,Operator,Delimiter code,A
+Compiler Design,Intermediate code is target:,Machine independent,Machine code,Source code,Stack code,A
+Compiler Design,Which is not a type of intermediate representation?,Quadruple,Triple,Binary code,Indirect triple,C
+Compiler Design,What is the role of 'linker'?,Combine object files,Compile code,Parse source code,Tokenize input,A
+Compiler Design,A shift-reduce parser is a type of:,Bottom-up parser,Top-down parser,Predictive parser,Recursive parser,A
+Compiler Design,What is the function of a lexical analyzer?,Tokenizes input,Parses tokens,Optimizes code,Generates assembly,A
+Compiler Design,Backpatching is used in:,Code generation,Lexical analysis,Parsing,Optimizing,A
+Compiler Design,Peephole optimization eliminates:,Unnecessary instructions,Unused variables,Incorrect code,Non-terminal symbols,A
+Compiler Design,Which is NOT an error handling technique in compiler phases?,Piling,Panic mode,Error production,Phrase level,A
+Compiler Design,Which is a bottom-up parser?,LR parser,LL parser,CYK parser,Recursive descent,A
+Compiler Design,Code motion is an example of:,Code optimization,Code generation,Error correction,Register allocation,A
+Compiler Design,The front end of a compiler does NOT include:,Code generation,Semantic analysis,Lexical analysis,Parsing,A
+Compiler Design,Static allocation means memory is allocated at:,Compile time,Run time,Stack creation,Function call,A
+Compiler Design,Which table is NOT used in parser implementation?,Descriptor table,Parse table,Action/Goto table,Stack,A
+Compiler Design,Which grammar can be parsed efficiently by recursive descent parser?,LL(1) grammar,LR grammar,Context-sensitive,Ambiguous grammar,A
+Compiler Design,The action 'shift' in a shift-reduce parser adds:,Symbol to stack,Symbol to table,Rule to grammar,Instruction to code,A
+Compiler Design,Which is a quadruple in code representation?,"op,arg1,arg2,result","op,arg1,arg2,arg3","op,arg1","op,arg1,arg2,arg3,result",A
+Compiler Design,Regular expressions are recognized by:,Finite automata,PDA,Turing machine,Syntax analyzer,A
+Compiler Design,Which is NOT in the typical compiler phases?,Linking,Parsing,Lexical analysis,Semantic analysis,A
+Compiler Design,Which grammar is ambiguous?,Multiple parse trees,Only one parse tree,Cannot derive,Only leftmost derivation,A
+Compiler Design,Which of the following is NOT a parser generator?,Lex,Bison,Yacc,ANTLR,A
+Compiler Design,SLR(1) stands for:,Simple LR(1),Smallest LR(1),Sequential LR(1),Strict LR(1),A
+Compiler Design,Which is not an input to the lexical analyzer?,Parse tree,Character stream,Source code,Input buffer,A
+Compiler Design,Shortest instruction in assembly code is called:,Opcode,Operand,Token,Intermediate,A
+Compiler Design,Which phase is closest to the hardware?,Code generation,Code optimization,Parsing,Semantic analysis,A
+Compiler Design,"In bottom-up parsing, reduction is done:",When RHS matches input,When LHS reached,On token generation,On error only,A
+Compiler Design,Which optimizes a loop by moving code outside the loop?,Loop invariant motion,Constant folding,Dead code elimination,Common subexpression,A
+Compiler Design,Which of the following can NOT be recognized by regular expressions?,Nested brackets,Identifiers,Integers,Operators,A
+Compiler Design,Which is NOT a property of a compiler?,Enhances performance,Maintains logic,Applies grammar rules,Compiles runtime only,D
+Compiler Design,The syntax tree is generated in which phase?,Syntax analysis,Semantic analysis,Lexical analysis,Code optimization,A
+Compiler Design,Scanner generator tools include:,Lex,Yacc,Bison,C++,A
+Compiler Design,A production with two or more leftmost nonterminals is called:,Left recursion,Right recursion,Unit production,Ambiguous production,A
+Compiler Design,Activation records are stored on:,Stack,Queue,Heap,Register,A
+Compiler Design,Which is NOT an intermediate code format?,Hexcode,Three-address code,Stack code,Quadruple,A
+Compiler Design,"During lexical analysis, which error is detected?",Invalid identifier,Syntax error,Logic error,Type error,A
+Compiler Design,The parsing table in an LR parser is used to:,Guide parsing actions,Store tokens,Allocate registers,Create intermediate code,A
+Compiler Design,Which is used for error recovery in parsing?,Panic mode,Exhaustive search,Backtracking,DFA conversion,A
+Compiler Design,Movement of variable allocation between memory and registers is:,Register allocation,Stack allocation,Constant propagation,Loop unrolling,A
+Compiler Design,The code generator phase translates IR to?,Target code,Intermediate code,Source code,Assembly code,A
+Compiler Design,What is a handle in bottom-up parsing?,Substring matches production,RHS of production,LHS of production,Complete parse tree,A
+Compiler Design,Which is NOT an attribute of operator precedence parser?,Stack for operators,Explicit precedence relations,Handles ambiguous grammar,Error recovery only,D
+Compiler Design,Parsing that begins with the input and tries to construct the start symbol is:,Top-down parsing,Bottom-up parsing,Predictive parsing,Recursive parsing,A
+Compiler Design,Which is a top-down parser?,Recursive descent,LR parser,SLR parser,Bottom-up parser,A
+Compiler Design,What information is not stored in the symbol table?,Operator precedence,Variable name,Data type,Scope level,A
+Compiler Design,"In YACC, which section writes the actual user C code?",Action section,Declaration,Rule section,Token section,A
+Compiler Design,Which is NOT a valid code generation technique?,Constant embedding,Linear scan,Tree traversal,Register coloring,A
+Compiler Design,A non-deterministic finite automata is used in:,Lexical analysis,Syntax analysis,Semantic analysis,Code generation,A
+Compiler Design,'First' and 'Follow' sets are used in:,Parser construction,Lexical analysis,Semantic analysis,Code optimization,A
+Compiler Design,Which phase handles type checking?,Semantic analysis,Syntax analysis,Lexical analysis,Parser,A
+Compiler Design,Binding time that occurs at program compilation is:,Compile time,Run time,Load time,Link time,A
+Compiler Design,Which phase reports errors like undeclared variable?,Semantic analysis,Parsing,Lexical analysis,Code generation,A
+,,,,,,
+,,,,,,
+Machine Learning,What is supervised learning?,Learns from labeled data,Learns without labels,Only reinforcement,Uses clustering,A
+Machine Learning,Which of the following is NOT a supervised learning algorithm?,K-means,Decision Tree,SVM,Linear Regression,A
+Machine Learning,In which type of machine learning is reward-based feedback used?,Reinforcement Learning,Supervised Learning,Unsupervised Learning,Ensemble Learning,A
+Machine Learning,What does ‘overfitting’ mean in machine learning?,Model fits noise,Fast training,Underutilization,Lacks accuracy,A
+Machine Learning,Which evaluation metric is ideal for imbalanced datasets?,F1-score,Accuracy,MAE,RMSE,A
+Machine Learning,What is the ROC curve used for?,Classification analysis,Regression analysis,Unsupervised learning,Reinforcement learning,A
+Machine Learning,Which algorithm is mostly used for classification?,Decision Tree,Linear Regression,K-means,PCA,A
+Machine Learning,Which ML task tries to group similar items?,Clustering,Regression,Supervised learning,Feature selection,A
+Machine Learning,Gradient Descent is used for?,Minimizing loss,Labeling data,Feature extraction,Data augmentation,A
+Machine Learning,The “k” in k-NN stands for?,Number of neighbors,Slope,Kernel,Kullback info,A
+Machine Learning,Which problem is best solved by unsupervised learning?,Market segmentation,Stock price prediction,Email spam detection,Disease diagnosis,A
+Machine Learning,Which algorithm is called an “ensemble method”?,Random Forest,Linear Regression,K-means,Perceptron,A
+Machine Learning,Decision Tree “leaves” represent:,Output/Predictions,Features,Input variables,Root nodes,A
+Machine Learning,Regularization helps to:,Reduce overfitting,Increase accuracy,Increase overfitting,Increase complexity,A
+Machine Learning,What is a “feature” in ML?,Input variable,Output variable,Model weight,Training algorithm,A
+Machine Learning,The sigmoid function’s output range is:,0 to 1,-1 to 1,1 to infinity,0 to infinity,A
+Machine Learning,Which is NOT a validation technique?,Bagging,K-fold cross validation,Leave-one-out,Holdout,A
+Machine Learning,SVM stands for:,Support Vector Machine,Sequential Vector Matrix,Stochastic Variable Model,Standard Value Measurement,A
+Machine Learning,What is a confusion matrix used for?,Classifier evaluation,Feature extraction,Data cleaning,Regression error,A
+Machine Learning,What is “bias” in machine learning?,Error from wrong assumptions,Dispersed predictions,Training speed,Only in SVMs,A
+Machine Learning,Which algorithm will you use for non-linear separation?,Decision Tree,Linear Regression,Linear SVM,Pearson Correlation,A
+Machine Learning,What is “bootstrapping” in ML?,Sampling with replacement,Output score,Ensemble copying,Hyperparameter search,A
+Machine Learning,Which algorithm is susceptible to the “curse of dimensionality”?,k-NN,Logistic Regression,PCA,SVM,A
+Machine Learning,Which neural network activation function is most common today?,ReLU,Tanh,Linear,Softmax,A
+Machine Learning,What is “dropout” used for?,Preventing overfitting,Early stopping,Data labeling,Weight initialization,A
+Machine Learning,PCA is used for:,Dimensionality reduction,Model selection,Classification,Regression,A
+Machine Learning,What does the “learning rate” control?,Step size in training,Batch size,Data shuffling,Training data volume,A
+Machine Learning,What is a “hyperparameter”?,"Not learned, set externally",Model’s output,Neural activation,Feature target,A
+Machine Learning,Which of the following is NOT a clustering algorithm?,Linear Regression,K-means,DBSCAN,Agglomerative,A
+Machine Learning,What is the “epoch” in ML?,One pass over full training set,Node of a tree,Learning rate,Validation split,A
+Machine Learning,What metric is best for regression errors?,RMSE,F1-score,Accuracy,ROC,A
+Machine Learning,“Label encoding” converts:,Categorical to numbers,Numbers to labels,Missing data,Data normalization,A
+Machine Learning,"Which ML concept refers to “the ability to perform well on new, unseen data”?",Generalization,Optimization,Regularization,Cross-validation,A
+Machine Learning,What will help most if your model is underfitting?,Increase model complexity,Reduce learning rate,Add regularization,Decrease features,A
+Machine Learning,What is “ensemble learning”?,Combine multiple models,Use one model,Decrease features,Dropout only,A
+Machine Learning,Which concept refers to a model that is too simple?,High bias,High variance,Low bias,Low learning rate,A
+Machine Learning,What is Grid Search used for?,Hyperparameter tuning,Data cleaning,Bootstrap sampling,Model validation,A
+Machine Learning,"In classification, which loss is typically minimized?",Cross-entropy,MSE,RMSE,MAE,A
+Machine Learning,What is the function of the softmax layer?,Multi-class probs,Regression,Data normalization,Increase variance,A
+Machine Learning,A perceptron is:,Single-layer NN,Deep neural network,Loss function,Data imputer,A
+Machine Learning,Which is NOT a boosting algorithm?,Random Forest,AdaBoost,Gradient Boosting,XGBoost,A
+Machine Learning,Which of these is a dimensionality reduction technique?,PCA,Random Forest,SVM,Naive Bayes,A
+Machine Learning,“Label propagation” is used in which:,Semi-supervised learning,Supervised learning,Unsupervised,Reinforcement learning,A
+Machine Learning,Which clustering algorithm handles outliers best?,DBSCAN,K-means,K-medoids,Hierarchical clustering,A
+Machine Learning,What is the main difference between bagging and boosting?,"Bagging: parallel, Boosting: sequential",Both parallel,Bagging increases errors,Boosting ignores outliers,A
+Machine Learning,What does “early stopping” prevent?,Overfitting,Underfitting,Zero weights,Feature selection,A
+Machine Learning,Higher values of regularization parameter do what?,Penalize complexity,Increase variance,Increase non-linearity,Slow training,A
+Machine Learning,Which ML task is associated with Markov Decision Processes?,Reinforcement learning,Clustering,Supervised learning,Deep learning,A
+Machine Learning,What is the “bias-variance trade-off”?,Balance error types,Choosing number of labels,Only applies to trees,Multiple regression,A
+Machine Learning,TF-IDF is useful for:,Text vectorization,Feature engineering,Regression,Data normalization,A
+Machine Learning,“Naive Bayes” assumes:,Feature independence,Label uniqueness,Feature correlation,One-class only,A
+Machine Learning,Which method cannot handle missing data by default?,SVM,Decision Tree,k-NN,Random Forest,A
+Machine Learning,What does “L1 penalty” promote?,Sparsity,Small variance,Smooth weights,Wide output,A
+Machine Learning,What does k represent in k-fold cross-validation?,Number of folds,Tree depth,Features used,Loss function,A
+Machine Learning,“Underfitting” happens when:,Model too simple,Model too complex,No regularization,Overfitting,A
+Machine Learning,"For regression, which algorithm is best?",Linear Regression,K-means,Naive Bayes,Decision Tree,A
+Machine Learning,What is a “ROC AUC” score?,Area under ROC curve,Average errors,Regression metric,Clustering validation,A
+Machine Learning,What type of data does Logistic Regression work with by default?,Categorical (binary),Continuous,Clustered,Text only,A
+Machine Learning,“Mini-batch” gradient descent uses:,A subset per update,All data each step,Single point only,Data repetition,A
+Machine Learning,What is the main goal of Ridge Regression?,Prevent overfitting,Increase variance,Regression trees,Reduce dataset,A
+Machine Learning,Which is NOT a kernel in SVM?,Triangle kernel,RBF,Polynomial,Linear,A
+Machine Learning,Deep learning is a subset of:,Machine learning,Clustering,Reinforcement learning,Logistic regression,A
+Machine Learning,LSTM networks are mainly used for:,Sequence modeling,Image classification,Clustering,Regression,A
+Machine Learning,Which of these is NOT a type of layer in a typical neural network?,Pool layer,Convolutional layer,Dropout layer,Stacking layer,D
+Machine Learning,The optimizer “Adam” combines:,Momentum + RMSProp,RMSProp + SGD,AdaGrad + SGD,FTRL + SGD,A
+Machine Learning,What is the “vanishing gradient” problem?,Gradients become too small,Loss is undefined,Output explode,Data unbalanced,A
+Machine Learning,Principal Component Analysis finds:,Directions of max variance,Classification lines,Hyperplanes,Model weights,A
+Machine Learning,What is the purpose of dropout layers?,Randomly turn off neurons,Speed up computation,Increase weights,None of these,A
+Machine Learning,“Epochs” usually refer to:,Full passes through data,Number of models,Tree levels,Learning rate changes,A
+Machine Learning,“Batch normalization” is used for:,Training stability,Removing outliers,Feature selection,Dropout,A
+Machine Learning,Feature selection helps with:,Reduces overfitting,Increases model size,Increases variance,None of these,A
+Machine Learning,What is “One Hot Encoding”?,Categorical?binary array,Normalization,Loss scaling,Removing features,A
+Machine Learning,Which ML algorithm works naturally for multi-class classification?,Decision Tree,Logistic Regression,Ridge Regression,SVM without extensions,A
+Machine Learning,Bagging helps with:,Reducing variance,Increasing bias,Slowing training,Increasing overfitting,A
+Machine Learning,What is the main use of ROC curve?,Threshold selection,Model selection,Batch size selection,Learning rate tuning,A
+Machine Learning,Validity of the K-means algorithm depends on:,Euclidean distance,Cosine similarity,Text feature encoding,Tree depth,A
+Machine Learning,What is “Exploding Gradient”?,Values grow too fast,Values shrink,Loss vanishes,Output constant,A
+Machine Learning,Transfer learning means:,Using pretrained models,Training from scratch,Learning clustering,Feature encoding,A
+Machine Learning,Which model is best for time series forecasting?,ARIMA,K-Means,SVM,Random Forest,A
+Machine Learning,What is ReLU?,Activation function,Loss function,Feature transformer,Clustering algorithm,A
+Machine Learning,Which algorithm can handle nonlinear boundaries well?,Random Forest,Linear Regression,Logistic Regression,LASSO,A
+Machine Learning,What is the output layer’s activation for multiclass classification?,Softmax,Sigmoid,Linear,ReLU,A
+Machine Learning,Which ML approach can be used for anomaly detection?,Unsupervised learning,Regression,Multi-label learning,Batch normalization,A
+Machine Learning,“Mean Absolute Error” is used primarily for:,Regression,Classification,Clustering,SVM training,A
+Machine Learning,What does SMOTE do?,Synthetic sampling,Outlier removal,Metric calculation,Gradient calculation,A
+Machine Learning,What is a “confounder” in ML?,Hidden influencing variable,Feature name,Model output,Global optimizer,A
+Machine Learning,"In boosting, weak learners are:",Combined sequentially,Always trees,Unsupervised only,Used only with SVMs,A
+Machine Learning,The ROC curve plots:,TPR vs. FPR,Precision vs. Recall,Loss vs. iterations,FNR vs. TPR,A
+Machine Learning,What is a “learning curve”?,Plot of score vs. data,Weight trajectory,Sample splitting,Regularization measure,A
+Machine Learning,What does “interpretability” mean in ML?,Model’s understandability,Complexity,Only for linear models,Training speed,A
+Machine Learning,What is “Active Learning”?,Model queries new data,Only passive data,Discards all labels,Finds features only,A
+Machine Learning,What is the main advantage of Random Forest over single decision trees?,Lower variance,Faster prediction,Higher bias,Needs less data,A
+Machine Learning,Early stopping helps most with:,Avoiding overfitting,Finding outliers,Reducing features,Clustering,A
+Machine Learning,Which class of ML model is a “Naive Bayes classifier”?,Probabilistic,Geometric,Deep learning,Tree-based,A
+Machine Learning,What compares k-means clustering solutions?,Within-cluster sum of squares,ROC AUC,F1-score,Log-loss,A
+Machine Learning,“Ensembling” helps with:,Reducing variance and bias,Feature pruning,Data augmentation,Splitting clusters,A
+Machine Learning,Which type of model output is continuous?,Regression,Classification,Clustering,Binning,A
+Machine Learning,Which activation is likely to cause dying neurons?,ReLU,Tanh,Softplus,Sigmoid,A
+Machine Learning,CNNs are mainly used for:,Image processing,Sequence labeling,Tabular data,Time series,A
+Machine Learning,Batch normalization has the main benefit of:,Faster and stable training,Higher overfitting,Slower convergence,Data outlier filtering,A
+Machine Learning,Which algorithm finds associations in transactional data?,Apriori,K-means,Logistic Regression,Decision Tree,A
+Machine Learning,A model that performs well on training but poorly on test data is:,Overfitting,Generalized,Underfitting,Robust,A
+Machine Learning,Data “augmentation” is used primarily to:,Increase data diversity,Normalize features,Generate labels,Cluster samples,A
+Machine Learning,Which function is not convex?,Neural networks,Linear regression,Ridge regression,LASSO,A
+Machine Learning,Which task is best suited for hierarchical clustering?,Grouping documents,Regression,Outlier analysis,Imputation,A
+Machine Learning,“Decision boundary” is defined as:,Threshold where model classes switch,First tree branch,Ensemble threshold,Data limit,A
+Machine Learning,Which method aggregates predictions by majority vote?,Bagging,Boosting,Regression tree,Feature selection,A
+Machine Learning,What kind of model is typically used in natural language processing?,Recurrent Neural Network,SVM,Random Forest,K-means,A
+,,,,,,
+,,,,,,
+Dynamic Programming,What is dynamic programming?,Solving subproblems and storing results,Greedy optimization,Sorting technique,Random selection,A
+Dynamic Programming,DP stands for?,Dynamic Programming,Data Processing,Dependent Program,Definition Protocol,A
+Dynamic Programming,What’s the key property of DP problems?,Overlapping subproblems,No recursion,Greedy approach,Irreducibility,A
+Dynamic Programming,Which classic problem is solved by DP?,Knapsack,Selection Sort,Linear Search,Topological Sort,A
+Dynamic Programming,DP requires:,Optimal substructure,Recursion only,Random sampling,Hashing,A
+Dynamic Programming,Fibonacci sequence can be optimized using:,DP,Sorting,Splaying,Stacking,A
+Dynamic Programming,Memoization is:,Top-down DP,Bottom-up,Merge Sort variant,Heap algorithm,A
+Dynamic Programming,Tabulation is:,Bottom-up DP,Top-down,Binary search,Linear search,A
+Dynamic Programming,What’s the main advantage of DP over recursion?,Avoids repeated work,No function calls,Less code,More memory use,A
+Dynamic Programming,What is a base case in DP?,Smallest subproblem,Largest subproblem,Random node,No need for one,A
+Dynamic Programming,What is the time complexity of classic DP Fibonacci?,O(n),O(1),O(log n),O(n^2),A
+Dynamic Programming,"In LCS problem, what does LCS stand for?",Longest Common Subsequence,Largest Common Section,Lowest Common Sort,Longest Character Subset,A
+Dynamic Programming,What is the best approach for the Coin Change problem?,Dynamic programming,Divide & conquer,Greedy,Searching,A
+Dynamic Programming,What is the space complexity of 1D DP solution for Fibonacci?,O(n),O(n^2),O(n log n),O(1),A
+Dynamic Programming,Bellman-Ford algorithm solves:,Shortest path with negatives,Sorting,Tree traversals,Matrix multiplication,A
+Dynamic Programming,What standard solves Matrix Chain Multiplication?,DP,Queue,Stack,Recursion,A
+Dynamic Programming,What does memoization do?,Saves subproblem answers,Repeats calculation,Ignores functions,None,A
+Dynamic Programming,Which of the following uses DP?,Floyd-Warshall,Insertion Sort,Stack,Rundberg algorithm,A
+Dynamic Programming,The subset sum problem can be solved by:,Dynamic programming,Linked List,Greedy,Divide & conquer,A
+Dynamic Programming,"In DP, optimal substructure means:",Solution contains optimal subproblem solutions,Uses a stack,Sorted input,Unique structure,A
+Dynamic Programming,Which property is NOT required for DP?,Irreducibility,Overlap subproblems,Optimal substructure,Recursion,A
+Dynamic Programming,The classic Egg Dropping puzzle is best solved by:,Dynamic programming,Heap,BFS,Sorting,A
+Dynamic Programming,What is top-down DP?,Recursion + memoization,Sorted iteration,Tree-only solution,Greedy only,A
+Dynamic Programming,Recurrence relation for nth Fibonacci?,F(n) = F(n-1)+F(n-2),F(n) = 2*F(n-1),F(n) = F(n-2)*F(n-3),F(n) = F(n-1)-F(n-2),A
+Dynamic Programming,"What’s the time complexity of DP LCS (length m, n)?",O(m*n),O(m+n),O(n^2),O(mn^2),A
+Dynamic Programming,Which is not a good candidate for DP?,No overlapping subproblems,Has recursion,Has optimal substructure,Finite input,A
+Dynamic Programming,"For DP table, the minimum coin change for amount 0 is:",0,-1,1,None,A
+Dynamic Programming,Digit DP is useful for:,Counting digit properties,String permutations,Sorting numbers,Data encryption,A
+Dynamic Programming,"For the 0-1 Knapsack problem, the time complexity is:","O(nW) (n=items, W=capacity)",O(n^2),O(n+W),O(n log W),A
+Dynamic Programming,Which of the following does not typically use DP?,Binary search,Bellman-Ford,Matrix Chain Mult.,LIS,A
+Dynamic Programming,What data structure is best for DP tabulation?,Array/matrix,Stack,Graph,Linked list,A
+Dynamic Programming,When is greedy better than DP?,When greedy is optimal,Always,Never,Only for sorting,A
+Dynamic Programming,The Catalan number sequence can be computed efficiently with:,Dynamic programming,Deque,BFS,Recursion only,A
+Dynamic Programming,What’s the main PS of the Rod Cutting problem?,Maximizing revenue,Minimizing pieces,Longest rod,Fewest cuts,A
+Dynamic Programming,"In DP, the final answer is usually found at:",Last computed cell,First cell,Random cell,Always index 0,A
+Dynamic Programming,Edit distance problem is also called:,Levenshtein distance,Hamming code,LIS,Boyer-Moore,A
+Dynamic Programming,Which method does bottom-up DP avoid?,Recursion,Memoization,Matrix use,Looping,A
+Dynamic Programming,What does overlapping subproblems mean?,Solved more than once,Each unique,Greedy only,No subproblems,A
+Dynamic Programming,What is the space complexity of DP Longest Increasing Subsequence (LIS)?,O(n),O(n^2),O(1),O(n log n),A
+Dynamic Programming,Suffix automaton and DP are used together in:,String algorithms,Queue problems,Stack problems,Sorting,A
+Dynamic Programming,Which is NOT a property of DP?,Subproblem overlapping,Tabulation,Random access,Memoization,C
+Dynamic Programming,Which is NOT solved by DP?,Heapify,Bell Numbers,Palindromic Substring,Subset sum,A
+Dynamic Programming,The optimal BST (binary search tree) problem can be solved with:,DP,BFS,Sorting,Recursion,A
+Dynamic Programming,What is space-efficient DP?,Uses minimal storage,Prints fast,Recursive only,Avoids looping,A
+Dynamic Programming,What is the principal for Maximum Subarray (Kadane's Algorithm)?,DP with running sum,Tabular hash,Backtracking,Recursive greedy,A
+Dynamic Programming,The frog jump (steps/cliff problem) is:,DP on index,Stack difference,Heap path,Priority search,A
+Dynamic Programming,DP on trees is often solved with:,Postorder traversals,FIFO queue,Binary search,String reversal,A
+Dynamic Programming,What is a state in DP?,A unique subproblem,A variable,Table size,Output only,A
+Dynamic Programming,Which problem is NOT classically solved using DP?,Mergesort,Matrix chain multip.,Longest path DAG,Coin change,A
+Dynamic Programming,DP transition relations are:,Ways to reach next cell,Complex code,Always linear,Only in trees,A
+Dynamic Programming,"For how many distinct ways can n stairs be climbed with 1,2 steps?",Fibonacci(n+1),n^2,2^n,n!,A
+Dynamic Programming,"In DP, a table entry should be:",Computed once,Recomputed many times,Randomly accessed,Copied each time,A
+Dynamic Programming,Partition problem is solved by:,DP (subset sum),Sorting,Greedy,BFS,A
+Dynamic Programming,The Bellman-Ford algorithm is an example of DP on:,Graphs,Trees,Linked lists,Arrays,A
+Dynamic Programming,What is 'rolling array’ in DP?,Reusing space,Rolling numbers,Linked list only,Heap shifting,A
+Dynamic Programming,When do you use bitmask DP?,Subsets problems,String matching,Tree traversal,Array search,A
+Dynamic Programming,Can DP be used for probabilistic problems?,Yes,No,Only for integer,Only for counting,A
+Dynamic Programming,What is 'state compression'?,Reduce state space,Increase tables,Compress bit-buffer,Keep all states,A
+Dynamic Programming,DP for Traveling Salesman Problem uses:,Bitmasking & Recursion,BFS,Dijkstra,Greedy only,A
+Dynamic Programming,What is the standard base case for LIS?,1 per position,0 everywhere,n in all cells,-1 in all cells,A
+Dynamic Programming,What’s a valid recurrence for subset sum?,Check with and without current element,Use next only,Omit previous only,Only last item,A
+Dynamic Programming,Which optimization is NOT related to DP?,DFS stack use,Rolling array,State reduction,Bitmask compression,A
+Dynamic Programming,The longest palindromic substring is found via:,DP center expansion,Sorting,BST,Greedy approach,A
+Dynamic Programming,What’s the key for recognizing DP problems?,Reuse of subproblems,Deep recursion only,Tree input only,Always greedy base,A
+Dynamic Programming,Range DP is used when:,Interval subproblems,Rooted trees,No recursion,Only bitmasks,A
+Dynamic Programming,Optimal polygon triangulation is solved using:,DP (interval),DFS,BFS,Tree traversal,A
+Dynamic Programming,"For the “Counting Boolean Parenthesizations” problem, DP table is:","3D (i,j,True/False)",1D table,Stack only,Linked list index,A
+Dynamic Programming,“Longest Palindromic Subsequence” time complexity:,O(n^2),O(n^3),O(n),O(log n),A
+Dynamic Programming,DP solutions are sometimes related to:,Recurrence relations,Only graph theory,Random decisions,Always tree use,A
+Dynamic Programming,What is the primary difficulty with DP?,Large state space,Only on trees,Too many editors,Random answers,A
+Dynamic Programming,What is the minimum initialization in min DP problem?,Infinity,Zero,Max value,Random,A
+Dynamic Programming,What is multicore DP?,Parallel table filling,Multi-solution search,Has multiple outputs,Only one path,A
+Dynamic Programming,Digit DP works best for:,Counting numbers by digits,Checking even/odd,Finding factors,Precomputation,A
+Dynamic Programming,What is “gap” in interval DP?,Window size,Left index,Recursion depth,Max table size,A
+Dynamic Programming,"What is the formula for number of ways to reach (i, j) in a grid?","(i-1, j)+(i, j-1)","(i-1, j)-(i, j-1)","(i, j)+(i, j-1)",(j-i)+(i-j),A
+Dynamic Programming,Memory optimized DP means:,Less space used,More time used,More states tracked,No recursion,A
+Dynamic Programming,What is “state transition” in DP?,How one state leads to another,Base case,Input conversion,Use of memo,A
+Dynamic Programming,"In “Palindromic Partitioning”, DP table refers to:",Minimum cuts needed,Maximum substrings,Only valid partitions,DP not useful,A
+Dynamic Programming,What is the typical time complexity for classic 2D DP problems?,O(n^2),O(n),O(n log n),O(1),A
+Dynamic Programming,What kind of DP is commonly used in game theory?,Minimax DP,Bitmasking,String table,Hash DP,A
+Dynamic Programming,What mechanism can reduce time in subset DP?,Bitmask compression,Hash search,Queue traversal,Greedy sorting,A
+Dynamic Programming,“Rolling hash” in DP is used for:,String comparison,Heap structure,Table reduction,Random search,A
+Dynamic Programming,What is the solution approach to the Unique Paths problem?,DP grid traversal,Greedy,Stack traversal,Tree search,A
+Dynamic Programming,What does “breakpoint” mean in DP optimization?,Change in DP state,Table size cutoff,Recursion only,Only MST needed,A
+Dynamic Programming,DP with “monotonic queue” is best for:,Sliding window max/min,String match,Tree traversal,Spiral array,A
+Dynamic Programming,“Knuth optimization” is a technique used in:,Speeding up DP with intervals,Hashing,Tree recursion,Sorting,A
+Dynamic Programming,“Bitmask DP” is ideal for:,Subset/combination problems,Graph coloring,Sorting arrays,Matrix multiplication,A
+Dynamic Programming,"In Memorization, unreachable states:",Never computed,Always computed,Is base case,Must be initialized,A
+Dynamic Programming,Main challenge of multidimensional DP:,Memory explosion,Slow calculations,Too few recurrences,Only works for LIS,A
+Dynamic Programming,What is “reverse DP”?,Computing from goal,Forward tabulation,Random order,Only bottom-up,A
+Dynamic Programming,Which is NOT a classic coin change variant?,Greedy coin collect,Min coins,Number of ways,Max coins used,A
+Dynamic Programming,"For palindrome subsequence length n, the DP table size:",n x n,n,2n,2^n,A
+Dynamic Programming,What’s key to solving word break problems?,DP on string,Stack search,Recursion only,Fixed-length words,A
+Dynamic Programming,“Optimal substructure” essentially means:,Can combine best subparts,Sorted input,Fastest code,Only prefix used,A
+Dynamic Programming,What’s the usual goal in DP matrix path problems?,Max/min sum,Node coloring,Edge coloring,Shortest time,A
+Dynamic Programming,“Butterfly DP” is used for which type?,Fast Walsh-Hadamard transform,Palindrome check,Heapify,Substring search,A
+,,,,,,
+,,,,,,
+Data Warehouse and Data Mining,What is a data warehouse?,Subject-oriented,Only for OLTP,Highly normalized,Temporary storage,A
+Data Warehouse and Data Mining,ETL stands for:,Extract Transform Load,End To Limit,Extract Table Load,Edit To Load,A
+Data Warehouse and Data Mining,What is OLAP?,Online Analytical Processing,Open Location & Access,Overloaded Access Port,Online Lawful Archive Process,A
+Data Warehouse and Data Mining,Which is a popular data mining algorithm?,Apriori,Selection sort,Dijkstra’s,Bellman-Ford,A
+Data Warehouse and Data Mining,The fact table in a star schema contains:,Quantitative data,All keys,Only text,Only foreign keys,A
+Data Warehouse and Data Mining,What is a dimension table?,Describes business dimensions,Contains only facts,Core OLTP table,Normalized reference,A
+Data Warehouse and Data Mining,What is a snowflake schema?,Normalized star schema,Completely denormalized,OLAP index,Sequential fact table,A
+Data Warehouse and Data Mining,"What is ""drill down"" in OLAP?",View more detail,View more summary,Remove detail,Delete rows,A
+Data Warehouse and Data Mining,Data mining is often used to:,Discover patterns,Normalize data,Manage backups,Secure connections,A
+Data Warehouse and Data Mining,What is data cleaning?,Detect and correct errors,Clustering,Classify tables,All of the above,A
+Data Warehouse and Data Mining,Which tool is used for association rule mining?,Apriori,k-means,PageRank,ID3,A
+Data Warehouse and Data Mining,"What does ""support"" mean in association rule mining?",Frequency of pattern,Rule accuracy,Data volume,Degree of separation,A
+Data Warehouse and Data Mining,Which language is used for cube definition in OLAP?,MDX,SQL,R,OQL,A
+Data Warehouse and Data Mining,Which data model best supports multidimensional analysis?,Star schema,Ring model,Linked list,Flat file,A
+Data Warehouse and Data Mining,What is a data mart?,Subset of warehouse,Synonym for OLTP,Backup,OLAP schema,A
+Data Warehouse and Data Mining,"In data mining, ‘classification’ means:",Assign to a category,Find outliers,Compress data,Find frequent itemsets,A
+Data Warehouse and Data Mining,Hierarchical clustering produces:,Tree of clusters,Partition,Sorted list,Table scan,A
+Data Warehouse and Data Mining,What is a surrogate key?,Artificial unique key,Primary key,Foreign key,Random attribute,A
+Data Warehouse and Data Mining,What is the primary goal of data normalization?,Reduce redundancy,Increase queries,Faster cube build,Automatic indexing,A
+Data Warehouse and Data Mining,"What is ""data cube""?",Multidimensional array,Pivot table,Fact table,Only ETL output,A
+Data Warehouse and Data Mining,Which indicates the level of detail in a dimension?,Granularity,Selectivity,Schema depth,Size,A
+Data Warehouse and Data Mining,What is KDD?,Knowledge Discovery in Databases,Key Data Distribution,Kernel Data Drill,Knowledge Data Dump,A
+Data Warehouse and Data Mining,What is a time-variant characteristic of data warehouse?,Tracks historical changes,Only for real-time,Change untracked,Only current data,A
+Data Warehouse and Data Mining,Which is NOT a type of OLAP operation?,Drill-through,Roll-up,Pivot,Binary search,D
+Data Warehouse and Data Mining,"""Roll-up"" means:",Aggregating data,Breaking down,Remove data,Sorting data,A
+Data Warehouse and Data Mining,What is a “NoSQL” data warehouse best at?,Unstructured/big data,Only SQL tables,Only OLAP,Data cleaning,A
+Data Warehouse and Data Mining,What does confidence in association rules express?,Rule accuracy,Support,Class label,Data cleaning,A
+Data Warehouse and Data Mining,Clustering in data mining is:,Grouping similar objects,Classifying,Measuring correlation,Outlier detection,A
+Data Warehouse and Data Mining,Which is a popular clustering algorithm?,k-means,Naive Bayes,Apriori,PageRank,A
+Data Warehouse and Data Mining,Market Basket Analysis finds:,Product associations,Sales quantities,Prices,Forecast trends,A
+Data Warehouse and Data Mining,What is “lift” in association analysis?,Strength vs random chance,KL divergence,Frequency score,Null value,A
+Data Warehouse and Data Mining,What does OLTP stand for?,Online Transaction Processing,Open Logistic Transfer Processing,Online Tree Partitioning,Overloaded List Temporal,A
+Data Warehouse and Data Mining,Data that is summarized from lower levels is said to be:,Aggregated,Sorted,Top-class,Sampled,A
+Data Warehouse and Data Mining,What kind of mining do you do to find “hidden patterns”?,Pattern discovery,Fact extraction,OLTP,Metadata extraction,A
+Data Warehouse and Data Mining,What is the main use of dimensional modeling?,Support data warehouse queries,Normalizing data,Creating indexes,Transaction speed,A
+Data Warehouse and Data Mining,What is the process of combining data from multiple sources called?,Data integration,Data scanning,Data compression,Data mining,A
+Data Warehouse and Data Mining,Which of the following is a characteristic of a data warehouse?,Non-volatile,Schema-free,Unsorted,Transactional only,A
+Data Warehouse and Data Mining,A star schema is denormalized to:,Improve query speed,Save space,Lower redundancy,Reduce cube size,A
+Data Warehouse and Data Mining,What is the first phase of KDD?,Data selection,Data mining,Model evaluation,Pattern discovery,A
+Data Warehouse and Data Mining,OLAP cubes can provide:,Slicing and dicing,Minimum distances,Search ranking,Schema normalization,A
+Data Warehouse and Data Mining,What is “outlier detection”?,Detecting anomalies,Finding averages,Classifying data,All records at once,A
+Data Warehouse and Data Mining,Metadata is:,Data about data,Data encrypted,Output only,Type of mining,A
+Data Warehouse and Data Mining,Data granularity refers to:,Level of detail,Data source,Cleaning speed,Processing time,A
+Data Warehouse and Data Mining,What kind of schema has one fact table and multiple dimension tables?,Star schema,Linked schema,Normal schema,Composite schema,A
+Data Warehouse and Data Mining,Which is NOT a data preprocessing step?,Data cube creation,Data cleaning,Data transformation,Data reduction,A
+Data Warehouse and Data Mining,Association rules are commonly evaluated with:,Confidence & support,RMSE,AIC,Sorted cube,A
+Data Warehouse and Data Mining,A snowflake schema is more:,Normalized,Denormalized,Simple,Temporal,A
+Data Warehouse and Data Mining,Which is NOT a phase of KDD?,Data poisoning,Data cleaning,Data transformation,Data mining,A
+Data Warehouse and Data Mining,What is “data slicing” in OLAP?,Subset along a dimension,Sorting by size,Partition table,Indexing records,A
+Data Warehouse and Data Mining,Which type of data can a warehouse best store?,Historical data,Only real time,Small transactions,Constants,A
+Data Warehouse and Data Mining,"In mining, ""classification"" uses what kind of dataset?",Labeled,Unlabeled,Constant,Sequential,A
+Data Warehouse and Data Mining,What is “roll-up” in OLAP?,Summary at higher level,More detailed view,Filter less records,Cube removal,A
+Data Warehouse and Data Mining,What is a surrogate key?,Artificial PK,Main fact,Text only,Only foreign keys,A
+Data Warehouse and Data Mining,What is “pivoting” in OLAP?,Rotating data view,Data backup,Clustering,Compression,A
+Data Warehouse and Data Mining,What is “drill-through” in OLAP?,Navigate to detail source,Summarize up,Add new cube,Only denormalize,A
+Data Warehouse and Data Mining,The process of mapping data to new values is?,Data transformation,Data slicing,Data mining,Data cleaning,A
+Data Warehouse and Data Mining,What does “aggregation” mean in this field?,Summarizing data,Forgetting records,Data deletion,Table scanning,A
+Data Warehouse and Data Mining,“Discretization” is:,Binning continuous values,Expansion,Data mining,Mart schema,A
+Data Warehouse and Data Mining,Which method is best for outlier detection?,Clustering,Association rules,Star schema,Dimension model,A
+Data Warehouse and Data Mining,Data mart is:,Subset of data warehouse,Transaction table,Table join,Outlier value,A
+Data Warehouse and Data Mining,Data integration challenges primarily include:,Schema mismatch,Label issues,Slow querying,Partitioning,A
+Data Warehouse and Data Mining,“Slicing and dicing” allows:,Reorganize and filter,Encrypt,Denormalize,Build index,A
+Data Warehouse and Data Mining,Which is NOT a dimension in sales cube?,CPU usage,Time,Product,Geography,A
+Data Warehouse and Data Mining,OLAP cubes support:,Multidimensional queries,2D graphs,Only normalized data,Page ranking,A
+Data Warehouse and Data Mining,What’s the difference between supervised and unsupervised mining?,Label requirement,Data type difference,Cluster size,Schema revision,A
+Data Warehouse and Data Mining,“Fact constellation” schema is:,Multiple fact tables,One fact table,Star schema,None,A
+Data Warehouse and Data Mining,What technique is often used for reducing dimensionality?,PCA,Roll-up,Normalization,OLTP,A
+Data Warehouse and Data Mining,What is “pattern mining”?,Finding item relationships,Index sorting,Numeric roll-up,Denormalizing facts,A
+Data Warehouse and Data Mining,“Roll-up” typically produces:,Data summaries,Greater granularity,Multiple time zones,Remove data cube,A
+Data Warehouse and Data Mining,Data pre-processing does NOT include:,Cube partitioning,Cleaning,Transformation,Reduction,A
+Data Warehouse and Data Mining,“Association rule” technique finds:,Relationships/discoveries,Aggregate sums,Dimension sort,Null keys,A
+Data Warehouse and Data Mining,Data warehouse environments are generally:,Subject-oriented,Highly volatile,Unindexed,Purely normalized,A
+Data Warehouse and Data Mining,What does “data pruning” refer to?,Removing unnecessary data,Add new cubes,Data tiling,Full aggregation,A
+Data Warehouse and Data Mining,"In K-means, “k” is:",Number of clusters,Number of records,Table size,Cube axis,A
+Data Warehouse and Data Mining,Star schemas are generally:,Denormalized,Normalized,Indexed only,Cube-independent,A
+Data Warehouse and Data Mining,Which is a common method for discretization?,Binning,Hashing,Fact cubing,Roll-up,A
+Data Warehouse and Data Mining,A “slice” operation selects:,One dimension,All dimensions,Two facts,Subcube,A
+Data Warehouse and Data Mining,What is “OLAP cube rotation”?,Reorienting dimensions,Loss of data,Prune outlier,Fact consolidation,A
+Data Warehouse and Data Mining,Frequent itemset mining is mostly applied in:,Market basket analysis,OLAP cubes,Data cleaning,Data audits,A
+Data Warehouse and Data Mining,Redundancy in data warehouse is:,Removed through normalization,Needed for schema,Required only for facts,Not relevant,A
+Data Warehouse and Data Mining,Which is a feature of a good warehouse?,Time-variant,No data cleaning,Single dimension,High insert latency,A
+Data Warehouse and Data Mining,Which algorithm is NOT used for classification?,K-means,Decision tree,Naive Bayes,SVM,A
+Data Warehouse and Data Mining,What is “data scrubbing”?,Correcting errors,Expanding columns,Data mining only,Retiling facts,A
+Data Warehouse and Data Mining,OLAP operations do NOT include:,Data poisoning,Slicing,Dicing,Rolling up,A
+Data Warehouse and Data Mining,Which technique is used for web usage mining?,Path analysis,Transaction merging,Flat fact table,Star optimizer,A
+Data Warehouse and Data Mining,Data mining’s ultimate goal is to:,Extract hidden knowledge,Build dimensions,Clean all data,Track redundancy,A
+Data Warehouse and Data Mining,What is meant by “factless fact table”?,"No measures, only keys",Only contains facts,Star fact table,Numeric only,A
+,,,,,,
+,,,,,,
+Cloud Computing,What is IaaS in cloud computing?,Infrastructure as a Service,Integration as a Service,Information as a Service,Internet as a Service,A
+Cloud Computing,Which of the following is NOT a cloud service model?,SaaS,PaaS,DaaS,BIOS,D
+Cloud Computing,Which company is NOT a leading cloud provider?,AWS,Google Cloud,Azure,Mozilla,D
+Cloud Computing,What does EBS stand for in AWS?,Elastic Block Store,Elastic Backup Service,Efficient Block Storage,Elastic Bridge Service,A
+Cloud Computing,Which protocol is commonly used for cloud storage access?,HTTP,SMTP,POP,SSH,A
+Cloud Computing,What is the main benefit of cloud computing?,Scalability,Slowness,Data redundancy,Manual scaling,A
+Cloud Computing,Which deployment model lets resources be used solely by one organization?,Private cloud,Public cloud,Community cloud,Hybrid cloud,A
+Cloud Computing,Which service handles software delivery over the Internet?,SaaS,IaaS,PaaS,NaaS,A
+Cloud Computing,“Pay as you go” in cloud computing means:,Pay for usage only,Flat billing,Monthly minimum,Pay for all resources,A
+Cloud Computing,What type of virtualization splits physical servers into multiple VMs?,Hardware virtualization,Software multithreading,OS partitioning,Network slicing,A
+Cloud Computing,Which cloud model combines private and public environments?,Hybrid cloud,Community cloud,Distributed cloud,Partner cloud,A
+Cloud Computing,Which of these is not a core cloud characteristic?,Resource pooling,Broad network access,On-demand self-service,Manual provisioning,D
+Cloud Computing,PaaS stands for:,Platform as a Service,Performance as a Service,Process as a Service,Product as a Service,A
+Cloud Computing,"Which ""cloud"" is best for startup with fast-growing resource needs?",Public cloud,Private cloud,Legacy data centers,Paper backups,A
+Cloud Computing,The hypervisor is also known as:,Virtual machine monitor,Instance provider,Load balancer,Physical router,A
+Cloud Computing,Which is most likely to be used for backup and disaster recovery?,Cloud storage,Cloud firewall,Cloud IDE,Cloud DNS,A
+Cloud Computing,Which is NOT a security feature of cloud platforms?,Auto-scaling,Encryption,Identity management,Multi-factor auth,A
+Cloud Computing,AWS S3 is an example of:,Object storage,Block storage,File storage,Queue service,A
+Cloud Computing,"In cloud, “multi-tenancy” means:",Multiple users share resources,Single user only,On-premise only,Private LAN,A
+Cloud Computing,What does elasticity mean in cloud?,Dynamic scaling,Unchanging resources,Manual deployment,Static assignment,A
+Cloud Computing,Which is best for large-scale web hosting?,Public cloud,Hybrid cloud,Local mainframe,USB drives,A
+Cloud Computing,Cloud “regions” provide:,Geographic separation,More RAM,High CPU clock,Extra GPUs,A
+Cloud Computing,What is the key feature of serverless architecture?,No server management needed,Virtual servers only,Only physical servers,Manual scaling,A
+Cloud Computing,Which standard defines cloud security controls?,ISO/IEC 27017,ISO/IEC 9001,TCP/IP 23,HTML5,A
+Cloud Computing,What is “cloud bursting”?,Using public when private full,Uploading large files,Migrating on-premise,Exporting VMs,A
+Cloud Computing,What does CDN stand for in cloud?,Content Delivery Network,Cloud Data Node,Client Device Number,Compute Delay Node,A
+Cloud Computing,Which is the main cloud orchestration tool for AWS?,CloudFormation,Cloud Controller,KubeOrchestrator,Fabric,A
+Cloud Computing,What is vendor lock-in?,Hard to switch providers,High egress cost,Slow cloud response,Lack of encryption,A
+Cloud Computing,What is the basic unit for compute in AWS?,EC2 instance,Lambda function,Block volume,S3 bucket,A
+Cloud Computing,Scalability in cloud enables:,Handle increased load,Only single user,Fixed hardware,Long downtime,A
+Cloud Computing,What is PaaS suited for?,Developing apps quickly,Only storage needs,Legacy batch jobs,Manual coding,A
+Cloud Computing,Which typically has the lowest upfront cost?,Public cloud,On-premise data center,Private network,Build own system,A
+Cloud Computing,Which best describes “cloud migration”?,Moving to cloud,Withdraw from internet,Building local servers,Installing new hardware,A
+Cloud Computing,Which cloud term relates to reducing wasted resources?,Cost optimization,Data mining,Blockchain,Data backup,A
+Cloud Computing,Which tool manages container orchestration?,Kubernetes,Docker Compose,Nginx,AWS EC2,A
+Cloud Computing,SaaS applications are accessed via:,Internet browser,CD install,USB drive,Printed manual,A
+Cloud Computing,"What is a ""compute instance""?",Virtual server,File backup,Network firewall,Encryption tool,A
+Cloud Computing,What is the main advantage of cloud for business continuity?,Rapid disaster recovery,Less devices,Slower backup,Manual patching,A
+Cloud Computing,Which is a typical risk in public clouds?,Less control,High redundancy,No scalability,Always zero cost,A
+Cloud Computing,Cloud “provisioning” means:,Allocating resources,Encrypting databases,Updating schema,Monitoring logs,A
+Cloud Computing,Multi-cloud strategy refers to:,Using multiple providers,Multiple security keys,More FTP servers,Only local servers,A
+Cloud Computing,"What is ""cloud-native"" design?",Apps built for cloud only,Legacy compatible,Needs mainframes,Only for mobile phones,A
+Cloud Computing,Identity federation in cloud means:,Single sign-on across domains,All admins are root,Only users in US,One password for all,A
+Cloud Computing,The “edge” in edge computing refers to:,Processing at device/source,Storing in data center,Only using fiber optic,Encryption layer,A
+Cloud Computing,What is an example of a cloud SaaS product?,Google Docs,Amazon EC2,VMware vSphere,Cisco router,A
+Cloud Computing,Which is an advantage of PaaS?,Fast app deployment,Only for storage,Restricts dev tools,Fixed infrastructure,A
+Cloud Computing,The NIST definition is for:,Cloud computing standards,Data carrying speed,Storage speed,File sync,A
+Cloud Computing,What would be an appropriate storage for frequent small data writes?,Block storage,Tape backup,Glacier cloud archive,Floppy disk,A
+Cloud Computing,What is availability in cloud?,Uptime guarantee,Cheap cost,Only weekdays,Privacy oversight,A
+Cloud Computing,What technique builds redundancy into cloud data?,Replication,Hashing,Sorting,NAT translation,A
+Cloud Computing,A common governance tool in cloud is:,Cloud policy manager,USB lock,Print quotas,Server racks,A
+Cloud Computing,Which of these is NOT a valid virtualization type?,Chemical virtualization,Hardware virtualization,OS virtualization,Application virtualization,A
+Cloud Computing,What does DRaaS stand for?,Disaster Recovery as a Service,Data Replication as a Service,Database Resource as a Service,Device Resource Adapter,A
+Cloud Computing,AWS Lambda is an example of:,Serverless computing,Block device,Data warehouse,File backup,A
+Cloud Computing,What determines how fast a cloud resource can be provisioned?,Elasticity,Geo-redundancy,Granularity,Manual setup,A
+Cloud Computing,What is network latency in cloud?,Data travel delay,Storage redundancy,Firewall breach,DNS indexing,A
+Cloud Computing,“Sticky session” means:,Session retention,Disk space reserved,Long bootup time,Known IP only,A
+Cloud Computing,The cloud “pay as you use” model targets:,Cost reduction,Higher backup needs,Coding skills,Fewer VLANs,A
+Cloud Computing,"""Failover"" in cloud means:",Switching to backup system,Failing to connect,Application error,Data deduplication,A
+Cloud Computing,Single-tenant cloud describes:,One customer per instance,Shared servers,Only on-premise,Peer-to-peer only,A
+Cloud Computing,Data sovereignty in cloud relates to:,Data location laws,High speeds,Cloud orchestration,Containerization,A
+Cloud Computing,The main use of load balancer in cloud is:,Distribute traffic,Encrypt file system,Increase storage,Data deduplication,A
+Cloud Computing,What is a Service Level Agreement (SLA)?,Guaranteed service promise,Data integration,User password,Hardware striping,A
+Cloud Computing,The CAP theorem in cloud describes:,"Trade-off: Consistency, Availability, Partition tolerance",Data loss,Large file transfer,Software licensing,A
+Cloud Computing,Which is considered a drawback of cloud?,Data sensitivity issues,Only one region,Always offline,DNA storage only,A
+Cloud Computing,API gateway in cloud is used for:,Managing and routing APIs,Encrypting networks,Disk partitioning,Measuring response time,A
+Cloud Computing,What does “containerization” improve?,App portability,Browser speed,String concatenation,Battery life,A
+Cloud Computing,Data at rest encryption in cloud protects:,Stored data,Transit data,Processing speed,DNS records,A
+Cloud Computing,What is the main value of cloud elasticity for retail business?,Scale with demand,Lower website quality,Higher latency,Hardware leasing,A
+Cloud Computing,What is a reserved instance?,"Prepaid, discounted VM",Always free VM,Only for storage,Admin-only device,A
+Cloud Computing,Identity and Access Management (IAM) in cloud allows:,User control and policies,Only local admin,Enhanced RAM,Root-only password,A
+Cloud Computing,Cloud “bursting” is most suited for:,Unexpected traffic spikes,Always-on workloads,Infrequent file backup,Software updates,A
+Cloud Computing,"What is ""cloud federated identity""?",Cross-provider authentication,Single-site only,Always offline,Shared routers,A
+Cloud Computing,Where is cloud-based DDoS mitigation enforced?,At the perimeter/cloud edge,End user device,Only with VPN,In USB drive,A
+Cloud Computing,Cloud function-as-a-service (FaaS) is:,Event-triggered serverless,On-premise only,Only in private clouds,No scaling possible,A
+Cloud Computing,What does “scalability” provide to users?,Growth with demand,Always high cost,Shrinking storage,Always same hardware,A
+Cloud Computing,Which model gives users least management responsibilities?,SaaS,PaaS,IaaS,NaaS,A
+Cloud Computing,“High availability” in cloud architecture means:,Minimal downtime,Always low disk cost,Frequent manual backup,Weekly restarts,A
+Cloud Computing,"What is ""container orchestration""?",Automated container management,File resizing,Coding required,Only for Windows,A
+Cloud Computing,Who is responsible for data in the shared responsibility model?,Both provider and customer,Only user,Only provider,Only vendor,A
+Cloud Computing,Cloud security risks may include:,"Loss of control, data breaches",Zero risk by default,Only physical theft,Quantum attacks only,A
+Cloud Computing,Compliance in cloud is necessary for:,Meeting legal/regulatory needs,Faster RAM,Lower IP addressing,Open ports,A
+Cloud Computing,"Cloud ""autoscaling"" is:",Automatic resource adjustment,Manual performance boost,Extra egress charges,App compression,A
+Cloud Computing,"What is ""storage tiering"" in cloud?",Multiple storage types for cost/performance,Flat cost everywhere,Only tape storage,RAM only,A
+Cloud Computing,A major energy-saving feature in cloud is:,Dynamic resource allocation,Lower GPU speed,Redundant backups,Brighter screens,A
+Cloud Computing,“Cloud-native” apps are:,Built for distributed cloud use,Legacy server apps,Never auto-scale,Written in HTML only,A
+Cloud Computing,"The process of using ""resources on demand"" describes:",Elastic provisioning,Multi-core scripting,Continuous refactoring,Fixed allocations,A
+Cloud Computing,What is the role of “container registry” in cloud?,Stores container images,User analytics,Message queuing,Only for static files,A
+Cloud Computing,The concept of “infrastructure as code” in cloud uses:,Code/scripts to manage infra,Only hardware,Keyboards at site,Analyst reports,A
+Cloud Computing,Cloud “latency” refers to:,Delay in data transmission,Change in pricing,Lost folders,Storage encryption,A
+Cloud Computing,Which technology is fundamental to virtualization?,Hypervisor,API gateway,Load balancer,CDN,A
+,,,,,,
+,,,,,,
+Data Science,What is the first step in a data science project?,Problem definition,Model selection,Deployment,Training,A
+Data Science,Which language is most commonly used in data science?,Python,C++,HTML,Swift,A
+Data Science,What is feature engineering?,Creating useful variables,Data cleaning,Scaling output,Data linking,A
+Data Science,Which library is primarily used for data visualization in Python?,Matplotlib,NumPy,TensorFlow,Keras,A
+Data Science,What is a confusion matrix used for?,Evaluating classifiers,Summing data,Clustering,Data transfer,A
+Data Science,Which is NOT a structured data type?,Text document,Relational table,Excel file,CSV,A
+Data Science,“EDA” stands for:,Exploratory Data Analysis,Extended Data Application,Extreme Data Analysis,Entity-Driven Analytics,A
+Data Science,What is “big data”?,Large & complex datasets,Spreadsheet tables,Multi-core processors,Only image data,A
+Data Science,Which command in pandas reads a CSV file?,read_csv(),read(),load_dataset(),csv_import(),A
+Data Science,What is the goal of data normalization?,Standardize feature scales,Remove nulls,Increase variance,Encrypt data,A
+Data Science,Which algorithm is best for classifying emails as spam or not?,Naive Bayes,K-means,Linear Regression,PCA,A
+Data Science,What represents the target variable in regression?,Output/Y,Input/X,Parameter,Loss,A
+Data Science,“One-hot encoding” is used when:,Handling categories,Missing values,Model testing,Outlier detection,A
+Data Science,Which of these is NOT a performance metric for regression?,Accuracy,MAE,RMSE,R-squared,A
+Data Science,What is a data pipeline?,Automated data flow,Backup process,Visualization flow,Model output storage,A
+Data Science,Which database is best for storing relational data?,PostgreSQL,MongoDB,Neo4j,Redis,A
+Data Science,Which is NOT an unsupervised learning algorithm?,Decision Tree,K-means,PCA,Hierarchical clustering,A
+Data Science,“Correlation” between variables describes:,Strength/Direction,Data type,Model accuracy,Regression score,A
+Data Science,What does RMSE stand for?,Root Mean Squared Error,Relative Model Simple Error,Regression Mean Square Error,Real Model Standard Error,A
+Data Science,Which Python package is widely used for numerical operations?,NumPy,Matplotlib,Flask,Django,A
+Data Science,What is the main advantage of decision trees?,Interpretability,Always optimal,No overfitting,Speed,A
+Data Science,What is the role of “sampling” in data science?,Select subset of data,Increase variance,Create more features,Increase computation,A
+Data Science,Which visualization best shows trends over time?,Line chart,Bar chart,Scatterplot,Pie chart,A
+Data Science,Which is NOT a step of the CRISP-DM process?,Website creation,Data understanding,Modeling,Deployment,A
+Data Science,“Gathering data” is also known as:,Data collection,Data mining,Data cleaning,Data wrangling,A
+Data Science,An algorithm with O(n log n) time is:,More efficient than O(n^2),Faster than O(1),Slower than O(n),Same as O(n^3),A
+Data Science,What is cross-validation?,Model validation method,Data normalization,Feature extraction,Data source linking,A
+Data Science,The “test set” is used for:,Evaluating a trained model,Training model,Improving model,Creating new features,A
+Data Science,Which directly reduces model overfitting?,Regularization,More features,More layers,Higher batch size,A
+Data Science,“Imputation” in data science is:,Filling missing values,Model tuning,Column renaming,Data shuffling,A
+Data Science,What is “outlier” in a dataset?,Value far from others,Median value,Most frequent data,Zero values,A
+Data Science,The “mode” of a dataset is:,Most frequent value,Average value,Middle value,Data type,A
+Data Science,Which metric is most used for classification tasks?,Accuracy,Mean,MSE,RMSE,A
+Data Science,“Logistic regression” outputs:,Probabilities,Categorical labels,Data tables,Regression lines,A
+Data Science,What does “TPR” mean?,True Positive Rate,Total Positive Ratio,Transpose Parameter Range,Table Precision Rule,A
+Data Science,Feature scaling is important for:,Algorithms using distance,Tree-based models,Data ingestion,Relational joins,A
+Data Science,What is “dimensionality reduction”?,Reducing # features,Increasing model time,Data encryption,Data sampling,A
+Data Science,What is K in k-means?,Number of clusters,Kernel size,Number of samples,Number of features,A
+Data Science,What does “mean imputation” fill?,Missing values,Outliers,All zeros,Mode only,A
+Data Science,Which is the dependent variable?,Y,X,Z,W,A
+Data Science,The main goal of data wrangling is:,Clean and transform data,Build models,Find clusters,Increase sparsity,A
+Data Science,What is PCA used for?,Dimensionality reduction,Regression,Outlier removal,Data loading,A
+Data Science,Which is NOT a machine learning task?,Data backup,Regression,Clustering,Classification,A
+Data Science,What is “label encoding”?,Assign number to category,Assign label to label,Impute labels,Add new features,A
+Data Science,Which best describes an “ensemble model”?,Combines multiple algorithms,Selects one at random,Uses only one tree,Chooses best row,A
+Data Science,Which task is typically NOT automated by data science?,Cooking meals,Predicting sales,Image classification,Fraud detection,A
+Data Science,Bagging and boosting are techniques for:,Model ensembling,Visualization,Data collection,Text cleaning,A
+Data Science,What is an ROC curve?,Plot of TPR vs FPR,Regression step,Root operation class,Ratio of clusters,A
+Data Science,Which file type is best for exchanging tabular data?,CSV,PNG,PDF,GIF,A
+Data Science,What is data augmentation?,Creating new samples,Summing columns,Data transformation,Model stacking,A
+Data Science,Which is NOT a step in preprocessing?,Model deployment,Outlier removal,Imputation,Normalization,A
+Data Science,Which function is used to compute mean in pandas?,mean(),sum(),average(),max(),A
+Data Science,What does “scikit-learn” provide?,ML algorithms,Visualization,Web frameworks,OS routines,A
+Data Science,The “variance” of a dataset is:,Spread of data,Sum of data,Largest value,Data type,A
+Data Science,What is the main purpose of cross-validation?,Test generalization,Increase variance,Remove noise,Add outliers,A
+Data Science,Precision in a classifier is:,TP / (TP+FP),TP / (TP + FN),FP / (TP+FN),TN / (TN+FP),A
+Data Science,“Random Forest” is:,An ensemble of trees,Linear model,Single tree,Clustering method,A
+Data Science,The mean absolute error (MAE) is used for:,Regression evaluation,Classification scoring,Clustering output,Feature selection,A
+Data Science,What is a “test-train split”?,Divide data for training/testing,Build both models,Predict time,Outlier process,A
+Data Science,Which Python library provides powerful table-like objects?,pandas,matplotlib,requests,seaborn,A
+Data Science,Which is a disadvantage of high model complexity?,Overfitting,Underfitting,Faster computation,No visualizations,A
+Data Science,A “left join” in SQL is used to:,Keep all left table rows,Only matching rows,Only right table rows,Remove duplicates,A
+Data Science,Which plot is best for frequency counts?,Bar chart,Line chart,Scatter plot,Box plot,A
+Data Science,“Skewness” in data measures:,Asymmetry of distribution,Repetition,Typical value,Class boundary,A
+Data Science,NLP stands for:,Natural Language Processing,Normal Layered Protocol,Neural Learning Process,Normalized Logic Programming,A
+Data Science,What is a hash function used for in data science?,Indexing/searching,Feature selection,Data shuffling,Class label assignment,A
+Data Science,Which concept measures linear relationship between variables?,Correlation,Mean difference,Clustering,PCA,A
+Data Science,The process of reducing duplicate values in data is called:,Deduplication,Generation,Transformation,PCA,A
+Data Science,Which model is used for time series forecasting?,ARIMA,K-means,SVM,PCA,A
+Data Science,What is “tokenization” in NLP?,Splitting text into units,Counting words,Assigning sentiments,Removing punctuation,A
+Data Science,Which technique finds groups in unlabelled data?,Clustering,Label encoding,Logistic regression,Data mining,A
+Data Science,“Recall” measures:,True positive rate,All positives,False positive rate,Negative recall,A
+Data Science,"For large sparse matrices, which format is best?",Compressed,Dense,List,Image,A
+Data Science,The “F1-score” is a combination of:,Precision & Recall,Accuracy & Recall,Precision & Accuracy,None,A
+Data Science,“Tidy data” refers to:,Each variable as a column,Only numeric variables,Random values,Mixed data types,A
+Data Science,What is “stratified sampling”?,Proportional group sampling,Take first k rows,Random with replacement,Alphabetical grouping,A
+Data Science,Which is NOT a transformation method?,Random walk,Scaling,Normalization,Log transform,A
+Data Science,Which is a type of supervised learning?,Classification,Clustering,K-means,PCA,A
+Data Science,Data analysis steps exclude:,Cooking,Exploration,Preprocessing,Modeling,A
+Data Science,ROC AUC measures:,Area under ROC curve,Numeric feature mean,Outlier count,Model p-value,A
+Data Science,“Batch processing” means:,Processing in large groups,One item at a time,Infinite calculation,Only neural nets,A
+Data Science,Which technique reduces variance by repeatedly sampling subsets?,Bagging,Boosting,Blending,Cascade,A
+Data Science,What is “data wrangling”?,Data cleaning & reformatting,Data deletion,Dependent variable sel.,Outlier analysis,A
+Data Science,Which is a benefit of feature selection?,Improves model accuracy,Increases overfitting,No effect,Reduces variance,A
+Data Science,"What does the ""tail"" function in pandas do?",Shows last rows,Shows first rows,Sorts values,Groups columns,A
+Data Science,Which is NOT a type of join?,Mirror join,Inner join,Left join,Full outer join,A
+Data Science,What is “semantic analysis” in NLP?,Understanding meaning,Detecting language,Spelling correction,Counting words,A
+Data Science,Which task is unsupervised?,Clustering,Regression,Labeled classification,Forecasting,A
+Data Science,What is “Feature importance” in modeling?,Score of variable impact,Ranking data,F1 score,Feature target,A
+Data Science,Which technique quickly reduces data dimension but loses info?,PCA,Normalization,Model tuning,Label encoding,A
+Data Science,What is “Z-score normalization”?,Center/scale data,Convert to binary,Add labels,Split into rows,A
+Data Science,Overfitting is MOST likely if:,Model too complex,Model too simple,Too little data,None of above,A
+Data Science,Which is NOT an accuracy metric for classification?,MSE,Precision,Recall,F1-score,A
+Data Science,Which format is best for human-readable tabular data?,CSV,PNG,HDF5,MP3,A
+Data Science,Data “filtering” means:,Selecting subset rows,Filling missing values,Adding columns,Renaming variables,A
+Data Science,Which metric is often used for imbalanced data?,F1-score,Mean,Mode,Variance,A
+Data Science,"In scikit-learn, which function is often used for model evaluation?",cross_val_score,feature_importances_,fit_transform,describe,A

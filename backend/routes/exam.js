@@ -33,48 +33,129 @@ const parseCSV = (csvContent) => {
 
   const header = lines[0].toLowerCase().split(",").map(h => h.trim());
   
-  // Expected columns: question, option1, option2, option3, option4, correct_answer, category, difficulty
-  const requiredCols = ["question", "option1", "option2", "option3", "option4", "correct_answer"];
-  const missingCols = requiredCols.filter(col => !header.includes(col));
-  
-  if (missingCols.length > 0) {
-    throw new Error(`Missing required columns: ${missingCols.join(", ")}`);
+  // Column name mappings for different CSV formats
+  const columnMappings = {
+    question: ["question", "topics", "prompt", "text", "q"],
+    option1: ["option1", "option a", "optiona", "a", "choice1"],
+    option2: ["option2", "option b", "optionb", "b", "choice2"],
+    option3: ["option3", "option c", "optionc", "c", "choice3"],
+    option4: ["option4", "option d", "optiond", "d", "choice4"],
+    correct: ["correct_answer", "correct answer", "answer", "correct", "correctanswer"],
+    category: ["category", "topics", "topic", "subject", "type"],
+    difficulty: ["difficulty", "level", "diff"]
+  };
+
+  // Find matching column index for each field
+  const findColumn = (mappings) => {
+    for (const name of mappings) {
+      const idx = header.indexOf(name);
+      if (idx !== -1) return idx;
+    }
+    return -1;
+  };
+
+  const questionIdx = findColumn(columnMappings.question);
+  const opt1Idx = findColumn(columnMappings.option1);
+  const opt2Idx = findColumn(columnMappings.option2);
+  const opt3Idx = findColumn(columnMappings.option3);
+  const opt4Idx = findColumn(columnMappings.option4);
+  const correctIdx = findColumn(columnMappings.correct);
+  const categoryIdx = findColumn(columnMappings.category);
+  const difficultyIdx = findColumn(columnMappings.difficulty);
+
+  // Check required columns
+  if (questionIdx === -1 && opt1Idx === -1) {
+    // If first column is topic/category, second column is likely question
+    // Handle format: TOPICS, Question, Option A, Option B, Option C, Option D, Correct Answer
+    const topicsIdx = header.indexOf("topics");
+    if (topicsIdx !== -1 && header.length >= 7) {
+      // Custom handling for this specific format
+      return parseTopicBasedCSV(lines, header);
+    }
+    throw new Error("Could not identify question column in CSV");
   }
 
   const questions = [];
   
   for (let i = 1; i < lines.length; i++) {
     const values = parseCSVLine(lines[i]);
-    if (values.length < header.length) continue;
+    if (values.length < 5) continue;
 
-    const row = {};
-    header.forEach((col, idx) => {
-      row[col] = values[idx]?.trim() || "";
-    });
+    const question = questionIdx !== -1 ? values[questionIdx]?.trim() : "";
+    const options = [
+      opt1Idx !== -1 ? values[opt1Idx]?.trim() : "",
+      opt2Idx !== -1 ? values[opt2Idx]?.trim() : "",
+      opt3Idx !== -1 ? values[opt3Idx]?.trim() : "",
+      opt4Idx !== -1 ? values[opt4Idx]?.trim() : ""
+    ].filter(Boolean);
 
-    // Find correct answer index (1-based in CSV, convert to 0-based)
-    let correctIndex = parseInt(row.correct_answer, 10);
+    if (!question || options.length < 2) continue;
+
+    const correctValue = correctIdx !== -1 ? values[correctIdx]?.trim() : "";
+    let correctIndex = parseInt(correctValue, 10);
+    
     if (isNaN(correctIndex)) {
-      // Try matching option text
-      const options = [row.option1, row.option2, row.option3, row.option4];
-      correctIndex = options.findIndex(opt => 
-        opt.toLowerCase() === row.correct_answer.toLowerCase()
-      );
+      // Try matching A/B/C/D or option text
+      if (/^[A-D]$/i.test(correctValue)) {
+        correctIndex = correctValue.toUpperCase().charCodeAt(0) - 65;
+      } else {
+        correctIndex = options.findIndex(opt => 
+          opt.toLowerCase() === correctValue.toLowerCase()
+        );
+      }
     } else {
       correctIndex = correctIndex - 1; // Convert 1-based to 0-based
     }
 
-    if (correctIndex < 0 || correctIndex > 3) {
-      console.warn(`Skipping row ${i + 1}: Invalid correct answer`);
+    if (correctIndex < 0 || correctIndex >= options.length) {
+      console.warn(`Skipping row ${i + 1}: Invalid correct answer "${correctValue}"`);
       continue;
     }
 
     questions.push({
-      prompt: row.question,
-      options: [row.option1, row.option2, row.option3, row.option4],
+      prompt: question,
+      options,
       correctOptionIndex: correctIndex,
-      category: row.category || "General",
-      difficulty: row.difficulty || "medium",
+      category: categoryIdx !== -1 ? values[categoryIdx]?.trim() || "General" : "General",
+      difficulty: difficultyIdx !== -1 ? values[difficultyIdx]?.trim() || "medium" : "medium",
+    });
+  }
+
+  return questions;
+};
+
+// Parse CSV format: TOPICS, Question, Option A, Option B, Option C, Option D, Correct Answer
+const parseTopicBasedCSV = (lines, header) => {
+  const questions = [];
+  
+  for (let i = 1; i < lines.length; i++) {
+    const values = parseCSVLine(lines[i]);
+    if (values.length < 7) continue;
+
+    const [category, question, optA, optB, optC, optD, correct] = values.map(v => v?.trim() || "");
+    
+    if (!question || !optA) continue;
+
+    const options = [optA, optB, optC, optD].filter(Boolean);
+    
+    let correctIndex = -1;
+    if (/^[A-D]$/i.test(correct)) {
+      correctIndex = correct.toUpperCase().charCodeAt(0) - 65;
+    } else {
+      correctIndex = parseInt(correct, 10) - 1;
+    }
+
+    if (correctIndex < 0 || correctIndex >= options.length) {
+      console.warn(`Skipping row ${i + 1}: Invalid correct answer "${correct}"`);
+      continue;
+    }
+
+    questions.push({
+      prompt: question,
+      options,
+      correctOptionIndex: correctIndex,
+      category: category || "General",
+      difficulty: "medium",
     });
   }
 
@@ -556,16 +637,23 @@ router.get("/", authMiddleware, async (req, res) => {
 // Start exam: return sanitized questions and ensure attempt exists
 router.get("/:id/start", authMiddleware, async (req, res) => {
   try {
+    console.log('Start exam request - ID:', req.params.id, 'User:', req.userId);
+    
     if (!validateObjectId(req.params.id)) {
+      console.log('Invalid exam ID:', req.params.id);
       return res.status(400).json({ error: "Invalid exam id." });
     }
 
     const exam = await Exam.findById(req.params.id).lean();
     if (!exam) {
+      console.log('Exam not found:', req.params.id);
       return res.status(404).json({ error: "Exam not found." });
     }
 
+    console.log('Found exam:', exam.title, 'Active:', exam.isActive);
+
     if (!exam.isActive) {
+      console.log('Exam not active');
       return res.status(403).json({ error: "Exam is not currently active." });
     }
 

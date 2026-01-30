@@ -149,12 +149,30 @@ router.post("/submit", authMiddleware, async (req, res) => {
 
     const passed = percentage >= exam.passingPercentage;
 
+    // Generate question breakdown for detailed results
+    const questionBreakdown = exam.questions.map((question, index) => {
+      const answer = normalisedAnswers.find(a => a.questionIndex === index);
+      const selectedOption = answer?.selectedOption;
+      const isCorrect = selectedOption === question.correctOptionIndex;
+      
+      return {
+        question: question.prompt || question.question,
+        yourAnswer: selectedOption !== null && selectedOption !== undefined 
+          ? question.options[selectedOption] 
+          : null,
+        correctAnswer: question.options[question.correctOptionIndex],
+        isCorrect,
+        category: question.category
+      };
+    });
+
     res.json({
       message: "Exam submitted successfully",
       score: percentage,
       correctAnswers,
       totalQuestions: exam.questions.length,
       passed,
+      questionBreakdown
     });
   } catch (error) {
     res.status(500).json({ error: "Failed to submit exam." });

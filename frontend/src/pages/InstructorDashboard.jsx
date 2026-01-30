@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_ENDPOINTS, axiosConfig } from "../utils/api";
@@ -11,6 +11,18 @@ export default function InstructorDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState('exams');
+  const [importLoading, setImportLoading] = useState(false);
+  const [importMessage, setImportMessage] = useState({ type: '', text: '' });
+  const [importForm, setImportForm] = useState({
+    title: '',
+    duration: 60,
+    passingPercentage: 60,
+    maxViolations: 3,
+    description: ''
+  });
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewExam, setPreviewExam] = useState(null);
+  const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
   const token = getAccessToken();
@@ -78,6 +90,104 @@ export default function InstructorDashboard() {
       hour: '2-digit',
       minute: '2-digit'
     });
+  };
+
+  // Handle file selection
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+      // Auto-fill title from filename
+      if (!importForm.title) {
+        const name = file.name.replace(/\.(csv|json)$/i, '').replace(/[-_]/g, ' ');
+        setImportForm(prev => ({ ...prev, title: name }));
+      }
+    }
+  };
+
+  // Handle CSV/JSON import
+  const handleImport = async () => {
+    if (!selectedFile || !importForm.title) {
+      setImportMessage({ type: 'error', text: 'Please select a file and provide a title' });
+      return;
+    }
+
+    setImportLoading(true);
+    setImportMessage({ type: '', text: '' });
+
+    try {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      formData.append('title', importForm.title);
+      formData.append('duration', importForm.duration);
+      formData.append('passingPercentage', importForm.passingPercentage);
+      formData.append('maxViolations', importForm.maxViolations);
+      formData.append('description', importForm.description);
+
+      const response = await axios.post(
+        `${API_ENDPOINTS.EXAMS}/import-csv`,
+        formData,
+        {
+          ...authConfig,
+          headers: {
+            ...authConfig.headers,
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
+
+      setImportMessage({ 
+        type: 'success', 
+        text: response.data.message || 'Exam imported successfully!' 
+      });
+      
+      // Reset form
+      setSelectedFile(null);
+      setImportForm({ title: '', duration: 60, passingPercentage: 60, maxViolations: 3, description: '' });
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      
+      // Refresh exams list
+      fetchDashboardData();
+      
+      // Close modal after a delay
+      setTimeout(() => {
+        setShowImportModal(false);
+        setImportMessage({ type: '', text: '' });
+      }, 2000);
+    } catch (err) {
+      console.error('Import failed:', err);
+      setImportMessage({ 
+        type: 'error', 
+        text: err.response?.data?.error || 'Failed to import exam. Please check your file format.' 
+      });
+    } finally {
+      setImportLoading(false);
+    }
+  };
+
+  // Delete exam
+  const handleDeleteExam = async (examId) => {
+    if (!window.confirm('Are you sure you want to delete this exam? This action cannot be undone.')) {
+      return;
+    }
+
+    try {
+      await axios.delete(`${API_ENDPOINTS.EXAMS}/${examId}`, authConfig);
+      fetchDashboardData();
+    } catch (err) {
+      console.error('Failed to delete exam:', err);
+      alert('Failed to delete exam: ' + (err.response?.data?.error || 'Unknown error'));
+    }
+  };
+
+  // Preview exam questions
+  const handlePreviewExam = async (examId) => {
+    try {
+      const response = await axios.get(`${API_ENDPOINTS.EXAMS}/${examId}`, authConfig);
+      setPreviewExam(response.data.exam || response.data);
+    } catch (err) {
+      console.error('Failed to load exam preview:', err);
+    }
   };
 
   if (loading) {
@@ -198,7 +308,7 @@ export default function InstructorDashboard() {
             {[
               { id: 'exams', label: 'My Exams', icon: '📝' },
               { id: 'violations', label: 'Recent Violations', icon: '⚠️' },
-              { id: 'create', label: 'Create Exam', icon: '➕' }
+              { id: 'import', label: 'Import Exam', icon: '📤' }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -271,11 +381,20 @@ export default function InstructorDashboard() {
                         >
                           {exam.isActive ? '✓ Active' : 'Inactive'}
                         </button>
-                        <button className="text-blue-600 hover:text-blue-800 text-sm font-medium px-3 py-1 rounded-lg hover:bg-blue-50">
-                          View Results
+                        <button 
+                          onClick={() => handlePreviewExam(exam._id || exam.id)}
+                          className="text-blue-600 hover:text-blue-800 text-sm font-medium px-3 py-1 rounded-lg hover:bg-blue-50"
+                        >
+                          Preview
                         </button>
                         <button className="text-gray-600 hover:text-gray-800 text-sm font-medium px-3 py-1 rounded-lg hover:bg-gray-50">
-                          Edit
+                          View Results
+                        </button>
+                        <button 
+                          onClick={() => handleDeleteExam(exam._id || exam.id)}
+                          className="text-red-600 hover:text-red-800 text-sm font-medium px-3 py-1 rounded-lg hover:bg-red-50"
+                        >
+                          Delete
                         </button>
                       </div>
                     </div>
@@ -334,38 +453,197 @@ export default function InstructorDashboard() {
           </div>
         )}
 
-        {activeTab === 'create' && (
+        {activeTab === 'import' && (
           <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Create New Exam</h3>
-            <p className="text-gray-600 mb-4">
-              Import exams from JSON files to create comprehensive assessments with security monitoring.
+            <h3 className="text-lg font-medium text-gray-900 mb-4">Import Exam from CSV/JSON</h3>
+            <p className="text-gray-600 mb-6">
+              Upload a CSV or JSON file containing your exam questions. The system will automatically parse and create the exam.
             </p>
-            
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <h4 className="font-semibold text-blue-900 mb-2">📋 JSON Exam Format</h4>
-              <pre className="text-xs text-blue-800 bg-blue-100 p-3 rounded overflow-x-auto">
+
+            {/* Import message */}
+            {importMessage.text && (
+              <div className={`mb-4 p-4 rounded-lg ${
+                importMessage.type === 'success' 
+                  ? 'bg-green-50 text-green-800 border border-green-200' 
+                  : 'bg-red-50 text-red-800 border border-red-200'
+              }`}>
+                {importMessage.type === 'success' ? '✅' : '❌'} {importMessage.text}
+              </div>
+            )}
+
+            {/* Import form */}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Exam Title *
+                </label>
+                <input
+                  type="text"
+                  value={importForm.title}
+                  onChange={(e) => setImportForm({ ...importForm, title: e.target.value })}
+                  placeholder="e.g., Java Programming Quiz"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Duration (minutes)
+                  </label>
+                  <input
+                    type="number"
+                    value={importForm.duration}
+                    onChange={(e) => setImportForm({ ...importForm, duration: parseInt(e.target.value) || 60 })}
+                    min="5"
+                    max="180"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Passing %
+                  </label>
+                  <input
+                    type="number"
+                    value={importForm.passingPercentage}
+                    onChange={(e) => setImportForm({ ...importForm, passingPercentage: parseInt(e.target.value) || 60 })}
+                    min="0"
+                    max="100"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Max Violations
+                  </label>
+                  <input
+                    type="number"
+                    value={importForm.maxViolations}
+                    onChange={(e) => setImportForm({ ...importForm, maxViolations: parseInt(e.target.value) || 3 })}
+                    min="1"
+                    max="10"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Description (optional)
+                </label>
+                <textarea
+                  value={importForm.description}
+                  onChange={(e) => setImportForm({ ...importForm, description: e.target.value })}
+                  placeholder="Brief description of the exam..."
+                  rows="2"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Upload File (CSV or JSON) *
+                </label>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".csv,.json"
+                  onChange={handleFileSelect}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+                {selectedFile && (
+                  <p className="mt-2 text-sm text-green-600">
+                    ✅ Selected: {selectedFile.name} ({(selectedFile.size / 1024).toFixed(1)} KB)
+                  </p>
+                )}
+              </div>
+
+              <button
+                onClick={handleImport}
+                disabled={importLoading || !selectedFile || !importForm.title}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-6 py-3 rounded-lg font-medium transition flex items-center justify-center"
+              >
+                {importLoading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Importing...
+                  </>
+                ) : (
+                  <>📤 Import Exam</>
+                )}
+              </button>
+            </div>
+
+            {/* Format help */}
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h4 className="font-semibold text-blue-900 mb-2">📋 CSV Format</h4>
+                <pre className="text-xs text-blue-800 bg-blue-100 p-2 rounded overflow-x-auto">
+{`question,option1,option2,option3,option4,correct_answer
+"What is 2+2?",2,3,4,5,3
+"Capital of France?",London,Paris,Berlin,Rome,2`}
+                </pre>
+              </div>
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <h4 className="font-semibold text-green-900 mb-2">📋 JSON Format</h4>
+                <pre className="text-xs text-green-800 bg-green-100 p-2 rounded overflow-x-auto">
 {`{
-  "title": "Exam Title",
-  "duration": 60,
-  "maxViolations": 3,
   "questions": [
     {
-      "question": "What is...?",
-      "options": ["A", "B", "C", "D"],
-      "correct": 0,
-      "category": "General"
+      "question": "What is...",
+      "options": ["A","B","C","D"],
+      "correct": 0
     }
   ]
 }`}
-              </pre>
+                </pre>
+              </div>
             </div>
-            
-            <button
-              onClick={() => navigate('/create-exam')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition"
-            >
-              Import Exam from JSON
-            </button>
+          </div>
+        )}
+
+        {/* Preview Modal */}
+        {previewExam && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
+              <div className="p-6 border-b border-gray-200 flex justify-between items-center">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">{previewExam.title}</h3>
+                  <p className="text-gray-600">{previewExam.questions?.length || 0} questions • {previewExam.duration} min</p>
+                </div>
+                <button
+                  onClick={() => setPreviewExam(null)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+              <div className="p-6 overflow-y-auto max-h-[60vh]">
+                {previewExam.questions?.map((q, index) => (
+                  <div key={index} className="mb-4 p-4 bg-gray-50 rounded-lg">
+                    <p className="font-medium text-gray-800 mb-2">
+                      <span className="text-blue-600">Q{index + 1}.</span> {q.prompt || q.question}
+                    </p>
+                    <div className="grid grid-cols-2 gap-2 text-sm">
+                      {q.options?.map((opt, i) => (
+                        <div 
+                          key={i} 
+                          className={`p-2 rounded ${
+                            i === q.correctOptionIndex 
+                              ? 'bg-green-100 text-green-800 font-medium' 
+                              : 'bg-white text-gray-600'
+                          }`}
+                        >
+                          {String.fromCharCode(65 + i)}. {opt}
+                          {i === q.correctOptionIndex && ' ✓'}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
       </div>
