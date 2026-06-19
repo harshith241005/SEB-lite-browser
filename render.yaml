@@ -27,11 +27,7 @@ services:
     staticPublishPath: build
     envVars:
       - key: REACT_APP_API_URL
-        fromService:
-          type: web
-          name: seb-lite-backend
-          property: url
-        value: ${REACT_APP_API_URL}/api
+        sync: false # Must be set to your backend's public URL (e.g., https://seb-lite-backend.onrender.com/api)
     routes:
       - type: rewrite
         source: /*
