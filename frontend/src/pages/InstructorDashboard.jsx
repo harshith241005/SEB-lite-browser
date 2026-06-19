@@ -149,9 +149,9 @@ export default function InstructorDashboard() {
       // Refresh exams list
       fetchDashboardData();
       
-      // Close modal after a delay
+      // Switch back to exams tab after a delay
       setTimeout(() => {
-        setShowImportModal(false);
+        setActiveTab('exams');
         setImportMessage({ type: '', text: '' });
       }, 2000);
     } catch (err) {

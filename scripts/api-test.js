@@ -9,7 +9,7 @@
 const http = require("http");
 
 const API_URL = "http://localhost:5001";
-const API_BASE = `${API_URL}/api`;
+const API_BASE = `${API_URL}/api/`;
 
 let authToken = null;
 let userId = null;
@@ -18,7 +18,8 @@ let examId = null;
 // Helper function to make HTTP requests
 function request(method, path, data = null) {
   return new Promise((resolve, reject) => {
-    const url = new URL(path, API_BASE);
+    const cleanPath = path.startsWith("/") ? path.substring(1) : path;
+    const url = new URL(cleanPath, API_BASE);
     const options = {
       hostname: url.hostname,
       port: url.port,
@@ -90,10 +91,10 @@ async function testRegister() {
   console.log("─────────────────────────────");
 
   const testUser = {
-    name: "Test Student",
-    email: `student-${Date.now()}@test.edu`,
+    name: "Test Instructor",
+    email: `instructor-${Date.now()}@test.edu`,
     password: "testpass123",
-    role: "student",
+    role: "instructor",
   };
 
   try {
@@ -101,7 +102,7 @@ async function testRegister() {
     console.log(`✅ Status: ${result.status}`);
 
     if (result.status === 201) {
-      authToken = result.data.token;
+      authToken = result.data.accessToken;
       userId = result.data.user.id;
       console.log(`   User: ${result.data.user.name}`);
       console.log(`   Email: ${result.data.user.email}`);
@@ -182,8 +183,8 @@ async function testCreateExam() {
     console.log(`✅ Status: ${result.status}`);
 
     if (result.status === 201) {
-      examId = result.data._id;
-      console.log(`   Exam Created: ${result.data.title}`);
+      examId = result.data.exam.id;
+      console.log(`   Exam Created: ${result.data.exam.title}`);
       console.log(`   Exam ID: ${examId}`);
       return true;
     } else {
@@ -208,19 +209,22 @@ async function testSubmitExam() {
 
   const submission = {
     answers: [
-      { questionId: "q1", answer: "4" },
-      { questionId: "q2", answer: "25" },
+      { questionIndex: 0, selectedOption: 1 },
+      { questionIndex: 1, selectedOption: 1 },
     ],
   };
 
   try {
+    // Start the exam first to create the active attempt
+    await request("GET", `/exam/${examId}/start`);
+
     const result = await request("POST", `/exam/${examId}/submit`, submission);
     console.log(`✅ Status: ${result.status}`);
 
-    if (result.status === 201) {
+    if (result.status === 200) {
       console.log(`   Score: ${result.data.score}%`);
       console.log(`   Passed: ${result.data.passed ? "Yes" : "No"}`);
-      console.log(`   Correct: ${result.data.submission.correctAnswers}/${result.data.submission.totalQuestions}`);
+      console.log(`   Correct: ${result.data.correctAnswers}/${result.data.totalQuestions}`);
       return true;
     } else {
       console.log(`❌ Unexpected status: ${result.status}`);
@@ -244,9 +248,8 @@ async function testLogViolation() {
 
   const violation = {
     examId: examId,
-    violationType: "tab_switch",
-    severity: "high",
-    description: "Test violation - tab switch detected",
+    type: "WINDOW_BLUR",
+    description: "Test violation - window blur detected",
   };
 
   try {
@@ -254,7 +257,7 @@ async function testLogViolation() {
     console.log(`✅ Status: ${result.status}`);
 
     if (result.status === 201) {
-      console.log(`   Violation Type: ${result.data.violation.violationType}`);
+      console.log(`   Violation Type: ${result.data.violation.type}`);
       console.log(`   Severity: ${result.data.violation.severity}`);
     }
 

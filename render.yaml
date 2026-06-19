@@ -1,0 +1,38 @@
+services:
+  # 1. Backend Express API
+  - type: web
+    name: seb-lite-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5001
+      - key: MONGODB_URI
+        sync: false # Must be set manually in the Render dashboard (MongoDB Atlas URI)
+      - key: JWT_SECRET
+        generateValue: true # Render will automatically generate a secure JWT secret
+
+  # 2. Frontend React Web UI
+  - type: web
+    name: seb-lite-frontend
+    env: static
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishDir: build
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: seb-lite-backend
+          property: url
+        value: ${REACT_APP_API_URL}/api
+    routes:
+      - type: rewrite
+        src: /*
+        dest: /index.html
